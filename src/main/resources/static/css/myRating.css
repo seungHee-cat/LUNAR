@@ -1,0 +1,122 @@
+.wrap{
+	width: 95%;
+	margin: 0 auto;
+}
+.wrap_inner {
+    margin-top: 81px;
+    width: 100%;
+}
+.wrap_header {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 30px 0;
+}
+.wrap_main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.main_section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.order_div {
+    display: flex;
+    align-items: end;
+    border-radius: 5px;
+    width: 100%;
+    margin: 0 auto;
+}
+.dropdown-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 17px;
+    color: #4d4d4d;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.dropdown_content > a {
+    text-decoration: none;
+    color: black;
+}
+.dropdown_content > a:visited {
+    color: black;
+}
+.dropdown_content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid lightgray;
+    min-width: 200px;
+    z-index: 1;
+    margin: 10px 0;
+    top: 50px;
+    left: 10px;
+    border-radius: 10px;
+}
+.dropdown_content > a > div {
+    padding: 10px;
+}
+.dropdown_content > a:nth-child(1) > div:nth-child(1) {
+    border-radius: 10px 10px 0 0;
+}
+.dropdown_content > a:last-child > div {
+    border-radius: 0 0 10px 10px;
+}
+.dropdown_content > a > div:hover {
+    cursor: pointer;
+    color: #4097fe;
+    background-color: #f5f8fb;
+}
+.show-dropdown {
+    display: block;
+}
+
+.allMyRatingList {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    width: 100%;
+    overflow: hidden;
+}
+.myRatingMovie {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+.poster {
+    border-radius: 5px;
+    width: 160px;
+    height: 230px;
+}
+.poster > a > img {
+	border-radius: 5px;
+    width: 100%;
+    height: 100%;
+}
+.poster:hover{
+	cursor: pointer;
+}
+.title {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    word-break: keep-all;
+    width: 180px;
+    height: 28px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    white-space: nowrap;
+    padding-bottom: 10px;
+}
+.ratingDesc {
+    display: flex;
+}
+.ratingDesc > div {
+    color: rgb(250, 54, 139);
+}

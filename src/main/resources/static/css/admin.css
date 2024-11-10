@@ -1,0 +1,275 @@
+@font-face {
+    font-family: 'SUIT-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2')
+        format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'SUIT-Regular';
+    color: rgb(61, 61, 61);
+    overflow-y: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+.root {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    max-width: 1920px;
+}
+.wrap {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+.menu_wrap {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(42, 44, 48);
+    width: 250px;
+    height: 100%;
+}
+.icon {
+    text-align: center;
+    color: white;
+    padding: 40px 10px;
+    font-size: 1.3rem;
+}
+.icon > a{
+	text-decoration: none;
+	color: white;
+}
+.icon > a:hover{
+	cursor: pointer;
+}
+.icon > a:visited{
+	color: white;
+}
+.menu_inner {
+    height: 100vh;
+}
+i {
+    color: gray;
+}
+.admin_menu {
+    margin: 0 auto;
+    width: 100%;
+}
+.admin_menu > div {
+    width: 100%;
+    color: gray;
+    text-align: center;
+    padding: 20px 0;
+}
+.admin_menu > div:hover {
+    background-color: rgb(28, 29, 31);
+    cursor: pointer;
+}
+.admin_menu > div > i {
+    padding-right: 10px;
+}
+.wrap_right {
+    width: 100%;
+    background-color: rgb(247, 246, 246);
+}
+.wrap_right {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.wrap_right_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
+.welcome {
+    padding-left: 20px;
+    font-weight: 600;
+}
+.admin_wrap {
+    display: flex;
+    width: 30%;
+    height: 100%;
+}
+.admin_name > i {
+    font-size: 1.3rem;
+}
+.admin_login {
+    display: flex;
+    width: 100%;
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid rgb(200, 200, 200);
+    border-right: 1px solid rgb(200, 200, 200);
+}
+.admin_logout {
+    font-weight: 600;
+    display: flex;
+    width: 70%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.admin_logout > a{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.logout{
+	padding-right: 10px;
+}
+.admin_logout:hover {
+    cursor: pointer;
+}
+.logout_icon {
+    font-size: 1.5rem;
+}
+.search_wrap {
+    width: 90%;
+    padding-top: 3%;
+    padding-bottom: 1%;
+    margin: 0 auto;
+}
+.searchKeyword {
+    width: 300px;
+}
+.searchBtn {
+    left: 370px;
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 2.5px 10px;
+    border-radius: 3px;
+}
+.searchBtn:hover {
+    cursor: pointer;
+}
+
+.wrap_right_inner {
+    background-color: white;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 5px;
+    width: 90%;
+    height: 500px;
+    margin: 0 auto;
+    overflow: scroll;
+}
+.users_wrap {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+}
+tr {
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
+td {
+    width: 100%;
+}
+.users_header {
+	position: sticky;
+    top: 0;
+    z-index: 1;
+    border-collapse: separate;
+    border-spacing: 10px;
+    display: flex;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    justify-content: space-around;
+}
+.number {
+    width: 10%;
+}
+/* 영화 탭 */
+.movies_title{
+	width: 30%;
+}
+.movies_class{
+	width: 10%;
+}
+/* 유저 탭 */
+.users_id{
+	width: 30%;
+}
+.users_nickname{
+	width: 35%;
+}
+.users_email{
+	width: 80%;
+}
+.users_date{
+	width: 40%;
+}
+/* 코멘트 탭 */
+.comments_number{
+	width: 20%;
+}
+.comments_code{
+	width: 20%;
+}
+.comments_content{
+	width: 40%;
+	overflow: hidden;
+	word-wrap: break-word;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+/* 댓글 탭 */
+.replys_content{
+	width: 40%;
+	overflow: hidden;
+	word-wrap: break-word;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.users_data {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 50px;
+}
+.userDeleteBtn {
+    border: none;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    width: 45%;
+    padding: 5px 0;
+    color: white;
+    background-color: rgb(219, 42, 42);
+}
+.userDeleteBtn:hover {
+    cursor: pointer;
+}

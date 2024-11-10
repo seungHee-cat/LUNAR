@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+	<!--//////// main ////////-->
+	<!-- 메인 > 대시보드 -->
+	<definition name="mainDashboard" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/views/main/mainDashboard.jsp" />
+	</definition>
+
+	<!-- 기본 빈 레이아웃 설정 -->
+	<definition name="base.none" template="/WEB-INF/static/layout/baseNoneLayout.jsp">
+		<put-attribute name="body" value="/WEB-INF/static/layout/body.jsp" />
+	</definition>
+
+	<!-- 기본 레이아웃 설정 -->
+	<definition name="base.layout" template="/WEB-INF/static/layout/baseLayout.jsp">
+		<put-attribute name="body" value="/WEB-INF/static/layout/body.jsp" />
+	</definition>
+
+</tiles-definitions>

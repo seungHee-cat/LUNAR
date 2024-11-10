@@ -1,0 +1,260 @@
+.wrap {
+	margin: 3% 0;
+}
+
+.circle {
+	position: absolute;
+	z-index: -3;
+	width: 100%;
+	min-height: 320px;
+	border-radius: 0 0 30% 30%;
+	background-color: rgb(45, 56, 70);
+}
+
+.wrap_inner {
+	margin: 0 auto;
+}
+
+.main {
+	display: flex;
+	width: 800px;
+	flex-direction: column;
+	padding: 20px;
+	margin: 20px 0;
+}
+
+.top {
+	background-color: transparent;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.top>div {
+	display: flex;
+	align-items: center;
+}
+
+.my_profile_img>img {
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+}
+
+.
+.my_profile_img {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+
+.profile {
+	padding: 20px;
+}
+
+.profile>div {
+	color: white;
+}
+
+.myNickname {
+	font-size: 1.3rem;
+	font-weight: 600;
+}
+
+#btn {
+	border: none;
+	width: 120px;
+	height: 50px;
+	border-radius: 5px;
+	font-size: 1rem;
+}
+
+#btn:hover {
+	cursor: pointer;
+}
+
+.middle {
+	display: flex;
+	margin: 80px 0;
+	margin-bottom: 10px;
+	justify-content: space-around;
+	border-top: 1px solid rgb(192, 192, 192);
+	border-bottom: 1px solid rgb(192, 192, 192);
+}
+
+.middle>div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px 30px;
+	text-align: center;
+}
+
+.count {
+	font-weight: 700;
+}
+.rate_cnt > a,
+.review_cnt > a{
+	text-decoration: none;
+	color: black;
+}
+.rate_cnt > a:visited,
+.review_cnt > a:visited{
+	color: black;
+}
+#calendar {
+	text-align: center;
+}
+
+.calendar_wrap {
+	display: flex;
+	flex-direction: column;
+	max-width: 750px;
+	margin: 0 auto;
+}
+
+.calendar_title {
+	display: flex;
+	font-size: 1.5rem;
+	font-weight: 600;
+	padding-left: 80px;
+}
+
+.calendarHeader {
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+}
+
+.month_wrap {
+	display: flex;
+	justify-content: center;
+	width: 300px;
+}
+
+.month_btns {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.curDate {
+	display: flex;
+}
+
+.curDate>div {
+	font-size: 1.3rem;
+}
+
+.today {
+	width: 50px;
+	padding: 5px 10px;
+	font-size: 1rem;
+	border: 1px solid rgb(202, 202, 202);
+	border-radius: 10px;
+}
+
+.go-prev, .go-next {
+	font-weight: 700;
+	width: 40px;
+	font-size: 1.5rem;
+	color: rgb(186, 184, 184);
+	background: none;
+}
+
+.go-prev:hover, .go-next:hover {
+	color: black;
+	cursor: pointer;
+}
+
+.today:hover {
+	cursor: pointer;
+}
+
+.calendarBody {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+table {
+	border-collapse: collapse;
+	font-size: 1.2rem;
+	margin: 10px 0;
+}
+
+#monthList {
+	display: flex;
+	list-style-type: none;
+	background-color: white;
+	border-bottom: 2px solid lightgray;
+	padding: 10px 0;
+	margin: 0;
+}
+
+#monthList li {
+	margin-right: 10px;
+	margin-left: 6px;
+	padding: 10px 0;
+}
+
+tbody>tr:not(:first-child) {
+	height: 100px;
+}
+
+th, td {
+	width: 80px;
+	border: none;
+}
+
+th {
+	padding: 10px 0;
+	font-size: 1.1rem;
+	color: rgb(186, 184, 184);
+}
+
+td {
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	font-size: 1rem;
+}
+
+.reviewedMovie {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.curDay {
+	padding: 10px 0;
+}
+
+.commentPoster {
+	position: relative;
+	width: 100%;
+	height: 100px;
+}
+.commentPosterCnt{
+	position: absolute;
+	right: 5px;
+    top: 5px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: rgb(45, 56, 70);
+    color: white;
+    text-align: center;
+    font-size: 0.9rem;
+}
+.commentPoster>img {
+	width: 100%;
+	height: 100%;
+}
+
+button {
+	border: none;
+	border-radius: 8px;
+	height: 30px;
+	font-size: 1.4rem;
+}

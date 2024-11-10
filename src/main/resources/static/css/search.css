@@ -1,0 +1,123 @@
+.wrap {
+    margin: 7% auto;
+}
+.search,
+.movie_wrapper,
+.desc_wrapper {
+    margin: 0 auto;
+    width: 90%;
+}
+.search_result {
+    width: 100%;
+    padding: 1%;
+    font-weight: bold;
+    color: rgb(88, 87, 87);
+    background-color: #eeeeee;
+    font-size: 20px;
+}
+
+.movie_box {
+    width: 98%;
+    display: flex;
+    height: 100%;
+    margin: 4% auto;
+}
+.movie_box > .movie_list {
+    display: flex;
+    width: 18%;
+    height:	100%;
+    flex-direction: column;
+    margin: 0 10px;
+}
+.movie_list:hover {
+    cursor: pointer;
+}
+img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+.movie_image{
+	height: 380px;
+}
+.movie_image > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+.movie_info {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 12%;
+    padding-left: 3%;
+}
+.movie_info > .movie_title {
+    font-size: 19px;
+    word-break: keep-all;
+}
+.movie_info > .movie_year {
+    color: gray;
+    padding-top: 1%;
+    font-size: 16px;
+}
+.description {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-bottom: 10%;
+}
+.description > .description_list {
+    display: flex;
+    height: 100%;
+    margin: 1.5% 0;
+    box-shadow: 1px 2px 3px 3px rgba(195, 195, 195, 0.314);
+    border-radius: 10px;
+}
+.description_list:hover {
+    cursor: pointer;
+}
+.description > p {
+    width: 100%;
+    font-size: 20px;
+    padding-left: 1%;
+    padding-bottom: 1%;
+    border-bottom: 1px solid rgb(222, 222, 222);
+}
+.left_side {
+    width: 20%;
+    height: 100%;
+    padding: 1% 2%;
+}
+.left_side > a > img {
+    width: 100%;
+    height: 100%;
+}
+.right_side {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.right_side > .title_year {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 50%;
+    padding: 2%;
+}
+.description_title {
+    font-weight: bold;
+    font-size: 20px;
+}
+.description_year {
+    color: rgb(88, 88, 88);
+}
+.plot {
+    font-size: 20px;
+}
+.right_side > .plot {
+    width: 100%;
+    height: 100%;
+    padding: 0 2%;
+}
