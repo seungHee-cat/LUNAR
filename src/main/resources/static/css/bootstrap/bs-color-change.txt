@@ -1,0 +1,102 @@
+### styles.css의 컬러 속성 변경 ###
+============================================== primary
+--bs-primary: #083575;
+--bs-primary-dark1: #063558;
+--bs-primary-dark2: #062848;
+--bs-primary-dark3: #052842;
+
+primary: #6200ea; -> #083575;
+primary-rgb: 98, 0, 234; -> 8, 53, 117;
+
+#5300c7 -> var(--bs-primary-dark1)
+83, 0, 199; -> 6, 40, 80;
+
+#4e00bb -> var(--bs-primary-dark2)
+78, 0, 187 -> 6, 40, 72;
+
+#4a00b0 -> var(--bs-primary-dark3)
+74, 0, 176 -> 5, 40, 66;
+
+
+============================================== secondary
+--bs-secondary: #2f645f
+--bs-secondary-dark1: #28525A;
+--bs-secondary-dark2: #264D4D;
+--bs-secondary-dark3: #264848;
+
+secondary: #9c27b0; -> #2f645f;
+secondary-rgb: 156, 39, 176; -> 47, 100, 95
+
+#852196 -> var(--bs-secondary-dark1)
+133, 33, 150 -> 40, 82, 90
+
+#7d1f8d -> var(--bs-secondary-dark2)
+125, 31, 141 -> 38, 77, 77
+
+#751d84 -> var(--bs-secondary-dark3)
+117, 29, 132 -> 38, 72, 72
+
+
+============================================== sky - border, chart, bg(배지용) 추가됨
+--bs-sky: #97cbe6
+
+sky: #97cbe6
+sky-rgb: 151, 203, 230
+
+============================================== blue - border, chart, bg(배지용) 추가됨
+--bs-blue: #0d6efd;
+
+blue: #0d6efd
+blue-rgb: 13, 110, 253
+
+============================================== orange - border, chart, bg(배지용) 추가됨
+--bs-orange: #fd7e14
+
+orange: #fd7e14
+orange-rgb: 253, 126, 20
+============================================== indigo - border, chart, bg(배지용) 추가됨
+--bs-indigo: #6610f2
+
+indigo: #6610f2
+indigo-rgb: 102, 16, 242
+============================================== new: cargo - border, chart, bg(배지용) 추가됨
+--bs-cargo: #c2af89
+
+cargo: #c2af89
+cargo-rgb: 194, 175, 137
+
+============================================== pink - border, chart, bg(배지용) 추가됨
+--bs-pink: #d63384
+
+pink: #d63384
+pink-rgb: 214, 51, 132
+
+============================================== gray - chart 추가됨
+--bs-gray: #9e9e9e
+
+gray: #bfc32d
+gray-rgb: 158, 158, 158
+
+============================================== dark - chart 추가됨
+--bs-dark: #212121
+
+dark: #212121
+dark-rgb: 33, 33, 33
+
+============================================== cyan - border, chart, bg(배지용) 추가됨
+--bs-cyan: #0dcaf0
+
+cyan: #0dcaf0
+cyan-rgb: 13, 202, 240
+
+============================================== lemon - border, chart, bg(배지용) 추가됨
+--bs-lemon: #bfc32d
+
+lemon: #bfc32d
+lemon-rgb: 191, 195, 45
+
+
+
+
+
+

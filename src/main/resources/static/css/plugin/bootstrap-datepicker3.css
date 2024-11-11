@@ -1,0 +1,1017 @@
+.datepicker {
+	border-radius: 4px; direction: ltr;
+}
+.datepicker-inline {
+	width: 220px;
+}
+.datepicker-rtl {
+	direction: rtl;
+}
+.datepicker-rtl.dropdown-menu {
+	left: auto;
+}
+.datepicker-rtl table tr td span {
+	float: right;
+}
+.datepicker-dropdown {
+	padding: 4px; left: 0px; top: 0px;
+}
+.datepicker-dropdown::before {
+	border-width: 0px 7px 7px; border-style: none solid solid; border-color: currentColor transparent rgba(0, 0, 0, 0.2); display: inline-block; position: absolute; content: "";
+}
+.datepicker-dropdown::after {
+	border-width: 0px 6px 6px; border-style: none solid solid; border-color: currentColor transparent rgb(255, 255, 255); display: inline-block; position: absolute; content: "";
+}
+.datepicker-dropdown.datepicker-orient-left::before {
+	left: 6px;
+}
+.datepicker-dropdown.datepicker-orient-left::after {
+	left: 7px;
+}
+.datepicker-dropdown.datepicker-orient-right::before {
+	right: 6px;
+}
+.datepicker-dropdown.datepicker-orient-right::after {
+	right: 7px;
+}
+.datepicker-dropdown.datepicker-orient-bottom::before {
+	top: -7px;
+}
+.datepicker-dropdown.datepicker-orient-bottom::after {
+	top: -6px;
+}
+.datepicker-dropdown.datepicker-orient-top::before {
+	bottom: -7px; border-top-color: rgba(0, 0, 0, 0.15); border-bottom-color: currentColor; border-top-width: 7px; border-bottom-width: 0px; border-top-style: solid; border-bottom-style: none;
+}
+.datepicker-dropdown.datepicker-orient-top::after {
+	bottom: -6px; border-top-color: rgb(255, 255, 255); border-bottom-color: currentColor; border-top-width: 6px; border-bottom-width: 0px; border-top-style: solid; border-bottom-style: none;
+}
+.datepicker table {
+	margin: 0px; -ms-user-select: none; -webkit-user-select: none; -moz-user-select: none; user-select: none; -webkit-touch-callout: none; -khtml-user-select: none;
+}
+.datepicker table tr td {
+	border-radius: 4px; border: currentColor; border-image: none; width: 30px; height: 30px; text-align: center;
+}
+.datepicker table tr th {
+	border-radius: 4px; border: currentColor; border-image: none; width: 30px; height: 30px; text-align: center;
+}
+.table-striped .datepicker table tr td {
+	background-color: transparent;
+}
+.table-striped .datepicker table tr th {
+	background-color: transparent;
+}
+.datepicker table tr td.old {
+	color: rgb(119, 119, 119);
+}
+.datepicker table tr td.new {
+	color: rgb(119, 119, 119);
+}
+.datepicker table tr td.day:hover {
+	background: rgb(238, 238, 238); cursor: pointer;
+}
+.datepicker table tr td.focused {
+	background: rgb(238, 238, 238); cursor: pointer;
+}
+.datepicker table tr td.disabled {
+	background: none; color: rgb(119, 119, 119); cursor: default;
+}
+.datepicker table tr td.disabled:hover {
+	background: none; color: rgb(119, 119, 119); cursor: default;
+}
+.datepicker table tr td.highlighted {
+	border-color: rgb(133, 197, 229); border-radius: 0px; color: rgb(0, 0, 0); background-color: rgb(217, 237, 247);
+}
+.datepicker table tr td.highlighted:focus {
+	border-color: rgb(41, 143, 194); color: rgb(0, 0, 0); background-color: rgb(175, 217, 238);
+}
+.datepicker table tr td.highlighted.focus {
+	border-color: rgb(41, 143, 194); color: rgb(0, 0, 0); background-color: rgb(175, 217, 238);
+}
+.datepicker table tr td.highlighted:hover {
+	border-color: rgb(82, 173, 219); color: rgb(0, 0, 0); background-color: rgb(175, 217, 238);
+}
+.datepicker table tr td.highlighted:active {
+	border-color: rgb(82, 173, 219); color: rgb(0, 0, 0); background-color: rgb(175, 217, 238);
+}
+.datepicker table tr td.highlighted.active {
+	border-color: rgb(82, 173, 219); color: rgb(0, 0, 0); background-color: rgb(175, 217, 238);
+}
+.datepicker table tr td.highlighted:hover:active {
+	border-color: rgb(41, 143, 194); color: rgb(0, 0, 0); background-color: rgb(145, 203, 232);
+}
+.datepicker table tr td.highlighted.active:hover {
+	border-color: rgb(41, 143, 194); color: rgb(0, 0, 0); background-color: rgb(145, 203, 232);
+}
+.datepicker table tr td.highlighted:focus:active {
+	border-color: rgb(41, 143, 194); color: rgb(0, 0, 0); background-color: rgb(145, 203, 232);
+}
+.datepicker table tr td.highlighted.active:focus {
+	border-color: rgb(41, 143, 194); color: rgb(0, 0, 0); background-color: rgb(145, 203, 232);
+}
+.datepicker table tr td.highlighted.focus:active {
+	border-color: rgb(41, 143, 194); color: rgb(0, 0, 0); background-color: rgb(145, 203, 232);
+}
+.datepicker table tr td.highlighted.active.focus {
+	border-color: rgb(41, 143, 194); color: rgb(0, 0, 0); background-color: rgb(145, 203, 232);
+}
+.datepicker table tr td.highlighted.disabled:hover {
+	border-color: rgb(133, 197, 229); background-color: rgb(217, 237, 247);
+}
+.datepicker table tr td[disabled].highlighted:hover {
+	border-color: rgb(133, 197, 229); background-color: rgb(217, 237, 247);
+}
+fieldset[disabled] .datepicker table tr td.highlighted:hover {
+	border-color: rgb(133, 197, 229); background-color: rgb(217, 237, 247);
+}
+.datepicker table tr td.highlighted.disabled:focus {
+	border-color: rgb(133, 197, 229); background-color: rgb(217, 237, 247);
+}
+.datepicker table tr td[disabled].highlighted:focus {
+	border-color: rgb(133, 197, 229); background-color: rgb(217, 237, 247);
+}
+fieldset[disabled] .datepicker table tr td.highlighted:focus {
+	border-color: rgb(133, 197, 229); background-color: rgb(217, 237, 247);
+}
+.datepicker table tr td.highlighted.disabled.focus {
+	border-color: rgb(133, 197, 229); background-color: rgb(217, 237, 247);
+}
+.datepicker table tr td[disabled].highlighted.focus {
+	border-color: rgb(133, 197, 229); background-color: rgb(217, 237, 247);
+}
+fieldset[disabled] .datepicker table tr td.highlighted.focus {
+	border-color: rgb(133, 197, 229); background-color: rgb(217, 237, 247);
+}
+.datepicker table tr td.highlighted.focused {
+	background: rgb(175, 217, 238);
+}
+.datepicker table tr td.highlighted.disabled {
+	background: rgb(217, 237, 247); color: rgb(119, 119, 119);
+}
+.datepicker table tr td.highlighted.disabled:active {
+	background: rgb(217, 237, 247); color: rgb(119, 119, 119);
+}
+.datepicker table tr td.today {
+	border-color: rgb(255, 183, 51); color: rgb(0, 0, 0); background-color: rgb(255, 219, 153);
+}
+.datepicker table tr td.today:focus {
+	border-color: rgb(179, 116, 0); color: rgb(0, 0, 0); background-color: rgb(255, 201, 102);
+}
+.datepicker table tr td.today.focus {
+	border-color: rgb(179, 116, 0); color: rgb(0, 0, 0); background-color: rgb(255, 201, 102);
+}
+.datepicker table tr td.today:hover {
+	border-color: rgb(245, 158, 0); color: rgb(0, 0, 0); background-color: rgb(255, 201, 102);
+}
+.datepicker table tr td.today:active {
+	border-color: rgb(245, 158, 0); color: rgb(0, 0, 0); background-color: rgb(255, 201, 102);
+}
+.datepicker table tr td.today.active {
+	border-color: rgb(245, 158, 0); color: rgb(0, 0, 0); background-color: rgb(255, 201, 102);
+}
+.datepicker table tr td.today:hover:active {
+	border-color: rgb(179, 116, 0); color: rgb(0, 0, 0); background-color: rgb(255, 188, 66);
+}
+.datepicker table tr td.today.active:hover {
+	border-color: rgb(179, 116, 0); color: rgb(0, 0, 0); background-color: rgb(255, 188, 66);
+}
+.datepicker table tr td.today:focus:active {
+	border-color: rgb(179, 116, 0); color: rgb(0, 0, 0); background-color: rgb(255, 188, 66);
+}
+.datepicker table tr td.today.active:focus {
+	border-color: rgb(179, 116, 0); color: rgb(0, 0, 0); background-color: rgb(255, 188, 66);
+}
+.datepicker table tr td.today.focus:active {
+	border-color: rgb(179, 116, 0); color: rgb(0, 0, 0); background-color: rgb(255, 188, 66);
+}
+.datepicker table tr td.today.active.focus {
+	border-color: rgb(179, 116, 0); color: rgb(0, 0, 0); background-color: rgb(255, 188, 66);
+}
+.datepicker table tr td.today.disabled:hover {
+	border-color: rgb(255, 183, 51); background-color: rgb(255, 219, 153);
+}
+.datepicker table tr td[disabled].today:hover {
+	border-color: rgb(255, 183, 51); background-color: rgb(255, 219, 153);
+}
+fieldset[disabled] .datepicker table tr td.today:hover {
+	border-color: rgb(255, 183, 51); background-color: rgb(255, 219, 153);
+}
+.datepicker table tr td.today.disabled:focus {
+	border-color: rgb(255, 183, 51); background-color: rgb(255, 219, 153);
+}
+.datepicker table tr td[disabled].today:focus {
+	border-color: rgb(255, 183, 51); background-color: rgb(255, 219, 153);
+}
+fieldset[disabled] .datepicker table tr td.today:focus {
+	border-color: rgb(255, 183, 51); background-color: rgb(255, 219, 153);
+}
+.datepicker table tr td.today.disabled.focus {
+	border-color: rgb(255, 183, 51); background-color: rgb(255, 219, 153);
+}
+.datepicker table tr td[disabled].today.focus {
+	border-color: rgb(255, 183, 51); background-color: rgb(255, 219, 153);
+}
+fieldset[disabled] .datepicker table tr td.today.focus {
+	border-color: rgb(255, 183, 51); background-color: rgb(255, 219, 153);
+}
+.datepicker table tr td.today.focused {
+	background: rgb(255, 201, 102);
+}
+.datepicker table tr td.today.disabled {
+	background: rgb(255, 219, 153); color: rgb(119, 119, 119);
+}
+.datepicker table tr td.today.disabled:active {
+	background: rgb(255, 219, 153); color: rgb(119, 119, 119);
+}
+.datepicker table tr td.range {
+	border-color: rgb(187, 187, 187); border-radius: 0px; color: rgb(0, 0, 0); background-color: rgb(238, 238, 238);
+}
+.datepicker table tr td.range:focus {
+	border-color: rgb(124, 124, 124); color: rgb(0, 0, 0); background-color: rgb(213, 213, 213);
+}
+.datepicker table tr td.range.focus {
+	border-color: rgb(124, 124, 124); color: rgb(0, 0, 0); background-color: rgb(213, 213, 213);
+}
+.datepicker table tr td.range:hover {
+	border-color: rgb(157, 157, 157); color: rgb(0, 0, 0); background-color: rgb(213, 213, 213);
+}
+.datepicker table tr td.range:active {
+	border-color: rgb(157, 157, 157); color: rgb(0, 0, 0); background-color: rgb(213, 213, 213);
+}
+.datepicker table tr td.range.active {
+	border-color: rgb(157, 157, 157); color: rgb(0, 0, 0); background-color: rgb(213, 213, 213);
+}
+.datepicker table tr td.range:hover:active {
+	border-color: rgb(124, 124, 124); color: rgb(0, 0, 0); background-color: rgb(195, 195, 195);
+}
+.datepicker table tr td.range.active:hover {
+	border-color: rgb(124, 124, 124); color: rgb(0, 0, 0); background-color: rgb(195, 195, 195);
+}
+.datepicker table tr td.range:focus:active {
+	border-color: rgb(124, 124, 124); color: rgb(0, 0, 0); background-color: rgb(195, 195, 195);
+}
+.datepicker table tr td.range.active:focus {
+	border-color: rgb(124, 124, 124); color: rgb(0, 0, 0); background-color: rgb(195, 195, 195);
+}
+.datepicker table tr td.range.focus:active {
+	border-color: rgb(124, 124, 124); color: rgb(0, 0, 0); background-color: rgb(195, 195, 195);
+}
+.datepicker table tr td.range.active.focus {
+	border-color: rgb(124, 124, 124); color: rgb(0, 0, 0); background-color: rgb(195, 195, 195);
+}
+.datepicker table tr td.range.disabled:hover {
+	border-color: rgb(187, 187, 187); background-color: rgb(238, 238, 238);
+}
+.datepicker table tr td[disabled].range:hover {
+	border-color: rgb(187, 187, 187); background-color: rgb(238, 238, 238);
+}
+fieldset[disabled] .datepicker table tr td.range:hover {
+	border-color: rgb(187, 187, 187); background-color: rgb(238, 238, 238);
+}
+.datepicker table tr td.range.disabled:focus {
+	border-color: rgb(187, 187, 187); background-color: rgb(238, 238, 238);
+}
+.datepicker table tr td[disabled].range:focus {
+	border-color: rgb(187, 187, 187); background-color: rgb(238, 238, 238);
+}
+fieldset[disabled] .datepicker table tr td.range:focus {
+	border-color: rgb(187, 187, 187); background-color: rgb(238, 238, 238);
+}
+.datepicker table tr td.range.disabled.focus {
+	border-color: rgb(187, 187, 187); background-color: rgb(238, 238, 238);
+}
+.datepicker table tr td[disabled].range.focus {
+	border-color: rgb(187, 187, 187); background-color: rgb(238, 238, 238);
+}
+fieldset[disabled] .datepicker table tr td.range.focus {
+	border-color: rgb(187, 187, 187); background-color: rgb(238, 238, 238);
+}
+.datepicker table tr td.range.focused {
+	background: rgb(213, 213, 213);
+}
+.datepicker table tr td.range.disabled {
+	background: rgb(238, 238, 238); color: rgb(119, 119, 119);
+}
+.datepicker table tr td.range.disabled:active {
+	background: rgb(238, 238, 238); color: rgb(119, 119, 119);
+}
+.datepicker table tr td.range.highlighted {
+	border-color: rgb(157, 193, 211); color: rgb(0, 0, 0); background-color: rgb(228, 238, 243);
+}
+.datepicker table tr td.range.highlighted:focus {
+	border-color: rgb(75, 136, 166); color: rgb(0, 0, 0); background-color: rgb(193, 215, 227);
+}
+.datepicker table tr td.range.highlighted.focus {
+	border-color: rgb(75, 136, 166); color: rgb(0, 0, 0); background-color: rgb(193, 215, 227);
+}
+.datepicker table tr td.range.highlighted:hover {
+	border-color: rgb(115, 166, 192); color: rgb(0, 0, 0); background-color: rgb(193, 215, 227);
+}
+.datepicker table tr td.range.highlighted:active {
+	border-color: rgb(115, 166, 192); color: rgb(0, 0, 0); background-color: rgb(193, 215, 227);
+}
+.datepicker table tr td.range.highlighted.active {
+	border-color: rgb(115, 166, 192); color: rgb(0, 0, 0); background-color: rgb(193, 215, 227);
+}
+.datepicker table tr td.range.highlighted:hover:active {
+	border-color: rgb(75, 136, 166); color: rgb(0, 0, 0); background-color: rgb(168, 200, 216);
+}
+.datepicker table tr td.range.highlighted.active:hover {
+	border-color: rgb(75, 136, 166); color: rgb(0, 0, 0); background-color: rgb(168, 200, 216);
+}
+.datepicker table tr td.range.highlighted:focus:active {
+	border-color: rgb(75, 136, 166); color: rgb(0, 0, 0); background-color: rgb(168, 200, 216);
+}
+.datepicker table tr td.range.highlighted.active:focus {
+	border-color: rgb(75, 136, 166); color: rgb(0, 0, 0); background-color: rgb(168, 200, 216);
+}
+.datepicker table tr td.range.highlighted.focus:active {
+	border-color: rgb(75, 136, 166); color: rgb(0, 0, 0); background-color: rgb(168, 200, 216);
+}
+.datepicker table tr td.range.highlighted.active.focus {
+	border-color: rgb(75, 136, 166); color: rgb(0, 0, 0); background-color: rgb(168, 200, 216);
+}
+.datepicker table tr td.range.highlighted.disabled:hover {
+	border-color: rgb(157, 193, 211); background-color: rgb(228, 238, 243);
+}
+.datepicker table tr td[disabled].range.highlighted:hover {
+	border-color: rgb(157, 193, 211); background-color: rgb(228, 238, 243);
+}
+fieldset[disabled] .datepicker table tr td.range.highlighted:hover {
+	border-color: rgb(157, 193, 211); background-color: rgb(228, 238, 243);
+}
+.datepicker table tr td.range.highlighted.disabled:focus {
+	border-color: rgb(157, 193, 211); background-color: rgb(228, 238, 243);
+}
+.datepicker table tr td[disabled].range.highlighted:focus {
+	border-color: rgb(157, 193, 211); background-color: rgb(228, 238, 243);
+}
+fieldset[disabled] .datepicker table tr td.range.highlighted:focus {
+	border-color: rgb(157, 193, 211); background-color: rgb(228, 238, 243);
+}
+.datepicker table tr td.range.highlighted.disabled.focus {
+	border-color: rgb(157, 193, 211); background-color: rgb(228, 238, 243);
+}
+.datepicker table tr td[disabled].range.highlighted.focus {
+	border-color: rgb(157, 193, 211); background-color: rgb(228, 238, 243);
+}
+fieldset[disabled] .datepicker table tr td.range.highlighted.focus {
+	border-color: rgb(157, 193, 211); background-color: rgb(228, 238, 243);
+}
+.datepicker table tr td.range.highlighted.focused {
+	background: rgb(193, 215, 227);
+}
+.datepicker table tr td.range.highlighted.disabled {
+	background: rgb(228, 238, 243); color: rgb(119, 119, 119);
+}
+.datepicker table tr td.range.highlighted.disabled:active {
+	background: rgb(228, 238, 243); color: rgb(119, 119, 119);
+}
+.datepicker table tr td.range.today {
+	border-color: rgb(241, 164, 23); color: rgb(0, 0, 0); background-color: rgb(247, 202, 119);
+}
+.datepicker table tr td.range.today:focus {
+	border-color: rgb(129, 86, 8); color: rgb(0, 0, 0); background-color: rgb(244, 183, 71);
+}
+.datepicker table tr td.range.today.focus {
+	border-color: rgb(129, 86, 8); color: rgb(0, 0, 0); background-color: rgb(244, 183, 71);
+}
+.datepicker table tr td.range.today:hover {
+	border-color: rgb(191, 128, 12); color: rgb(0, 0, 0); background-color: rgb(244, 183, 71);
+}
+.datepicker table tr td.range.today:active {
+	border-color: rgb(191, 128, 12); color: rgb(0, 0, 0); background-color: rgb(244, 183, 71);
+}
+.datepicker table tr td.range.today.active {
+	border-color: rgb(191, 128, 12); color: rgb(0, 0, 0); background-color: rgb(244, 183, 71);
+}
+.datepicker table tr td.range.today:hover:active {
+	border-color: rgb(129, 86, 8); color: rgb(0, 0, 0); background-color: rgb(242, 170, 37);
+}
+.datepicker table tr td.range.today.active:hover {
+	border-color: rgb(129, 86, 8); color: rgb(0, 0, 0); background-color: rgb(242, 170, 37);
+}
+.datepicker table tr td.range.today:focus:active {
+	border-color: rgb(129, 86, 8); color: rgb(0, 0, 0); background-color: rgb(242, 170, 37);
+}
+.datepicker table tr td.range.today.active:focus {
+	border-color: rgb(129, 86, 8); color: rgb(0, 0, 0); background-color: rgb(242, 170, 37);
+}
+.datepicker table tr td.range.today.focus:active {
+	border-color: rgb(129, 86, 8); color: rgb(0, 0, 0); background-color: rgb(242, 170, 37);
+}
+.datepicker table tr td.range.today.active.focus {
+	border-color: rgb(129, 86, 8); color: rgb(0, 0, 0); background-color: rgb(242, 170, 37);
+}
+.datepicker table tr td.range.today.disabled:hover {
+	border-color: rgb(241, 164, 23); background-color: rgb(247, 202, 119);
+}
+.datepicker table tr td[disabled].range.today:hover {
+	border-color: rgb(241, 164, 23); background-color: rgb(247, 202, 119);
+}
+fieldset[disabled] .datepicker table tr td.range.today:hover {
+	border-color: rgb(241, 164, 23); background-color: rgb(247, 202, 119);
+}
+.datepicker table tr td.range.today.disabled:focus {
+	border-color: rgb(241, 164, 23); background-color: rgb(247, 202, 119);
+}
+.datepicker table tr td[disabled].range.today:focus {
+	border-color: rgb(241, 164, 23); background-color: rgb(247, 202, 119);
+}
+fieldset[disabled] .datepicker table tr td.range.today:focus {
+	border-color: rgb(241, 164, 23); background-color: rgb(247, 202, 119);
+}
+.datepicker table tr td.range.today.disabled.focus {
+	border-color: rgb(241, 164, 23); background-color: rgb(247, 202, 119);
+}
+.datepicker table tr td[disabled].range.today.focus {
+	border-color: rgb(241, 164, 23); background-color: rgb(247, 202, 119);
+}
+fieldset[disabled] .datepicker table tr td.range.today.focus {
+	border-color: rgb(241, 164, 23); background-color: rgb(247, 202, 119);
+}
+.datepicker table tr td.range.today.disabled {
+	background: rgb(247, 202, 119); color: rgb(119, 119, 119);
+}
+.datepicker table tr td.range.today.disabled:active {
+	background: rgb(247, 202, 119); color: rgb(119, 119, 119);
+}
+.datepicker table tr td.selected {
+	border-color: rgb(85, 85, 85); color: rgb(255, 255, 255); text-shadow: 0px -1px 0px rgba(0,0,0,0.25); background-color: rgb(119, 119, 119);
+}
+.datepicker table tr td.selected.highlighted {
+	border-color: rgb(85, 85, 85); color: rgb(255, 255, 255); text-shadow: 0px -1px 0px rgba(0,0,0,0.25); background-color: rgb(119, 119, 119);
+}
+.datepicker table tr td.selected:focus {
+	border-color: rgb(22, 22, 22); color: rgb(255, 255, 255); background-color: rgb(94, 94, 94);
+}
+.datepicker table tr td.selected.highlighted:focus {
+	border-color: rgb(22, 22, 22); color: rgb(255, 255, 255); background-color: rgb(94, 94, 94);
+}
+.datepicker table tr td.selected.focus {
+	border-color: rgb(22, 22, 22); color: rgb(255, 255, 255); background-color: rgb(94, 94, 94);
+}
+.datepicker table tr td.selected.highlighted.focus {
+	border-color: rgb(22, 22, 22); color: rgb(255, 255, 255); background-color: rgb(94, 94, 94);
+}
+.datepicker table tr td.selected:hover {
+	border-color: rgb(55, 55, 55); color: rgb(255, 255, 255); background-color: rgb(94, 94, 94);
+}
+.datepicker table tr td.selected.highlighted:hover {
+	border-color: rgb(55, 55, 55); color: rgb(255, 255, 255); background-color: rgb(94, 94, 94);
+}
+.datepicker table tr td.selected:active {
+	border-color: rgb(55, 55, 55); color: rgb(255, 255, 255); background-color: rgb(94, 94, 94);
+}
+.datepicker table tr td.selected.highlighted:active {
+	border-color: rgb(55, 55, 55); color: rgb(255, 255, 255); background-color: rgb(94, 94, 94);
+}
+.datepicker table tr td.selected.active {
+	border-color: rgb(55, 55, 55); color: rgb(255, 255, 255); background-color: rgb(94, 94, 94);
+}
+.datepicker table tr td.selected.highlighted.active {
+	border-color: rgb(55, 55, 55); color: rgb(255, 255, 255); background-color: rgb(94, 94, 94);
+}
+.datepicker table tr td.selected:hover:active {
+	border-color: rgb(22, 22, 22); color: rgb(255, 255, 255); background-color: rgb(76, 76, 76);
+}
+.datepicker table tr td.selected.highlighted:hover:active {
+	border-color: rgb(22, 22, 22); color: rgb(255, 255, 255); background-color: rgb(76, 76, 76);
+}
+.datepicker table tr td.selected.active:hover {
+	border-color: rgb(22, 22, 22); color: rgb(255, 255, 255); background-color: rgb(76, 76, 76);
+}
+.datepicker table tr td.selected.highlighted.active:hover {
+	border-color: rgb(22, 22, 22); color: rgb(255, 255, 255); background-color: rgb(76, 76, 76);
+}
+.datepicker table tr td.selected:focus:active {
+	border-color: rgb(22, 22, 22); color: rgb(255, 255, 255); background-color: rgb(76, 76, 76);
+}
+.datepicker table tr td.selected.highlighted:focus:active {
+	border-color: rgb(22, 22, 22); color: rgb(255, 255, 255); background-color: rgb(76, 76, 76);
+}
+.datepicker table tr td.selected.active:focus {
+	border-color: rgb(22, 22, 22); color: rgb(255, 255, 255); background-color: rgb(76, 76, 76);
+}
+.datepicker table tr td.selected.highlighted.active:focus {
+	border-color: rgb(22, 22, 22); color: rgb(255, 255, 255); background-color: rgb(76, 76, 76);
+}
+.datepicker table tr td.selected.focus:active {
+	border-color: rgb(22, 22, 22); color: rgb(255, 255, 255); background-color: rgb(76, 76, 76);
+}
+.datepicker table tr td.selected.highlighted.focus:active {
+	border-color: rgb(22, 22, 22); color: rgb(255, 255, 255); background-color: rgb(76, 76, 76);
+}
+.datepicker table tr td.selected.active.focus {
+	border-color: rgb(22, 22, 22); color: rgb(255, 255, 255); background-color: rgb(76, 76, 76);
+}
+.datepicker table tr td.selected.highlighted.active.focus {
+	border-color: rgb(22, 22, 22); color: rgb(255, 255, 255); background-color: rgb(76, 76, 76);
+}
+.datepicker table tr td.selected.disabled:hover {
+	border-color: rgb(85, 85, 85); background-color: rgb(119, 119, 119);
+}
+.datepicker table tr td.selected.highlighted.disabled:hover {
+	border-color: rgb(85, 85, 85); background-color: rgb(119, 119, 119);
+}
+.datepicker table tr td[disabled].selected:hover {
+	border-color: rgb(85, 85, 85); background-color: rgb(119, 119, 119);
+}
+.datepicker table tr td[disabled].selected.highlighted:hover {
+	border-color: rgb(85, 85, 85); background-color: rgb(119, 119, 119);
+}
+fieldset[disabled] .datepicker table tr td.selected:hover {
+	border-color: rgb(85, 85, 85); background-color: rgb(119, 119, 119);
+}
+fieldset[disabled] .datepicker table tr td.selected.highlighted:hover {
+	border-color: rgb(85, 85, 85); background-color: rgb(119, 119, 119);
+}
+.datepicker table tr td.selected.disabled:focus {
+	border-color: rgb(85, 85, 85); background-color: rgb(119, 119, 119);
+}
+.datepicker table tr td.selected.highlighted.disabled:focus {
+	border-color: rgb(85, 85, 85); background-color: rgb(119, 119, 119);
+}
+.datepicker table tr td[disabled].selected:focus {
+	border-color: rgb(85, 85, 85); background-color: rgb(119, 119, 119);
+}
+.datepicker table tr td[disabled].selected.highlighted:focus {
+	border-color: rgb(85, 85, 85); background-color: rgb(119, 119, 119);
+}
+fieldset[disabled] .datepicker table tr td.selected:focus {
+	border-color: rgb(85, 85, 85); background-color: rgb(119, 119, 119);
+}
+fieldset[disabled] .datepicker table tr td.selected.highlighted:focus {
+	border-color: rgb(85, 85, 85); background-color: rgb(119, 119, 119);
+}
+.datepicker table tr td.selected.disabled.focus {
+	border-color: rgb(85, 85, 85); background-color: rgb(119, 119, 119);
+}
+.datepicker table tr td.selected.highlighted.disabled.focus {
+	border-color: rgb(85, 85, 85); background-color: rgb(119, 119, 119);
+}
+.datepicker table tr td[disabled].selected.focus {
+	border-color: rgb(85, 85, 85); background-color: rgb(119, 119, 119);
+}
+.datepicker table tr td[disabled].selected.highlighted.focus {
+	border-color: rgb(85, 85, 85); background-color: rgb(119, 119, 119);
+}
+fieldset[disabled] .datepicker table tr td.selected.focus {
+	border-color: rgb(85, 85, 85); background-color: rgb(119, 119, 119);
+}
+fieldset[disabled] .datepicker table tr td.selected.highlighted.focus {
+	border-color: rgb(85, 85, 85); background-color: rgb(119, 119, 119);
+}
+.datepicker table tr td.active {
+	border-color: rgb(46, 109, 164); color: rgb(255, 255, 255); text-shadow: 0px -1px 0px rgba(0,0,0,0.25); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td.active.highlighted {
+	border-color: rgb(46, 109, 164); color: rgb(255, 255, 255); text-shadow: 0px -1px 0px rgba(0,0,0,0.25); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td.active:focus {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td.active.highlighted:focus {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td.active.focus {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td.active.highlighted.focus {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td.active:hover {
+	border-color: rgb(32, 77, 116); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td.active.highlighted:hover {
+	border-color: rgb(32, 77, 116); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td.active:active {
+	border-color: rgb(32, 77, 116); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td.active.highlighted:active {
+	border-color: rgb(32, 77, 116); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td.active.active {
+	border-color: rgb(32, 77, 116); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td.active.highlighted.active {
+	border-color: rgb(32, 77, 116); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td.active:hover:active {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td.active.highlighted:hover:active {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td.active.active:hover {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td.active.highlighted.active:hover {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td.active:focus:active {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td.active.highlighted:focus:active {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td.active.active:focus {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td.active.highlighted.active:focus {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td.active.focus:active {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td.active.highlighted.focus:active {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td.active.active.focus {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td.active.highlighted.active.focus {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td.active.disabled:hover {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td.active.highlighted.disabled:hover {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td[disabled].active:hover {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td[disabled].active.highlighted:hover {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+fieldset[disabled] .datepicker table tr td.active:hover {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+fieldset[disabled] .datepicker table tr td.active.highlighted:hover {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td.active.disabled:focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td.active.highlighted.disabled:focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td[disabled].active:focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td[disabled].active.highlighted:focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+fieldset[disabled] .datepicker table tr td.active:focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+fieldset[disabled] .datepicker table tr td.active.highlighted:focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td.active.disabled.focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td.active.highlighted.disabled.focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td[disabled].active.focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td[disabled].active.highlighted.focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+fieldset[disabled] .datepicker table tr td.active.focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+fieldset[disabled] .datepicker table tr td.active.highlighted.focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span {
+	margin: 1%; border-radius: 4px; width: 23%; height: 54px; line-height: 54px; float: left; display: block; cursor: pointer;
+}
+.datepicker table tr td span:hover {
+	background: rgb(238, 238, 238);
+}
+.datepicker table tr td span.focused {
+	background: rgb(238, 238, 238);
+}
+.datepicker table tr td span.disabled {
+	background: none; color: rgb(119, 119, 119); cursor: default;
+}
+.datepicker table tr td span.disabled:hover {
+	background: none; color: rgb(119, 119, 119); cursor: default;
+}
+.datepicker table tr td span.active {
+	border-color: rgb(46, 109, 164); color: rgb(255, 255, 255); text-shadow: 0px -1px 0px rgba(0,0,0,0.25); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span.active:hover {
+	border-color: rgb(46, 109, 164); color: rgb(255, 255, 255); text-shadow: 0px -1px 0px rgba(0,0,0,0.25); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span.active.disabled {
+	border-color: rgb(46, 109, 164); color: rgb(255, 255, 255); text-shadow: 0px -1px 0px rgba(0,0,0,0.25); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span.active.disabled:hover {
+	border-color: rgb(46, 109, 164); color: rgb(255, 255, 255); text-shadow: 0px -1px 0px rgba(0,0,0,0.25); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span.active:focus {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td span.active:hover:focus {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td span.active.disabled:focus {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td span.active.disabled:hover:focus {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td span.active.focus {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td span.active.focus:hover {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td span.active.disabled.focus {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td span.active.disabled.focus:hover {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td span.active:hover {
+	border-color: rgb(32, 77, 116); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td span.active:hover {
+	border-color: rgb(32, 77, 116); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td span.active.disabled:hover {
+	border-color: rgb(32, 77, 116); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td span.active.disabled:hover {
+	border-color: rgb(32, 77, 116); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td span.active:active {
+	border-color: rgb(32, 77, 116); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td span.active:hover:active {
+	border-color: rgb(32, 77, 116); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td span.active.disabled:active {
+	border-color: rgb(32, 77, 116); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td span.active.disabled:hover:active {
+	border-color: rgb(32, 77, 116); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td span.active.active {
+	border-color: rgb(32, 77, 116); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td span.active.active:hover {
+	border-color: rgb(32, 77, 116); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td span.active.disabled.active {
+	border-color: rgb(32, 77, 116); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td span.active.disabled.active:hover {
+	border-color: rgb(32, 77, 116); color: rgb(255, 255, 255); background-color: rgb(40, 96, 144);
+}
+.datepicker table tr td span.active:hover:active {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td span.active:hover:active {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td span.active.disabled:hover:active {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td span.active.disabled:hover:active {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td span.active.active:hover {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td span.active.active:hover {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td span.active.disabled.active:hover {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td span.active.disabled.active:hover {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td span.active:focus:active {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td span.active:hover:focus:active {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td span.active.disabled:focus:active {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td span.active.disabled:hover:focus:active {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td span.active.active:focus {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td span.active.active:hover:focus {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td span.active.disabled.active:focus {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td span.active.disabled.active:hover:focus {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td span.active.focus:active {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td span.active.focus:hover:active {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td span.active.disabled.focus:active {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td span.active.disabled.focus:hover:active {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td span.active.active.focus {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td span.active.active.focus:hover {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td span.active.disabled.active.focus {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td span.active.disabled.active.focus:hover {
+	border-color: rgb(18, 43, 64); color: rgb(255, 255, 255); background-color: rgb(32, 77, 116);
+}
+.datepicker table tr td span.active.disabled:hover {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span.active.disabled:hover {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span.active.disabled.disabled:hover {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span.active.disabled.disabled:hover {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span[disabled].active:hover {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span[disabled].active:hover {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span[disabled].active.disabled:hover {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span[disabled].active.disabled:hover {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+fieldset[disabled] .datepicker table tr td span.active:hover {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+fieldset[disabled] .datepicker table tr td span.active:hover {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+fieldset[disabled] .datepicker table tr td span.active.disabled:hover {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+fieldset[disabled] .datepicker table tr td span.active.disabled:hover {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span.active.disabled:focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span.active.disabled:hover:focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span.active.disabled.disabled:focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span.active.disabled.disabled:hover:focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span[disabled].active:focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span[disabled].active:hover:focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span[disabled].active.disabled:focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span[disabled].active.disabled:hover:focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+fieldset[disabled] .datepicker table tr td span.active:focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+fieldset[disabled] .datepicker table tr td span.active:hover:focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+fieldset[disabled] .datepicker table tr td span.active.disabled:focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+fieldset[disabled] .datepicker table tr td span.active.disabled:hover:focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span.active.disabled.focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span.active.disabled.focus:hover {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span.active.disabled.disabled.focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span.active.disabled.disabled.focus:hover {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span[disabled].active.focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span[disabled].active.focus:hover {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span[disabled].active.disabled.focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span[disabled].active.disabled.focus:hover {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+fieldset[disabled] .datepicker table tr td span.active.focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+fieldset[disabled] .datepicker table tr td span.active.focus:hover {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+fieldset[disabled] .datepicker table tr td span.active.disabled.focus {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+fieldset[disabled] .datepicker table tr td span.active.disabled.focus:hover {
+	border-color: rgb(46, 109, 164); background-color: rgb(51, 122, 183);
+}
+.datepicker table tr td span.old {
+	color: rgb(119, 119, 119);
+}
+.datepicker table tr td span.new {
+	color: rgb(119, 119, 119);
+}
+.datepicker .datepicker-switch {
+	width: 145px;
+}
+.datepicker .datepicker-switch {
+	cursor: pointer;
+}
+.datepicker .prev {
+	cursor: pointer;
+}
+.datepicker .next {
+	cursor: pointer;
+}
+.datepicker tfoot tr th {
+	cursor: pointer;
+}
+.datepicker .datepicker-switch:hover {
+	background: rgb(238, 238, 238);
+}
+.datepicker .prev:hover {
+	background: rgb(238, 238, 238);
+}
+.datepicker .next:hover {
+	background: rgb(238, 238, 238);
+}
+.datepicker tfoot tr th:hover {
+	background: rgb(238, 238, 238);
+}
+.datepicker .prev.disabled {
+	visibility: hidden;
+}
+.datepicker .next.disabled {
+	visibility: hidden;
+}
+.datepicker .cw {
+	padding: 0px 2px 0px 5px; width: 12px; font-size: 10px; vertical-align: middle;
+}
+.input-group.date .input-group-addon {
+	cursor: pointer;
+}
+.input-daterange {
+	width: 100%;
+}
+.input-daterange input {
+	text-align: center;
+}
+.input-daterange input:first-child {
+	border-radius: 3px 0px 0px 3px;
+}
+.input-daterange input:last-child {
+	border-radius: 0px 3px 3px 0px;
+}
+.input-daterange .input-group-addon {
+	border-width: 1px 0px; padding: 4px 5px; width: auto; line-height: 1.4285; margin-right: -5px; margin-left: -5px; min-width: 16px;
+}

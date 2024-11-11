@@ -1,0 +1,207 @@
+table.dataTable {
+	width: 100%!important;; clear: both; margin-top: 6px !important; margin-bottom: 45px !important; margin-left:41px; border-collapse: collapse !important;}
+table.dataTable td {
+	box-sizing: content-box; -webkit-box-sizing: content-box;
+}
+table.dataTable th {
+	box-sizing: content-box; -webkit-box-sizing: content-box;
+}
+table.dataTable td.dataTables_empty {
+	text-align: center;
+}
+table.dataTable th.dataTables_empty {
+	text-align: center;
+}
+table.dataTable.nowrap th {
+	white-space: nowrap;
+}
+table.dataTable.nowrap td {
+	white-space: nowrap;
+}
+div.dataTables_wrapper div.dataTables_length label {
+	text-align: left; font-weight: normal; white-space: nowrap;
+}
+div.dataTables_wrapper div.dataTables_length select {
+	width: 75px; display: inline-block;
+}
+div.dataTables_wrapper div.dataTables_filter {
+	text-align: right;
+}
+div.dataTables_wrapper div.dataTables_filter label {
+	text-align: left; font-weight: normal; white-space: nowrap;
+}
+div.dataTables_wrapper div.dataTables_filter input {
+	width: auto; margin-left: 0.5em; display: inline-block;
+}
+div.dataTables_wrapper div.dataTables_info {
+	padding-top: 8px; white-space: nowrap;
+}
+div.dataTables_wrapper div.dataTables_paginate {
+	margin: 0px; text-align: right; white-space: nowrap;
+}
+div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+	margin: 2px 0px; white-space: nowrap;
+}
+div.dataTables_wrapper div.dataTables_processing {
+	padding: 1em 0px; left: 50%; top: 50%; width: 200px; text-align: center; margin-top: -26px; margin-left: -100px; position: absolute;
+}
+table.dataTable thead > tr > th.sorting_asc {
+	padding-right: 15px;
+}
+table.dataTable thead > tr > th.sorting_desc {
+	padding-right: 15px;
+}
+table.dataTable thead > tr > th.sorting {
+	padding-right: 15px;
+}
+table.dataTable thead > tr > td.sorting_asc {
+	padding-right: 30px;
+}
+table.dataTable thead > tr > td.sorting_desc {
+	padding-right: 30px;
+}
+table.dataTable thead > tr > td.sorting {
+	padding-right: 30px;
+}
+table.dataTable thead > tr > th:active {
+
+}
+table.dataTable thead > tr > td:active {
+
+}
+table.dataTable thead .sorting {
+	position: relative; cursor: pointer;
+}
+table.dataTable thead .sorting_asc {
+	position: relative; cursor: pointer;
+}
+table.dataTable thead .sorting_desc {
+	position: relative; cursor: pointer;
+}
+table.dataTable thead .sorting_asc_disabled {
+	position: relative; cursor: pointer;
+}
+table.dataTable thead .sorting_desc_disabled {
+	position: relative; cursor: pointer;
+}
+table.dataTable thead .sorting::after {
+	right: 8px; bottom: 8px; font-family: "Glyphicons Halflings"; display: block; position: absolute; opacity: 0.5;
+}
+table.dataTable thead .sorting_asc::after {
+	right: 8px; bottom: 8px; font-family: "Glyphicons Halflings"; display: block; position: absolute; opacity: 0.5;
+}
+table.dataTable thead .sorting_desc::after {
+	right: 8px; bottom: 8px; font-family: "Glyphicons Halflings"; display: block; position: absolute; opacity: 0.5;
+}
+table.dataTable thead .sorting_asc_disabled::after {
+	right: 8px; bottom: 8px; font-family: "Glyphicons Halflings"; display: block; position: absolute; opacity: 0.5;
+}
+table.dataTable thead .sorting_desc_disabled::after {
+	right: 8px; bottom: 8px; font-family: "Glyphicons Halflings"; display: block; position: absolute; opacity: 0.5;
+}
+table.dataTable thead .sorting::after {
+	content: "\e150"; opacity: 0.2;
+}
+table.dataTable thead .sorting_asc::after {
+	content: "\e155";
+}
+table.dataTable thead .sorting_desc::after {
+	content: "\e156";
+}
+table.dataTable thead .sorting_asc_disabled::after {
+	color: rgb(238, 238, 238);
+}
+table.dataTable thead .sorting_desc_disabled::after {
+	color: rgb(238, 238, 238);
+}
+div.dataTables_scrollHead table.dataTable {
+	margin-bottom: 0px !important;
+}
+div.dataTables_scrollBody > table {
+	margin-top: 0px !important; margin-bottom: 0px !important; border-top-color: currentColor; border-top-width: medium; border-top-style: none;
+}
+div.dataTables_scrollBody > table > thead .sorting::after {
+	display: none;
+}
+div.dataTables_scrollBody > table > thead .sorting_asc::after {
+	display: none;
+}
+div.dataTables_scrollBody > table > thead .sorting_desc::after {
+	display: none;
+}
+div.dataTables_scrollBody > table > tbody > tr:first-child > th {
+	border-top-color: currentColor; border-top-width: medium; border-top-style: none;
+}
+div.dataTables_scrollBody > table > tbody > tr:first-child > td {
+	border-top-color: currentColor; border-top-width: medium; border-top-style: none;
+}
+div.dataTables_scrollFoot > .dataTables_scrollFootInner {
+	box-sizing: content-box;
+}
+div.dataTables_scrollFoot > .dataTables_scrollFootInner > table {
+	margin-top: 0px !important; border-top-color: currentColor; border-top-width: medium; border-top-style: none;
+}
+/*@media screen and (max-width:767px)
+{
+div.dataTables_wrapper div.dataTables_length {
+	text-align: center;
+}
+div.dataTables_wrapper div.dataTables_filter {
+	text-align: center;
+}
+div.dataTables_wrapper div.dataTables_info {
+	text-align: center;
+}
+div.dataTables_wrapper div.dataTables_paginate {
+	text-align: center;
+}
+}
+table.dataTable.table-condensed > thead > tr > th {
+	padding-right: 20px;
+}
+table.dataTable.table-condensed .sorting::after {
+	top: 6px; right: 6px;
+}
+table.dataTable.table-condensed .sorting_asc::after {
+	top: 6px; right: 6px;
+}
+table.dataTable.table-condensed .sorting_desc::after {
+	top: 6px; right: 6px;
+}
+table.table-bordered.dataTable th {
+	border-left-width: 0px;
+}
+table.table-bordered.dataTable td {
+	border-left-width: 0px;
+}
+table.table-bordered.dataTable th:last-child {
+	border-right-width: 0px;
+}
+table.table-bordered.dataTable th:last-child {
+	border-right-width: 0px;
+}
+table.table-bordered.dataTable td:last-child {
+	border-right-width: 0px;
+}
+table.table-bordered.dataTable td:last-child {
+	border-right-width: 0px;
+}
+table.table-bordered.dataTable tbody th {
+	border-bottom-width: 0px;
+}
+table.table-bordered.dataTable tbody td {
+	border-bottom-width: 0px;
+}
+div.dataTables_scrollHead table.table-bordered {
+	border-bottom-width: 0px;
+}
+div.table-responsive > div.dataTables_wrapper > div.row {
+	margin: 0px;
+}
+div.table-responsive > div.dataTables_wrapper > div.row > div[class^='col-']:first-child {
+	padding-left: 0px;
+}
+div.table-responsive > div.dataTables_wrapper > div.row > div[class^='col-']:last-child {
+	padding-right: 0px;
+}
+*/

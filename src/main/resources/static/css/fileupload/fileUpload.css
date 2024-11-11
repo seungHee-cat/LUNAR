@@ -1,0 +1,73 @@
+.upload-btn-wrapper {
+	overflow: hidden; display: inline-block; position: relative;
+}
+.upload-btn {
+	padding: 8px 20px; border-radius: 8px; border: 2px solid gray; border-image: none; color: gray; font-size: 20px; font-weight: bold; background-color: white;
+}
+.upload-btn-wrapper input[type=file] {
+	left: 0px; top: 0px; font-size: 100px; position: absolute; opacity: 0;
+}
+#fileDragDesc {
+	padding: 5px; width: 100%; height: 100%; text-align: center; margin-top: -16px; margin-right: auto; margin-left: auto; vertical-align: middle;
+}
+.fileinput-button {
+	overflow: hidden; display: inline-block; position: relative;
+}
+.fileinput-button input {
+	margin: 0px; top: 0px; right: 0px; font-size: 0; position: absolute; cursor: pointer; direction: ltr; opacity: 0;
+}
+.fileinput-button .fa{margin-top:0;position: absolute;left: 12px;top: 10px;}
+.fileinput-button label{
+	line-height: 20px;
+    font-size: 15px;
+	font-weight: 400;
+	color: rgb(255, 255, 255);
+	cursor: pointer;
+	margin-bottom:0;
+	padding:10px 20px 10px 30px;
+}
+@media unknown
+{
+.fileinput-button input {
+	height: 100%; font-size: 100%;
+}
+}
+.filedel-button {
+	padding: 0px 2px; /* margin-top: 5px; */ margin-bottom: 0px;
+}
+.atchFileTable td {
+	border: 1px solid rgb(222, 226, 230); border-image: none;
+}
+.file-doc {
+	background-position: center; width: 16px; height: 16px; background-image: url("../../../../images/itg/com/file/img_icon_doc.gif"); background-repeat: no-repeat;
+}
+.file-hwp {
+	background-position: center; width: 16px; height: 16px; background-image: url("../../../../images/itg/com/file/img_icon_hwp.gif"); background-repeat: no-repeat;
+}
+.file-image {
+	background-position: center; width: 16px; height: 16px; background-image: url("../../../../images/itg/com/file/img_icon_image.gif"); background-repeat: no-repeat;
+}
+.file-non {
+	background-position: center; width: 16px; height: 16px; background-image: url("../../../../images/itg/com/file/img_icon_non.gif"); background-repeat: no-repeat;
+}
+.file-pdf {
+	background-position: center; width: 16px; height: 16px; background-image: url("../../../../images/itg/com/file/img_icon_pdf.gif"); background-repeat: no-repeat;
+}
+.file-ppt {
+	background-position: center; width: 16px; height: 16px; background-image: url("../../../../images/itg/com/file/img_icon_ppt.gif"); background-repeat: no-repeat;
+}
+.file-txt {
+	background-position: center; width: 16px; height: 16px; background-image: url("../../../../images/itg/com/file/img_icon_txt.gif"); background-repeat: no-repeat;
+}
+.file-xls {
+	background-position: center; width: 16px; height: 16px; background-image: url("../../../../images/itg/com/file/img_icon_xls.gif"); background-repeat: no-repeat;
+}
+.file-zip {
+	background-position: center; width: 16px; height: 16px; background-image: url("../../../../images/itg/com/file/img_icon_zip.gif"); background-repeat: no-repeat;
+}
+.atch-file-table > tbody > tr > td {
+	border-top-width: 0px;
+}
+.atch-file-table > tbody > tr {
+	line-height: 0.3;
+}
