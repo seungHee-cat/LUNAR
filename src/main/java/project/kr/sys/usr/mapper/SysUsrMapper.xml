@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project.kr.sys.usr.mapper.SysUsrMapper">
+
+    <!-- 유저 상세 조회 -->
+    <select id="getSysUsrDetail" parameterType="SysUsrVO" resultType="HashMap">
+        <![CDATA[
+        /*	getSysUsrDetail	*/
+            SELECT
+                USR_ID
+                , USR_NM
+                , USR_PW
+                , EMAIL
+                , PHONE
+                , REG_ID
+                , REG_DT
+            FROM
+                USER
+        ]]>
+        <where>
+            <choose>
+                <when test="usrId != null and usrId != ''">
+                    AND USR_ID = #{usrId}
+                </when>
+                <when test="usrNm != null and usrNm != ''">
+                    AND USR_NM = #{usrNm}
+                </when>
+            </choose>
+        </where>
+    </select>
+
+    <!-- 로그인 세션용 유저 상세 조회 -->
+    <select id="getLoginSession" parameterType="SysUsrVO" resultType="LoginSession">
+        <![CDATA[
+        /*	getLoginSession	*/
+            SELECT
+                USR_ID
+                , USR_NM
+                , USR_PW
+                , EMAIL
+                , PHONE
+                , REG_ID
+                , REG_DT
+            FROM
+                USER
+            WHERE
+                USR_NM = #{loginUsrNm}
+        ]]>
+    </select>
+
+</mapper>

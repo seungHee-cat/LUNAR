@@ -18,4 +18,16 @@
 		<put-attribute name="body" value="/WEB-INF/static/layout/body.jsp" />
 	</definition>
 
+
+	<!--//////// sys > login ////////-->
+	<!-- 로그인 화면 -->
+	<definition name="sysLoginPage" extends="base.none">
+		<put-attribute name="body" value="/WEB-INF/views/sys/login/sysLoginPage.jsp" />
+	</definition>
+
+	<!-- 로그아웃 컴펌창 화면 -->
+	<definition name="sysLoginLogout" extends="base.empty">
+		<put-attribute name="root" value="/WEB-INF/views/sys/login/sysLoginLogout.jsp" />
+	</definition>
+
 </tiles-definitions>

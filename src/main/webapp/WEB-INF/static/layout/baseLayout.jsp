@@ -105,26 +105,55 @@
     <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
 </head>
 <script type="text/javascript">
+/*********************************************************
+ * 로그아웃 모달 열기
+ *********************************************************/
+/* function fn_logout() {
+    // 모달 열기
+    let formData = new FormData();
+    popupUtil.openNewPopup("<c:url value='/sys/login/sysLoginLogout'/>", formData, "small");
+} */
+
 </script>
-<body class="bg-light drawer-toggled">
+<body class="bg-light">
     <form id="topFrm" name="topFrm">
-        <input type="hidden" name="dbId" value="<c:out value='${sessionScope.dbId}'/>"/>
-        <input type="hidden" name="dbNm" value="<c:out value='${sessionScope.dbNm}'/>"/>
+        <!-- <input type="hidden" name="dbId" value="<c:out value='${sessionScope.dbId}'/>"/>
+        <input type="hidden" name="dbNm" value="<c:out value='${sessionScope.dbNm}'/>"/> -->
     </form>
     <!-- Top app bar navigation menu -->
-    <nav class="navbar bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand">Navbar</a>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
+    <nav class="top-app-bar navbar navbar-expand-sm">
+        <div class="container-fluid px-4">
+        <!-- Navbar brand-->
+        <a class="headerLogo" href="">Logo</a>
+        <!-- Navbar items-->
+        <div class="d-flex align-items-center mx-3 me-lg-0">
+            <!-- Navbar buttons-->
+            <div class="d-flex">
+                <!-- User profile dropdown-->
+                <div class="dropdown">
+                    <button class="btn btn-lg btn-icon dropdown-toggle" id="dropdownMenuProfile" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-circle"></i></button>
+                    <ul class="dropdown-menu dropdown-menu-end mt-1 ms-5" aria-labelledby="dropdownMenuProfile">
+                        <li>
+                            <a class="dropdown-item" href="#!">
+                                <i class="fa fa-sliders-h"></i>
+                                <div class="ms-3">Settings</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#" onclick="fn_logout();">
+                                <i class="fa fa-sign-out-alt"></i>
+                                <div class="ms-3">Logout</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </nav>
     <!-- layout wrapper -->
     <div>
-        ================ BaseLayout content START ================ <br/>
-        ================ BaseLayout content END ================  <br/>
+    ================ BaseLayout content START ================ <br/>
+    ================ BaseLayout content END ================  <br/>
     </div>
     <!-- footer -->
 	<tiles:insertAttribute name="body"/>
