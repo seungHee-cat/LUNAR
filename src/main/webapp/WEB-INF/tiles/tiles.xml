@@ -18,6 +18,11 @@
 		<put-attribute name="body" value="/WEB-INF/static/layout/body.jsp" />
 	</definition>
 
+	<!-- 테이블 리턴용 화면 -->
+	<definition name="base.empty" template="/WEB-INF/static/layout/empty.jsp">
+		<put-attribute name="root" value="/WEB-INF/static/layout/body.jsp" />
+	</definition>
+
 
 	<!--//////// sys > login ////////-->
 	<!-- 로그인 화면 -->
@@ -25,7 +30,7 @@
 		<put-attribute name="body" value="/WEB-INF/views/sys/login/sysLoginPage.jsp" />
 	</definition>
 
-	<!-- 로그아웃 컴펌창 화면 -->
+	<!-- 로그아웃 화면 -->
 	<definition name="sysLoginLogout" extends="base.empty">
 		<put-attribute name="root" value="/WEB-INF/views/sys/login/sysLoginLogout.jsp" />
 	</definition>

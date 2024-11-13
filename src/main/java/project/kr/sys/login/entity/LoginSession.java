@@ -12,6 +12,6 @@ public class LoginSession {
     private String phone		= null;	// 연락처
     private String regId 		= null;	// 등록자ID
     private String regDt 		= null;	// 등록일시
-    private String mdfcnId 		= null;	// 수정자ID
-    private String mdfcnDt 		= null;	// 수정일시
+    private String mdfId 		= null;	// 수정자ID
+    private String mdfDt 		= null;	// 수정일시
 }
