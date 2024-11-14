@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -26,13 +27,22 @@ public class SysLoginController {
     SysLoginService sysLoginService;
 
     /**
+     * 로그인(루트) 화면 조회
+     */
+    @RequestMapping("/sys/loginPop")
+    public String sysLoginPop(String logoutMsg, Model model) {
+        model.addAttribute("logoutMsg", logoutMsg);
+        return "sysLoginPop";
+    }
+
+    /**
      * 로그인
      */
     @ResponseBody
     @RequestMapping("/sys/login/loginAjax")
     public Reply loginAjax(@ModelAttribute SysUsrVO vo, HttpServletRequest request) {
         // 로그인 체크
-        LoginSession loginSession = sysLoginService.login(vo.getLoginUsrNm(), vo.getLoginUsrPw());
+        LoginSession loginSession = sysLoginService.login(vo.getLoginUsrId(), vo.getLoginUsrPw());
         if(loginSession == null)
             return new Reply(false, "ID 또는 PW가 잘못되었습니다.");
 

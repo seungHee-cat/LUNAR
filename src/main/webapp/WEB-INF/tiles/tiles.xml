@@ -3,9 +3,9 @@
 <tiles-definitions>
 
 	<!--//////// main ////////-->
-	<!-- 메인 > 대시보드 -->
-	<definition name="mainDashboard" extends="base.layout">
-		<put-attribute name="body" value="/WEB-INF/views/main/mainDashboard.jsp" />
+	<!-- 메인 -->
+	<definition name="main" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/views/main/main.jsp" />
 	</definition>
 
 	<!-- 기본 빈 레이아웃 설정 -->
@@ -25,9 +25,9 @@
 
 
 	<!--//////// sys > login ////////-->
-	<!-- 로그인 화면 -->
-	<definition name="sysLoginPage" extends="base.none">
-		<put-attribute name="body" value="/WEB-INF/views/sys/login/sysLoginPage.jsp" />
+	<!-- 로그인 모달 -->
+	<definition name="sysLoginPop" extends="base.empty">
+		<put-attribute name="root" value="/WEB-INF/views/sys/login/sysLoginPop.jsp" />
 	</definition>
 
 	<!-- 로그아웃 화면 -->

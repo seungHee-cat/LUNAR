@@ -8,8 +8,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.WebApplicationContext;
 
-/* Spring security 초기 로그인 화면 비활성화 */
-@SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
+@SpringBootApplication (exclude = SecurityAutoConfiguration.class)
 public class LeafApplication extends SpringBootServletInitializer implements WebApplicationInitializer {
 
 	public static void main(String[] args) {

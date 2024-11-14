@@ -13,41 +13,45 @@ $(document).ready( function() {
         fn_toastShow(logoutMsg);
 });
 
-function fn_login() {
+function fn_loginAjax() {
     fn_ajaxSubmit("loginFrm", "<c:url value='/sys/login/loginAjax'/>", fn_loginCallback, false);
 }
 
 function fn_loginCallback(data) {
-    /* 로그인 성공 시 돌아올 페이지 지정하는 거인듯 */
     if(data.ok) {
-        location.href = "";
+        location.href = "/main";
     } else {
         fn_toastShow(data.message);
     }
 }
 </script>
-<body style="background-color: #212529">
+<body>
 <form name="loginFrm" id="loginFrm">
-	<div id="layoutAuthentication">
+    <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
             <main>
                 <div class="container">
-                    <div class="row justify-content-center" style="display: flex; flex-direction: column; align-items: center;">
-                        <div class="loginLogo"></div>
-                        <div style="width: 526px;">
-                            <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                <div class="card-body">
+                    <div class="modal-header d-flex justify-content-between w-100">
+                        <h5 class="modal-title mx-auto">Leaf</h5>  <!-- mx-auto: 수평 중앙 정렬 -->
+                        <button class="btn btn-transparent btn-sm p-0 border-0" type="button" onclick="popupUtil.closeNewPopup();">
+                            <i class="fa fa-window-close fa-2x"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row justify-content-center" style="display: flex; flex-direction: column; align-items: center;">
+                                <div class="loginLogo"></div>
+                                <div>
                                     <form>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="loginUsrNm" name="loginUsrNm" type="text" placeholder="Username" value="test" />
-                                            <label for="loginUsrNm">Username</label>
+                                            <input class="form-control w-100" id="loginUsrId" name="loginUsrId" type="text" placeholder="아이디를 입력해주세요." value="test" />
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="loginUsrPw" name="loginUsrPw" type="password" placeholder="Password" value="1234" />
-                                            <label for="loginUsrPw">Password</label>
+                                            <input class="form-control w-100" id="loginUsrPw" name="loginUsrPw" type="password" placeholder="비밀번호를 입력해주세요." value="1234" />
                                         </div>
+                                        <div class="small" style="text-align: right;"><a href="#">Need an account? Sign up!</a></div>
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                            <a class="btn btn-primary" onclick="fn_login();">Login</a>
+                                            <a class="btn btn-outline-secondary w-100 justify-content-center" onclick="fn_loginAjax();">Login</a>
                                         </div>
                                     </form>
                                 </div>

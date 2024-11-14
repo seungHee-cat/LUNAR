@@ -29,17 +29,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/font-awesome/fontawesome.css'/>" />
 
     <!-- ================== Old styles for test ================== -->
-	<link rel="stylesheet" type="text/css" href="<c:url value='/css/old/admin.css'/>" />
-    <link rel="stylesheet" type="text/css" href="<c:url value='/css/old/comments.css'/>" />
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/old/common.css'/>" />
-	<link rel="stylesheet" type="text/css" href="<c:url value='/css/old/footer.css'/>" />
-	<link rel="stylesheet" type="text/css" href="<c:url value='/css/old/header.css'/>" />
-    <link rel="stylesheet" type="text/css" href="<c:url value='/css/old/index.css'/>" />
-    <link rel="stylesheet" type="text/css" href="<c:url value='/css/old/movieComment.css'/>" />
-    <link rel="stylesheet" type="text/css" href="<c:url value='/css/old/myComment.css'/>" />
-    <link rel="stylesheet" type="text/css" href="<c:url value='/css/old/myPage.css'/>" />
-    <link rel="stylesheet" type="text/css" href="<c:url value='/css/old/myRating.css'/>" />
-    <link rel="stylesheet" type="text/css" href="<c:url value='/css/old/search.css'/>" />
 
     <!-- ================== Plug in Util CSS Start ================== -->
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/plugin/bootstrap-datepicker.css'/>" />
@@ -105,6 +95,15 @@
 </head>
 <script type="text/javascript">
 /*********************************************************
+ * 로그인 모달
+ *********************************************************/
+function fn_loginPop() {
+    let formData = new FormData();
+    popupUtil.openNewPopup("<c:url value='/sys/loginPop'/>", formData, "medium");
+}
+
+
+/*********************************************************
  * 로그아웃 모달 열기
  *********************************************************/
 function fn_logout() {
@@ -117,66 +116,49 @@ function fn_logout() {
 <body class="bg-light">
     <form id="topFrm" name="topFrm">
         <input type="hidden" name="dbId" value="<c:out value='${sessionScope.dbId}'/>"/>
-        <input type="hidden" name="dbNm" value="<c:out value='${sessionScope.dbNm}'/>"/>
     </form>
     <!-- Top app bar navigation menu -->
-    <nav class="top-app-bar navbar navbar-expand-sm justify-content-center">
+    <nav class="top-app-bar navbar navbar-expand-sm justify-content-center" style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
         <div class="container-fluid px-4">
         <!-- Navbar logo -->
         <a class="" href="">Leaf </a>
         <!-- Navbar search -->
+        <form class="d-flex align-items-center" role="search">
+            <input class="form-control me-2" style="width: 320px;" type="search" aria-label="Search">
+            <button class="btn btn btn-outline-secondary d-flex align-items-center" style="height: 38px;" type="submit">Search</button>
+        </form>
         <div class="d-flex align-items-center mx-3 me-lg-0">
             <div class="d-flex">
-                <form class="d-flex align-items-center" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-                <!-- Navbar items -->
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                  <ul class="navbar-nav justify-content: space-between">
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">MOVIES</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">COMMUNITY</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="d-flex align-items-center mx-3 me-lg-0">
-                    <!-- Navbar buttons-->
-                    <div class="d-flex">
-                        <!-- User profile dropdown-->
-                        <div class="dropdown">
-                            <button class="btn btn-lg btn-icon dropdown-toggle" id="dropdownMenuProfile" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-circle"></i></button>
-                            <ul class="dropdown-menu dropdown-menu-end mt-1 ms-5" aria-labelledby="dropdownMenuProfile">
-                                <li>
-                                    <a class="dropdown-item" href="#!">
-                                        <i class="fa fa-sliders-h"></i>
-                                        <div class="ms-3">Settings</div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#" onclick="fn_logout();">
-                                        <i class="fa fa-sign-out-alt"></i>
-                                        <div class="ms-3">Logout</div>
-                                    </a>
-                                </li>
-                            </ul>
+                <c:if test="${empty loginSession}">
+                    <!-- LOGIN -->
+                    <a class="nav-link" onclick="fn_loginPop();">LOGIN/SIGNUP</a>
+                </c:if>
+                <c:if test="${not empty loginSession}">
+                    <div class="d-flex align-items-center mx-3 me-lg-0">
+                        <!-- Navbar buttons-->
+                        <div class="d-flex">
+                            <!-- User profile dropdown -->
+                            <div class="dropdown">
+                                <button class="btn btn-icon dropdown-toggle" id="dropdownProfile" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-circle"></i></button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownProfile">
+                                    <li>
+                                        <a class="dropdown-item" href="#!">
+                                            <div class="ms-3">Settings</div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#" onclick="fn_logout();">
+                                            <div class="ms-3">Logout</div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </c:if>
             </div>
         </div>
     </nav>
-    <!-- layout wrapper -->
-    <div>
-    ================ BaseLayout content START ================ <br/>
-
-    어떤 식으로 할까 ..?
-
-    ================ BaseLayout content END ================  <br/>
-    </div>
-    <!-- footer -->
 	<tiles:insertAttribute name="body"/>
 </body>
 </html>

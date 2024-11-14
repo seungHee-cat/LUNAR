@@ -7,23 +7,23 @@
         <![CDATA[
         /*	getSysUsrDetail	*/
             SELECT
-                USR_ID
-                , USR_NM
-                , USR_PW
+                USRID
+                , USRNM
+                , USRPW
                 , EMAIL
                 , PHONE
-                , REG_ID
-                , REG_DT
+                , REGID
+                , REGDT
             FROM
                 USER
         ]]>
         <where>
             <choose>
                 <when test="usrId != null and usrId != ''">
-                    AND USR_ID = #{usrId}
+                    AND USRID = #{usrId}
                 </when>
                 <when test="usrNm != null and usrNm != ''">
-                    AND USR_NM = #{usrNm}
+                    AND USRNM = #{usrNm}
                 </when>
             </choose>
         </where>
@@ -34,17 +34,17 @@
         <![CDATA[
         /*	getLoginSession	*/
             SELECT
-                USR_ID
-                , USR_NM
-                , USR_PW
+                USRID
+                , USRNM
+                , USRPW
                 , EMAIL
                 , PHONE
-                , REG_ID
-                , REG_DT
+                , REGID
+                , REGDT
             FROM
                 USER
             WHERE
-                USR_NM = #{loginUsrNm}
+                USRID = #{loginUsrId}
         ]]>
     </select>
 

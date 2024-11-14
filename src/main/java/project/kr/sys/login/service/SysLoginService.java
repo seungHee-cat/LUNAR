@@ -18,10 +18,10 @@ public class SysLoginService {
     @Autowired
     SysUsrMapper sysUsrMapper;
 
-    public LoginSession login(String loginUsrNm, String loginUsrPw){
+    public LoginSession login(String loginUsrId, String loginUsrPw){
         // 유저 상세
         SysUsrVO vo = new SysUsrVO();
-        vo.setLoginUsrNm(loginUsrNm);
+        vo.setLoginUsrId(loginUsrId);
         LoginSession usrDetail = sysUsrMapper.getLoginSession(vo);
 
         // 유저 정보 및 비밀번호 체크

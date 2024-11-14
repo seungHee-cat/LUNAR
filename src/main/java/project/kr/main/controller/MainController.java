@@ -8,8 +8,8 @@ public class MainController {
     /**
      * 로그인(루트) 화면 조회
      */
-    @RequestMapping("/main/mainDashboard")
+    @RequestMapping("/main")
     public String main() {
-        return "mainDashboard";
+        return "main";
     }
 }
