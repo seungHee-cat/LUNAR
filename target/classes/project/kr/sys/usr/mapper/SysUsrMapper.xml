@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project.kr.sys.usr.mapper.SysUsrMapper">
+
+    <!-- 로그인 유저 상세 조회 -->
+    <select id="getSysUsrDetail" parameterType="LoginSession" resultType="SysUsrVO">
+        <![CDATA[
+        /*	getSysUsrDetail	*/
+            SELECT
+                A.USR_ID
+                , USR_NM
+                , USR_PW
+                , EMAIL
+                , USR_DESC
+                , USR_IMG
+                , REG_DT
+            FROM
+                USER A
+            JOIN
+                USER_DETAIL B ON A.USR_ID = B.USR_ID
+        ]]>
+        <where>
+            <if test="loginUsrId != null and loginUsrId != ''">
+                AND A.USR_ID = #{loginUsrId}
+            </if>
+        </where>
+    </select>
+
+    <!-- 유저 사진 정보 -->
+    <select id="getSysUsrImg" parameterType="LoginSession" resultType="SysUsrVO">
+        <![CDATA[
+        /*	getSysUsrImg	*/
+            SELECT
+                USR_IMG
+            FROM
+                USER A
+            JOIN
+                USER_DETAIL B ON A.USR_ID = B.USR_ID
+        ]]>
+        <where>
+            <if test="loginUsrId != null and loginUsrId != ''">
+                AND A.USR_ID = #{loginUsrId}
+            </if>
+        </where>
+    </select>
+
+    <!-- 로그인 세션용 유저 상세 조회 -->
+    <select id="getLoginSession" parameterType="LoginSession" resultType="SysUsrVO">
+        <![CDATA[
+        /*	getLoginSession	*/
+            SELECT
+                A.USR_ID
+                , USR_NM
+                , USR_IMG
+                , USR_PW
+            FROM
+                USER A
+            LEFT JOIN
+                USER_DETAIL B ON A.USR_ID = B.USR_ID
+        ]]>
+        <where>
+            <if test="usrId != null and usrId != ''">
+                AND A.USR_ID = #{usrId}
+            </if>
+        </where>
+    </select>
+
+    <!-- 유저 회원가입 -->
+    <insert id="insertUsr" parameterType="LoginSession" >
+        <![CDATA[
+        /*	insertUsr	*/
+        INSERT INTO USER
+        (
+            USR_ID
+            , USR_NM
+            , USR_PW
+            , REG_DT
+        ) VALUES(
+            #{usrId}
+            , #{usrNm}
+            , #{usrPw}
+            , NOW()
+        )
+    ]]>
+    </insert>
+
+    <!-- 신규 유저 상세정보 등록 -->
+    <insert id="insertUsrDetail" parameterType="LoginSession" >
+        <![CDATA[
+        /*	insertUsrDetail	*/
+        INSERT INTO USER_DETAIL
+        (
+            DETAIL_ID
+            , USR_ID
+        ) VALUES(
+            #{detailId}
+            , #{usrId}
+        )
+    ]]>
+    </insert>
+
+    <!-- 회원가입 아이디 체크 -->
+    <select id="idCheck" resultType="int">
+        <![CDATA[
+        /*	idCheck	*/
+			SELECT
+				count(*)
+			FROM
+			    USER
+			WHERE
+			    USR_ID = #{id}
+		]]>
+    </select>
+
+    <!-- 유저 테이블 정보 수정 -->
+    <update id="updateUsrProfile" parameterType="SysUsrVO">
+        /*	updateUsrProfile	*/
+        UPDATE
+            USER
+        SET
+            USR_NM = #{usrNm}
+
+        WHERE
+            USR_ID = #{usrId}
+    </update>
+
+    <!-- 유저 상세 테이블 정보 수정 -->
+    <update id="updateUsrDetailProfile" parameterType="SysUsrVO">
+        /*	updateUsrDetailProfile	*/
+        UPDATE
+            USER_DETAIL
+        SET
+            EMAIL = #{email}
+            , USR_DESC = #{usrDesc}
+            , USR_IMG = #{usrImg}
+            , MDF_ID = #{usrId}
+            , MDF_DT = NOW()
+        WHERE
+            USR_ID = #{usrId}
+    </update>
+
+    <!-- 회원탈퇴 비밀번호 확인-->
+    <select id="checkPassword" resultType="SysUsrVO">
+        <![CDATA[
+        /*	checkPassword	*/
+			SELECT
+				USR_PW
+			FROM
+			    USER
+			WHERE
+			    USR_ID = #{usrId}
+		]]>
+    </select>
+
+    <!-- 회원탈퇴 진행 -->
+    <update id="withdrawAccount" parameterType="SysUsrVO">
+        /*	withdrawAccount	*/
+        DELETE FROM
+            USER
+        WHERE
+            USR_ID = #{usrId}
+    </update>
+
+    <!-- 유저 상세조회 (유저 페이지) -->
+    <select id="getUsrDetail" parameterType="SysUsrVO" resultType="SysUsrVO">
+        <![CDATA[
+        /*	getUsrDetail	*/
+            SELECT
+                A.USR_ID
+                , USR_NM
+                , USR_PW
+                , EMAIL
+                , USR_DESC
+                , USR_IMG
+                , REG_DT
+            FROM
+                USER A
+            JOIN
+                USER_DETAIL B ON A.USR_ID = B.USR_ID
+        ]]>
+        <where>
+            <if test="usrId != null and usrId != ''">
+                AND A.USR_ID = #{usrId}
+            </if>
+        </where>
+    </select>
+
+    <!-- 리뷰 수 통계 -->
+    <select id="getReviewStatCnt" parameterType="SysUsrVO" resultType="int">
+        <![CDATA[
+        /*	getReviewStatCnt	*/
+            SELECT
+                COUNT(*)
+            FROM
+                REVIEW
+            WHERE
+                USR_ID = #{usrId}
+        ]]>
+    </select>
+
+    <!-- 코멘트 수 통계 -->
+    <select id="getCommentStatCnt" parameterType="SysUsrVO" resultType="int">
+        <![CDATA[
+        /*	getCommentStatCnt	*/
+            SELECT
+                COUNT(*)
+            FROM
+                COMMENT
+            WHERE
+                USR_ID = #{usrId}
+        ]]>
+    </select>
+
+    <!-- 평균 별점 통계 -->
+    <select id="getRatingStatAvg" parameterType="SysUsrVO" resultType="double">
+        <![CDATA[
+        /*	getRatingStatAvg	*/
+            SELECT
+                COALESCE(ROUND(AVG(RATING), 1), 0.0) AS AVG_RATING
+            FROM
+                RATING
+            WHERE
+                USR_ID = #{usrId}
+        ]]>
+    </select>
+
+    <!-- 유저 평점 데이터 조회 -->
+    <select id="getRatingByUser" parameterType="SysUsrVO" resultType="ReviewVO">
+        <![CDATA[
+        /*	getRatingByUser	*/
+            SELECT
+                R.USR_ID
+                , M.MOVIE_ID
+                , M.TITLE
+                , M.POSTER_PATH
+                , DATE_FORMAT(R.WRT_TIME, '%Y-%m-%d') AS WRT_TIME
+                , R.RATING
+                , DATE_FORMAT(R.WRT_TIME, '%c') AS RATING_MONTH
+            FROM
+                RATING R
+            LEFT JOIN
+                REVIEW A ON R.USR_ID = A.USR_ID AND R.MOVIE_ID = A.MOVIE_ID
+            LEFT JOIN
+                MOVIE M ON M.MOVIE_ID = R.MOVIE_ID
+            ]]>
+            <where>
+                R.USR_ID = #{usrId}
+                <if test="ratingMonth != 0 and ratingMonth != null">
+                    AND DATE_FORMAT(R.WRT_TIME, '%m') = #{ratingMonth}
+                </if>
+            </where>
+        <![CDATA[
+            ORDER BY
+                R.WRT_TIME
+        ]]>
+    </select>
+
+    <!-- 클릭한 영화에 대한 평점 조회 -->
+    <select id="getRatingOne" parameterType="SysUsrVO" resultType="ReviewVO">
+        <![CDATA[
+        /*	getRatingOne	*/
+            SELECT
+                R.USR_ID
+                , M.MOVIE_ID
+                , M.TITLE
+                , M.POSTER_PATH
+                , DATE_FORMAT(R.WRT_TIME, '%c') AS RATING_MONTH
+                , DATE_FORMAT(R.WRT_TIME, '%e') AS RATING_DAY
+                , R.RATING
+            FROM
+                RATING R
+            LEFT JOIN
+                REVIEW A ON R.USR_ID = A.USR_ID AND R.MOVIE_ID = A.MOVIE_ID
+            LEFT JOIN
+                MOVIE M ON M.MOVIE_ID = R.MOVIE_ID
+            WHERE
+                R.USR_ID = #{usrId} AND M.MOVIE_ID = #{movieId}
+        ]]>
+    </select>
+
+    <!-- 유저 리뷰 전체 조회 -->
+    <select id="getUsrReviewList" resultType="ReviewVO" parameterType="SysUsrVO">
+        <![CDATA[
+        /*	getUsrReviewList	*/
+        SELECT
+            A.REVIEW_ID
+            , A.REVIEW_CONTENT
+            , (
+                SELECT COUNT(*)
+                FROM COMMENT
+                WHERE REVIEW_ID = A.REVIEW_ID
+            ) AS COMMENT_CNT
+            , M.MOVIE_ID
+            , M.TITLE
+            , M.RELEASE_YEAR
+            , M.POSTER_PATH
+            , A.WRT_TIME
+        FROM
+            REVIEW A
+        LEFT JOIN
+            RATING B ON A.USR_ID = B.USR_ID AND A.MOVIE_ID = B.MOVIE_ID
+        LEFT JOIN
+            MOVIE M ON A.MOVIE_ID = M.MOVIE_ID
+        ]]>
+        <where>
+            A.USR_ID = #{usrId}
+            <if test="orderType != null and orderType != ''">
+                <if test="orderType == 'title'">
+                    ORDER BY M.TITLE
+                </if>
+                <if test="orderType == 'commentCnt'">
+                    ORDER BY COMMENT_CNT DESC
+                </if>
+            </if>
+            <if test="orderType == null or orderType == ''">
+                ORDER BY A.WRT_TIME DESC
+            </if>
+        </where>
+    </select>
+
+    <!-- 프로필 사진 삭제 -->
+    <update id="deleteUsrImg" parameterType="SysUsrVO">
+        <![CDATA[
+        /*	deleteUsrImg	*/
+			UPDATE
+			    USER_DETAIL
+			SET
+			    USR_IMG = NULL
+			WHERE
+			    USR_ID = #{usrId}
+		]]>
+    </update>
+
+</mapper>

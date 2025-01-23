@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+	<!-- ****** 기본 레이아웃 ****** -->
+	<!-- 기본 빈 레이아웃 설정 -->
+	<definition name="base.none" template="/WEB-INF/static/layout/baseNoneLayout.jsp">
+		<put-attribute name="body" value="/WEB-INF/static/layout/body.jsp" />
+	</definition>
+
+	<!-- 기본 레이아웃 설정 -->
+	<definition name="base.layout" template="/WEB-INF/static/layout/baseLayout.jsp">
+		<put-attribute name="body" value="/WEB-INF/static/layout/body.jsp" />
+	</definition>
+
+	<!-- Ajax 기본 레이아웃 -->
+	<definition name="base.empty" template="/WEB-INF/static/layout/empty.jsp">
+		<put-attribute name="root" value="/WEB-INF/static/layout/body.jsp" />
+	</definition>
+
+	<!-- ****** 메인 ****** -->
+	<definition name="main" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/views/main/main.jsp" />
+	</definition>
+
+	<!-- 다국어 모달 -->
+	<definition name="multiLangModal" extends="base.empty">
+		<put-attribute name="root" value="/WEB-INF/views/main/multiLangModal.jsp" />
+	</definition>
+
+	<!-- ****** 에러 레이아웃 ****** -->
+	<!-- 404 에러 페이지 -->
+	<definition name="error404" extends="base.none">
+		<put-attribute name="body" value="/WEB-INF/views/error/error404.jsp" />
+	</definition>
+
+	<!-- 500 에러 페이지 -->
+	<definition name="error500" extends="base.none">
+		<put-attribute name="body" value="/WEB-INF/views/error/error500.jsp" />
+	</definition>
+
+	<!-- ****** sys > login ****** -->
+	<!-- 로그인 모달 -->
+	<definition name="sysLoginModal" extends="base.empty">
+		<put-attribute name="root" value="/WEB-INF/views/sys/login/sysLoginModal.jsp" />
+	</definition>
+
+	<!-- 로그아웃 모달 -->
+	<definition name="sysLogoutModal" extends="base.empty">
+		<put-attribute name="root" value="/WEB-INF/views/sys/login/sysLogoutModal.jsp" />
+	</definition>
+
+	<!-- 회원가입 모달 -->
+	<definition name="registerModal" extends="base.empty">
+		<put-attribute name="root" value="/WEB-INF/views/sys/login/registerModal.jsp" />
+	</definition>
+
+	<!-- ****** sys > usr ****** -->
+	<!-- 유저 프로필 사진, DROPDOWN 로드 -->
+	<definition name="dropdownAjax" extends="base.empty">
+		<put-attribute name="root" value="/WEB-INF/views/sys/usr/dropdownAjax.jsp" />
+	</definition>
+
+	<!-- 프로필 설정 모달 -->
+	<definition name="settingModal" extends="base.empty">
+		<put-attribute name="root" value="/WEB-INF/views/sys/usr/settingModal.jsp" />
+	</definition>
+
+	<!-- 프로필 조회 -->
+	<definition name="usrProfileAjax" extends="base.empty">
+		<put-attribute name="root" value="/WEB-INF/views/sys/usr/usrProfileAjax.jsp" />
+	</definition>
+
+	<!-- 프로필 이미지 삭제 모달 -->
+	<definition name="deleteImgModal" extends="base.empty">
+		<put-attribute name="root" value="/WEB-INF/views/sys/usr/deleteImgModal.jsp" />
+	</definition>
+
+	<!-- 회원 탈퇴 모달 -->
+	<definition name="withdrawModal" extends="base.empty">
+		<put-attribute name="root" value="/WEB-INF/views/sys/usr/withdrawModal.jsp" />
+	</definition>
+
+	<!-- 유저 페이지 이동 -->
+	<definition name="usrContents" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/views/sys/usr/usrPage/usrContents.jsp" />
+	</definition>
+
+	<!-- 유저 통계 조회 -->
+	<definition name="usrStatisticsAjax" extends="base.empty">
+		<put-attribute name="root" value="/WEB-INF/views/sys/usr/usrPage/usrStatisticsAjax.jsp" />
+	</definition>
+
+	<!-- 유저 캘린더 조회 -->
+	<definition name="usrCalenderAjax" extends="base.empty">
+		<put-attribute name="root" value="/WEB-INF/views/sys/usr/usrPage/usrCalenderAjax.jsp" />
+	</definition>
+
+	<!-- 유저 전체 평점 조회 -->
+	<definition name="usrRatingList" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/views/sys/usr/usrPage/usrRatingList.jsp" />
+	</definition>
+
+	<!-- 유저 리뷰 전체 조회 -->
+	<definition name="usrReviewList" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/views/sys/usr/usrPage/usrReviewList.jsp" />
+	</definition>
+
+	<!-- 유저 리뷰 전체 조회 Ajax -->
+	<definition name="usrReviewListAjax" extends="base.empty">
+		<put-attribute name="root" value="/WEB-INF/views/sys/usr/usrPage/usrReviewListAjax.jsp" />
+	</definition>
+
+	<!-- ****** movie ****** -->
+	<!-- 영화 리스트 조회 -->
+	<definition name="movieListAjax" extends="base.empty">
+		<put-attribute name="root" value="/WEB-INF/views/movie/movieListAjax.jsp" />
+	</definition>
+
+	<!-- 영화 상세 페이지 조회 -->
+	<definition name="movieDetail" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/views/movie/movieDetail.jsp" />
+	</definition>
+
+	<!-- 영화 검색 페이지 조회 -->
+	<definition name="movieSearchList" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/views/movie/movieSearchList.jsp" />
+	</definition>
+
+	<!-- ****** review ****** -->
+	<!-- 리뷰 모달 -->
+	<definition name="reviewModal" extends="base.empty">
+		<put-attribute name="root" value="/WEB-INF/views/review/reviewModal.jsp" />
+	</definition>
+
+	<!-- 리뷰 조회 -->
+	<definition name="myReviewAjax" extends="base.empty">
+		<put-attribute name="root" value="/WEB-INF/views/review/myReviewAjax.jsp" />
+	</definition>
+
+	<!-- 리뷰 삭제 모달 -->
+	<definition name="deleteReviewModal" extends="base.empty">
+		<put-attribute name="root" value="/WEB-INF/views/review/deleteReviewModal.jsp" />
+	</definition>
+
+	<!-- 리뷰 리스트 -->
+	<definition name="reviewListAjax" extends="base.empty">
+		<put-attribute name="root" value="/WEB-INF/views/review/reviewListAjax.jsp" />
+	</definition>
+
+	<!-- 리뷰 상세 조회 -->
+	<definition name="reviewDetail" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/views/review/reviewDetail.jsp" />
+	</definition>
+
+	<!-- 전체 리뷰 리스트 -->
+	<definition name="allReviewList" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/views/review/allReviewList.jsp" />
+	</definition>
+
+	<!-- 리뷰 검색 조회 -->
+	<definition name="allReviewListAjax" extends="base.empty">
+		<put-attribute name="root" value="/WEB-INF/views/review/allReviewListAjax.jsp" />
+	</definition>
+
+	<!-- ****** comment ****** -->
+	<!-- 코멘트 모달 -->
+	<definition name="commentModal" extends="base.empty">
+		<put-attribute name="root" value="/WEB-INF/views/comment/commentModal.jsp" />
+	</definition>
+
+	<!-- 코멘트 리스트 조회 -->
+	<definition name="commentListAjax" extends="base.empty">
+		<put-attribute name="root" value="/WEB-INF/views/comment/commentListAjax.jsp" />
+	</definition>
+
+	<!-- 내 코멘트 조회 -->
+	<definition name="myCommentAjax" extends="base.empty">
+		<put-attribute name="root" value="/WEB-INF/views/comment/myCommentAjax.jsp" />
+	</definition>
+
+	<!-- 코멘트 삭제 모달 -->
+	<definition name="deleteCommentModal" extends="base.empty">
+		<put-attribute name="root" value="/WEB-INF/views/comment/deleteCommentModal.jsp" />
+	</definition>
+
+	<!-- ****** rating ****** -->
+	<!-- 별점 평가 로드 -->
+	<definition name="myRatingAjax" extends="base.empty">
+		<put-attribute name="root" value="/WEB-INF/views/rating/myRatingAjax.jsp" />
+	</definition>
+
+</tiles-definitions>

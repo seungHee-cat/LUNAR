@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project.kr.comment.mapper.CommentMapper">
+
+    <!-- 코멘트 조회 -->
+    <select id="getComment" resultType="CommentVO" parameterType="CommentVO">
+        <![CDATA[
+        /*	getComment	*/
+        SELECT
+            COMMENT_ID
+            , COMMENT_CONTENT
+            , WRT_TIME
+            , C.USR_ID
+            , U.USR_NM
+            , D.USR_IMG
+            , MOVIE_ID
+        FROM
+            COMMENT C
+        LEFT JOIN
+            USER U ON C.USR_ID = U.USR_ID
+        LEFT JOIN
+        	USER_DETAIL D ON C.USR_ID = D.USR_ID
+        WHERE
+            C.USR_ID = #{usrId} AND MOVIE_ID = #{movieId} AND C.REVIEW_ID = #{reviewId}
+        ]]>
+    </select>
+
+    <!-- 코멘트 작성 -->
+    <insert id="insertComment" parameterType="CommentVO">
+        <![CDATA[
+        /*	insertComment	*/
+        INSERT INTO COMMENT
+        (
+            COMMENT_ID
+            , COMMENT_CONTENT
+            , WRT_TIME
+            , REVIEW_ID
+            , USR_ID
+            , MOVIE_ID
+        ) VALUES(
+            #{commentId}
+            , #{commentContent}
+            , NOW()
+            , #{reviewId}
+            , #{usrId}
+            , #{movieId}
+        )
+    ]]>
+    </insert>
+
+    <!-- 코멘트 수정 -->
+    <update id="updateComment" parameterType="CommentVO">
+        <![CDATA[
+        /*	updateComment	*/
+        UPDATE
+            COMMENT
+        SET
+            COMMENT_CONTENT = #{commentContent}
+        WHERE
+            COMMENT_ID = #{commentId}
+        ]]>
+    </update>
+
+    <!-- 코멘트 리스트 조회 -->
+    <select id="getCommentList" resultType="CommentVO" parameterType="CommentVO">
+        <![CDATA[
+        /*	getCommentList	*/
+        SELECT
+            COMMENT_ID
+            , COMMENT_CONTENT
+            , WRT_TIME
+            , REVIEW_ID
+            , A.USR_ID
+            , B.USR_NM
+            , D.USR_IMG
+            , MOVIE_ID
+        FROM
+            COMMENT A
+        LEFT JOIN
+            USER B ON A.USR_ID = B.USR_ID
+        LEFT JOIN
+            USER_DETAIL D ON A.USR_ID = D.USR_ID
+        WHERE
+            REVIEW_ID = #{reviewId} AND MOVIE_ID = #{movieId}
+        ]]>
+    </select>
+
+    <!-- 코멘트 삭제 -->
+    <delete id="deleteComment" parameterType="CommentVO">
+        <![CDATA[
+        /*	deleteComment	*/
+        DELETE FROM
+            COMMENT
+        WHERE
+            COMMENT_ID = #{commentId}
+        ]]>
+    </delete>
+
+</mapper>

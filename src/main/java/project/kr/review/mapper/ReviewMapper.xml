@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project.kr.review.mapper.ReviewMapper">
+
+    <!-- 리뷰 등록 -->
+    <insert id="insertReview" parameterType="ReviewVO">
+        <![CDATA[
+        /*	insertReview	*/
+        INSERT INTO REVIEW
+        (
+              REVIEW_ID
+            , REVIEW_CONTENT
+            , WRT_TIME
+            , USR_ID
+            , MOVIE_ID
+        ) VALUES(
+            #{reviewId}
+            , #{reviewContent}
+            , NOW()
+            , #{usrId}
+            , #{movieId}
+        )
+    ]]>
+    </insert>
+
+    <!-- 리뷰 조회 -->
+    <select id="getReview" resultType="ReviewVO" parameterType="ReviewVO">
+        <![CDATA[
+        /*	getReview	*/
+        SELECT
+            REVIEW_ID
+            , REVIEW_CONTENT
+            , WRT_TIME
+            , VIEWS
+            , USR_ID
+            , MOVIE_ID
+        FROM
+            REVIEW
+        WHERE
+            USR_ID = #{usrId} AND MOVIE_ID = #{movieId}
+        ]]>
+    </select>
+
+    <!-- 리뷰 수정 -->
+    <update id="updateReview" parameterType="ReviewVO">
+        <![CDATA[
+        /*	updateReview	*/
+        UPDATE
+            REVIEW
+        SET
+            REVIEW_CONTENT = #{reviewContent}
+        WHERE
+            REVIEW_ID = #{reviewId}
+        ]]>
+    </update>
+
+    <!-- 리뷰 삭제 -->
+    <delete id="deleteReview" parameterType="ReviewVO">
+        <![CDATA[
+        /*	deleteReview	*/
+        DELETE FROM
+            REVIEW
+        WHERE
+            REVIEW_ID = #{reviewId}
+        ]]>
+    </delete>
+
+    <!-- 삭제 리뷰에 관련된 코멘트 삭제 -->
+    <delete id="deleteComment" parameterType="ReviewVO">
+        <![CDATA[
+        /*	deleteComment	*/
+        DELETE FROM
+            COMMENT
+        WHERE
+            REVIEW_ID = #{reviewId}
+        ]]>
+    </delete>
+
+    <!-- 모든 리뷰 리스트 -->
+    <select id="getReviewList" resultType="ReviewVO" parameterType="ReviewVO">
+        <![CDATA[
+        /*	getReviewList	*/
+        SELECT
+            A.REVIEW_ID
+            , REVIEW_CONTENT
+            , A.WRT_TIME
+            , VIEWS
+            , (
+                SELECT COUNT(*)
+                FROM COMMENT
+                WHERE REVIEW_ID = A.REVIEW_ID
+            ) AS COMMENT_CNT
+            , A.USR_ID
+            , A.MOVIE_ID
+            , B.USR_NM
+            , D.USR_IMG
+            , COALESCE(R.RATING, 0) AS RATING
+        FROM
+            REVIEW A
+        LEFT JOIN
+            USER B ON A.USR_ID = B.USR_ID
+        LEFT JOIN
+	        USER_DETAIL D ON A.USR_ID = D.USR_ID
+        LEFT JOIN
+	        RATING R ON A.USR_ID = R.USR_ID AND A.MOVIE_ID = R.MOVIE_ID
+        ]]>
+        <where>
+            A.MOVIE_ID = #{movieId}
+            <if test="schKeyword != null and schKeyword != ''">
+                <if test="schType == 'reviewContent'">
+                    AND UPPER(REPLACE(REVIEW_CONTENT, ' ', '')) LIKE CONCAT('%', UPPER(REPLACE(#{schKeyword}, ' ', '')), '%')
+                </if>
+                <if test="schType == 'usrNm'">
+                    AND UPPER(REPLACE(B.USR_NM, ' ', '')) LIKE CONCAT('%', UPPER(REPLACE(#{schKeyword}, ' ', '')), '%')
+                </if>
+            </if>
+        </where>
+        <![CDATA[
+            ORDER BY COMMENT_CNT DESC
+        ]]>
+        <if test="limit != null and limit != ''">
+            LIMIT #{limit}
+        </if>
+    </select>
+
+    <!-- 리뷰 상세 조회 -->
+    <select id="getReviewDetail" resultType="ReviewVO" parameterType="ReviewVO">
+        <![CDATA[
+        /*	getReviewDetail	*/
+        SELECT
+            R.REVIEW_ID
+            , REVIEW_CONTENT
+            , R.WRT_TIME
+            , VIEWS
+            , (
+                SELECT COUNT(*)
+                FROM COMMENT
+                WHERE REVIEW_ID = R.REVIEW_ID
+            ) AS COMMENT_CNT
+            , R.USR_ID
+            , U.USR_NM
+            , D.USR_IMG
+            , R.MOVIE_ID
+            , M.TITLE
+            , M.RELEASE_YEAR
+            , M.POSTER_PATH
+            , COALESCE(A.RATING, 0) AS RATING
+        FROM
+            REVIEW R
+        LEFT JOIN
+            MOVIE M ON R.MOVIE_ID = M.MOVIE_ID
+        LEFT JOIN
+            RATING A ON R.USR_ID = A.USR_ID AND R.MOVIE_ID = A.MOVIE_ID
+        LEFT JOIN
+	        USER U ON R.USR_ID = U.USR_ID
+	    LEFT JOIN
+	        USER_DETAIL D ON R.USR_ID = D.USR_ID
+        WHERE
+            R.REVIEW_ID = #{reviewId}
+        ]]>
+    </select>
+
+    <!-- 리뷰 클릭 시 조회수 증가 -->
+    <update id="updateReviewViews" parameterType="ReviewVO">
+        <![CDATA[
+        /*	updateReviewViews	*/
+        UPDATE
+            REVIEW
+        SET
+            VIEWS = VIEWS + 1
+        WHERE
+            REVIEW_ID = #{reviewId}
+        ]]>
+    </update>
+
+</mapper>

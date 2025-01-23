@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project.kr.rating.mapper.RatingMapper">
+
+    <!-- 별점 평가 로드 -->
+    <select id="getRating" resultType="RatingVO" parameterType="RatingVO">
+        <![CDATA[
+        /*	getRating	*/
+        SELECT
+            RATING_ID
+            , RATING
+            , USR_ID
+            , MOVIE_ID
+        FROM
+            RATING
+        WHERE
+            USR_ID = #{usrId} AND MOVIE_ID = #{movieId}
+        ]]>
+    </select>
+
+    <!-- 별점 평가 INSERT -->
+    <insert id="insertRating" parameterType="RatingVO" >
+        <![CDATA[
+        /*	insertRating	*/
+        INSERT IGNORE INTO RATING
+        (
+              RATING_ID
+            , RATING
+            , USR_ID
+            , MOVIE_ID
+            , WRT_TIME
+        ) VALUES(
+            #{ratingId}
+            , #{rating}
+            , #{usrId}
+            , #{movieId}
+            , NOW()
+        )
+    ]]>
+    </insert>
+
+    <!-- 별점 평가 UPDATE -->
+    <update id="updateRating" parameterType="RatingVO">
+        <![CDATA[
+        /*	updateRating	*/
+        UPDATE
+            RATING
+        SET
+            RATING = #{rating}
+        WHERE
+            RATING_ID = #{ratingId}
+        ]]>
+    </update>
+
+    <!-- 별점 평가 DELETE -->
+    <update id="deleteRating" parameterType="RatingVO">
+        <![CDATA[
+        /*	deleteRating	*/
+        DELETE FROM
+            RATING
+        WHERE
+            RATING_ID = #{ratingId}
+        ]]>
+    </update>
+
+</mapper>
