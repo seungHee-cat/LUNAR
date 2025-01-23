@@ -6,14 +6,16 @@
 
 ## 🌟 About the Project  
 개인 프로젝트 **MovieHub**를 리팩토링하여 **LUNAR**로 새롭게 개발하였습니다.  
-이전 프로젝트는 여기에서 확인하실 수 있습니다: [MovieHub GitHub Repository](https://github.com/seungHee-cat/MovieHub)   
+이전 프로젝트는 여기에서 확인하실 수 있습니다 👉 [MovieHub GitHub](https://github.com/seungHee-cat/MovieHub)   
 
-- **Notion**: [LUNAR Documentation](https://javanote.notion.site/LUNAR-184f309ede1980cf85b4c513bba62f77?pvs=4)  
-- **Tistory**: [LUNAR Development Log](https://catbeom.tistory.com/101)  
+- **Notion**[ [LUNAR Notion]](https://javanote.notion.site/LUNAR-184f309ede1980cf85b4c513bba62f77?pvs=4)  
+  - Notion에는 **ERD Cloud**와 **개발 타임라인**에 대한 상세한 내용을 담고 있습니다.
+- **Tistory**[ [LUNAR Blog]](https://catbeom.tistory.com/101)  
+  - Tistory 블로그에는 **상세한 코드 리뷰**와 **페이지 스크린샷**이 기재되어 있습니다.
 
 <br/>
 
-## 🛠️ Development Settings  
+## 🛠️ 개발 환경  
 
 | Setting            | Details               |
 |---------------------|-----------------------|
