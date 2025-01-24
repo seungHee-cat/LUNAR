@@ -11,7 +11,7 @@
 	<groupId>project.kr</groupId>
 	<artifactId>Lunar</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging> <!-- 패키징 타입 -->
+	<packaging>jar</packaging> <!-- 패키징 타입 -->
 	<name>Lunar</name>
 	<description>Explorer your movie journey</description>
 	<build>
