@@ -46,6 +46,7 @@ public class SysUsrService {
         try{
 //            String folder = "C:/Users/hello/IdeaProjects/Lunar/src/main/resources/static/img/usr/"; // window
             String folder = "/Users/shlee/IdeaProjects/Lunar/src/main/resources/static/img/usr/"; // mac
+//            String folder = "/home/ec2-user/apps/LUNAR/src/main/resources/static/img/usr"; // AWS
             MultipartFile uploadFile = vo.getFile();
 
             // 파일 크기 제한

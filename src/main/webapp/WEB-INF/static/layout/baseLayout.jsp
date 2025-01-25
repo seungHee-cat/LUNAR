@@ -223,6 +223,9 @@ function multiLangModal() {
                     <c:when test="${sessionScope.locale == 'en'}">
                         <spring:message code="main.lang.en" />
                     </c:when>
+                    <c:otherwise>
+                        <spring:message code="main.lang.ko" />
+                    </c:otherwise>
                 </c:choose>
                 &nbsp;<i class="fa fa-chevron-circle-down"></i>
             </span>

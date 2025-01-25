@@ -37,6 +37,14 @@ function fn_allReviewList(){
                             ${reviewSize}+&nbsp;<spring:message code="button.review"/>
                         </c:if>
                     </c:when>
+                    <c:otherwise>
+                        <c:if test="${reviewList.size() < 10}">
+                            <spring:message code="button.review"/>&nbsp;${reviewList.size()}
+                        </c:if>
+                        <c:if test="${reviewList.size() > 10}">
+                            <spring:message code="button.review"/>&nbsp;${reviewSize}+
+                        </c:if>
+                    </c:otherwise>
                 </c:choose>
                 <button type="button" onclick="fn_allReviewList();" class="btn fw-bold p-0 border-0 bg-transparent fs-6">
                     <spring:message code="button.more"/>

@@ -72,6 +72,9 @@ function fn_myCommentAjax(){
                         <c:when test="${sessionScope.locale == 'en'}">
                             <div><span>${review.commentCnt}</span>&nbsp;<spring:message code="button.comment"/></div>
                         </c:when>
+                        <c:otherwise>
+                            <div><spring:message code="button.comment"/><span>&nbsp;${review.commentCnt}</span></div>
+                        </c:otherwise>
                     </c:choose>
                 </div>
                 <div class="col-3 p-1 border-5 pointer" style="width: 150px; height: 200px; border: 1px solid lightgray;">
