@@ -23,7 +23,7 @@ $(document).ready( function() {
             <div class="d-flex align-items-center">
                 <c:if test="${comment.usrImg != null && not empty comment.usrImg}">
                     <img class="pointer" style="width: 35px; height: 35px; border-radius: 50%"
-                        src="/img/usr/${comment.usrImg }" onclick="fn_usrContents('${comment.encodedId}');">
+                        src="/file/images/${comment.usrImg }" onclick="fn_usrContents('${comment.encodedId}');">
                 </c:if>
                 <c:if test="${comment.usrImg == null || empty comment.usrImg}">
                     <div class="text-center pointer" onclick="fn_usrContents('${comment.encodedId}');">

@@ -36,7 +36,7 @@ function fn_usrCalenderAjax(){
             <div style="position: relative; height: 170px; background-color: rgb(227 227 227);">
                 <c:if test="${usr.usrImg != null && not empty usr.usrImg}">
                   <img style="position: absolute; left: 15px; top: 30px; width: 175px; height: 175px; border-radius: 50%"
-                      src="/img/usr/${usr.usrImg }">
+                      src="/file/images/${usr.usrImg }">
                 </c:if>
                 <c:if test="${usr.usrImg == null || empty usr.usrImg}">
                   <div class="text-center px-2">

@@ -65,7 +65,7 @@ function fn_allReviewList(){
                                     <div class="d-flex align-items-center">
                                         <c:if test="${review.usrImg != null && not empty review.usrImg}">
                                             <img class="pointer" style="width: 35px; height: 35px; border-radius: 50%"
-                                                src="/img/usr/${review.usrImg }" onclick="fn_usrContents('${review.encodedId}');">
+                                                src="/file/images/${review.usrImg }" onclick="fn_usrContents('${review.encodedId}');">
                                         </c:if>
                                         <c:if test="${review.usrImg == null || empty review.usrImg}">
                                             <div class="text-center pointer" onclick="fn_usrContents('${review.encodedId}');">

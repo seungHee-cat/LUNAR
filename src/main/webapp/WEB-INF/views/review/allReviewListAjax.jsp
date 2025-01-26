@@ -13,7 +13,7 @@
                     <div class="d-flex justify-content-between align-items-center pb-2">
                         <div class="d-flex align-items-center">
                             <c:if test="${review.usrImg != null && not empty review.usrImg}">
-                                <img style="width: 35px; height: 35px; border-radius: 50%" src="/img/usr/${review.usrImg }">
+                                <img style="width: 35px; height: 35px; border-radius: 50%" src="/file/images/${review.usrImg }">
                             </c:if>
                             <c:if test="${review.usrImg == null || empty review.usrImg}">
                                 <div class="text-center">

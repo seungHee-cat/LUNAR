@@ -186,7 +186,7 @@ function js_starRatingAjax(){
                                 <input type="hidden" name="voteCount" value="${movie.voteCount}">
                             </div>
                             <img style="position: absolute; top: 38px; width: 47px; height: 47px; border-radius: 50%"
-                                src="/img/usr/popcorn.png">
+                                src="/file/images/popcorn.png">
                             <!-- Star rating -->
                             <div id="myRatingAjax"></div>
                         </div>

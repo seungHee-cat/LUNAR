@@ -50,7 +50,7 @@ function fn_deleteCommentModal() {
                     <div class="d-flex align-items-center p-2">
                         <c:if test="${myComment.usrImg != null && not empty myComment.usrImg}">
                             <img class="pointer" style="width: 35px; height: 35px; border-radius: 50%"
-                                src="/img/usr/${myComment.usrImg }" onclick="fn_usrContents('${myComment.encodedId}');">
+                                src="/file/images/${myComment.usrImg }" onclick="fn_usrContents('${myComment.encodedId}');">
                         </c:if>
                         <c:if test="${myComment.usrImg == null || empty myComment.usrImg}">
                             <div class="text-center pointer" onclick="fn_usrContents('${myComment.encodedId}');">
@@ -73,7 +73,7 @@ function fn_deleteCommentModal() {
                     </div>
                 </div>
                 <div class="p-2">
-                    <div class="text-Wend" style="color: gray;">${myComment.commentTime}</div>
+                    <div class="text-end" style="color: gray;">${myComment.commentTime}</div>
                 </div>
             </div>
         </div>

@@ -53,7 +53,7 @@ function deleteImgModal() {
         <div style="position: relative;" class="w-50 text-center">
             <c:if test="${usr.usrImg != null && not empty usr.usrImg}">
                 <img style="width: 80px; height: 80px; border-radius: 50%"
-                    src="/img/usr/${usr.usrImg}">
+                    src="/file/images/${usr.usrImg}">
             </c:if>
             <c:if test="${usr.usrImg == null || empty usr.usrImg}">
                 <div class="text-center">

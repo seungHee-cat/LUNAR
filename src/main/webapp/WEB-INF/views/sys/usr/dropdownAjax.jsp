@@ -11,7 +11,7 @@
 <div class="dropdown d-inline-flex align-items-center">
     <c:if test="${usr.usrImg != null && not empty usr.usrImg}">
         <img class="pointer" style="width: 45px; height: 45px; border-radius: 50%"
-            src="/img/usr/${usr.usrImg }" onclick="fn_usrContents('${loginSession.encodedId}');">
+            src="/file/images/${usr.usrImg }" onclick="fn_usrContents('${loginSession.encodedId}');">
     </c:if>
     <c:if test="${usr.usrImg == null || empty usr.usrImg}">
         <div class="text-center pointer">
