@@ -28,7 +28,7 @@ $(document).ready( function() {
         <p style="font-size: 1.5rem; margin-bottom: 2rem;">
             <spring:message code="common.error.none"/>
         </p>
-        <a href="/main" style="font-size: 1.3rem; text-decoration: none;" class="btn btn-outline-info">
+        <a href="/" style="font-size: 1.3rem; text-decoration: none;" class="btn btn-outline-info">
             <spring:message code="common.error.homepage"/>
         </a>
     </div>

@@ -111,7 +111,7 @@ function fn_registerAjax() {
 function fn_registerCallback(data) {
     if(data.ok) {
         fn_showToastMessage(data.message);
-        location.href = "/main";
+        location.href = "/";
     } else {
         fn_showToastMessage(data.message);
     }

@@ -14,7 +14,7 @@ public class MainController implements ErrorController {
     /**
      * 메인 화면 조회
      */
-    @RequestMapping("/main")
+    @RequestMapping("/")
     public String main() {
         return "main";
     }

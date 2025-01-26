@@ -186,7 +186,7 @@ function multiLangModal() {
             <div class="container-fluid">
                 <div class="d-flex align-items-center justify-content-start px-4">
                     <!-- Navbar logo -->
-                    <a href="/main" id="logo" style="text-decoration: none;">LUNAR</a>
+                    <a href="/" id="logo" style="text-decoration: none;">LUNAR</a>
                     <!-- Navbar search -->
                     <div class="d-flex align-items-center">
                         <input class="form-control ms-4 me-2" type="text" id="schTitle" name="schTitle"
