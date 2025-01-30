@@ -65,7 +65,8 @@
             , OVERVIEW
             , POPULARITY
             , GROUP_NUM
-            , PRODUCTION_COUNTRIES
+	    , PRODUCTION_COUNTRIES
+	    , INSERT_TIME
         ) VALUES(
             #{movieId}
             , #{title}
@@ -82,7 +83,8 @@
             , #{overview}
             , #{popularity}
             , #{groupNum}
-            , #{productionCountries}
+	    , #{productionCountries}
+	    , NOW()
         )
     ]]>
     </insert>
