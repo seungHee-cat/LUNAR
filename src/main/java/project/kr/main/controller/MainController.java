@@ -1,7 +1,9 @@
 package project.kr.main.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -11,11 +13,16 @@ import java.util.Locale;
 
 @Controller
 public class MainController implements ErrorController {
+
+    @Value("${file.upload.folder}")
+    private String uploadFolder;
+
     /**
      * 메인 화면 조회
      */
     @RequestMapping("/")
-    public String main() {
+    public String main(Model model) {
+        model.addAttribute("folderPath", uploadFolder);
         return "main";
     }
 

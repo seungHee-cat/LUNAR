@@ -69,10 +69,10 @@ public class ReviewController {
 
             if(result > 0){
                 response.setOk(true);
-                response.setMessage(messageSource.getMessage("success.review.insert", null, Locale.KOREAN));
+                response.setMessage(messageSource.getMessage("success.review.insert", null, Locale.getDefault()));
             } else {
                 response.setOk(false);
-                response.setMessage(messageSource.getMessage("fail.review.insert", null, Locale.KOREAN));
+                response.setMessage(messageSource.getMessage("fail.review.insert", null, Locale.getDefault()));
             }
         // 리뷰 UPDATE
         } else if(vo.getPostType().equals("U")){
@@ -80,10 +80,10 @@ public class ReviewController {
 
             if(result > 0){
                 response.setOk(true);
-                response.setMessage(messageSource.getMessage("success.review.update", null, Locale.KOREAN));
+                response.setMessage(messageSource.getMessage("success.review.update", null, Locale.getDefault()));
             } else {
                 response.setOk(false);
-                response.setMessage(messageSource.getMessage("fail.review.update", null, Locale.KOREAN));
+                response.setMessage(messageSource.getMessage("fail.review.update", null, Locale.getDefault()));
             }
         }
         return response;
@@ -111,10 +111,10 @@ public class ReviewController {
 
         if(result > 0){
             response.setOk(true);
-            response.setMessage(messageSource.getMessage("success.review.delete", null, Locale.KOREAN));
+            response.setMessage(messageSource.getMessage("success.review.delete", null, Locale.getDefault()));
         } else {
             response.setOk(false);
-            response.setMessage(messageSource.getMessage("fail.review.delete", null, Locale.KOREAN));
+            response.setMessage(messageSource.getMessage("fail.review.delete", null, Locale.getDefault()));
         }
         return response;
     }

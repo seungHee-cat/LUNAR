@@ -106,10 +106,10 @@ public class SysLoginController {
 
         if(result > 0){
             response.setOk(true);
-            response.setMessage(messageSource.getMessage("success.register.insert", null, Locale.KOREAN));
+            response.setMessage(messageSource.getMessage("success.register.insert", null, Locale.getDefault()));
         } else {
             response.setOk(false);
-            response.setMessage(messageSource.getMessage("fail.register.insert", null, Locale.KOREAN));
+            response.setMessage(messageSource.getMessage("fail.register.insert", null, Locale.getDefault()));
         }
         return new Response(true);
     }

@@ -67,10 +67,10 @@ public class CommentController {
 
             if(result > 0){
                 response.setOk(true);
-                response.setMessage(messageSource.getMessage("success.comment.insert", null, Locale.KOREAN));
+                response.setMessage(messageSource.getMessage("success.comment.insert", null, Locale.getDefault()));
             } else {
                 response.setOk(false);
-                response.setMessage(messageSource.getMessage("fail.comment.insert", null, Locale.KOREAN));
+                response.setMessage(messageSource.getMessage("fail.comment.insert", null, Locale.getDefault()));
             }
             // 코멘트 UPDATE
         } else if(vo.getPostType().equals("U")){
@@ -78,10 +78,10 @@ public class CommentController {
 
             if(result > 0){
                 response.setOk(true);
-                response.setMessage(messageSource.getMessage("success.comment.update", null, Locale.KOREAN));
+                response.setMessage(messageSource.getMessage("success.comment.update", null, Locale.getDefault()));
             } else {
                 response.setOk(false);
-                response.setMessage(messageSource.getMessage("fail.comment.update", null, Locale.KOREAN));
+                response.setMessage(messageSource.getMessage("fail.comment.update", null, Locale.getDefault()));
             }
         }
         return response;
@@ -139,10 +139,10 @@ public class CommentController {
 
         if(result > 0){
             response.setOk(true);
-            response.setMessage(messageSource.getMessage("success.comment.delete", null, Locale.KOREAN));
+            response.setMessage(messageSource.getMessage("success.comment.delete", null, Locale.getDefault()));
         } else {
             response.setOk(false);
-            response.setMessage(messageSource.getMessage("fail.comment.delete", null, Locale.KOREAN));
+            response.setMessage(messageSource.getMessage("fail.comment.delete", null, Locale.getDefault()));
         }
         return response;
     }

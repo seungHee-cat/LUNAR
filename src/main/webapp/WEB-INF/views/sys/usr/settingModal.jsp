@@ -14,7 +14,7 @@ $(document).ready(function() {
 | 프로필 조회
  --------------------------------------------------------*/
  function fn_usrProfileAjax(){
-    fn_ajaxFrmView("settingFrm", "<c:url value='/sys/usr/usrProfileAjax'/>", "usrProfileDiv");
+    fn_ajaxRoadDiv("<c:url value='/sys/usr/usrProfileAjax'/>", null, "usrProfileDiv");
  }
 
 /*--------------------------------------------------------

@@ -29,17 +29,9 @@ public class Response {
 
 	public Response(boolean isOk, String message)
 	{
-		this(isOk, message, null);
-	}
-
-	public Response(boolean isOk, String message, ArrayList response)
-	{
 		this.isOk = isOk;
 		this.message = message;
-		if (response != null)
-			this.data = response;
-		else
-			this.data = new ArrayList();
+		this.data = new ArrayList();
 	}
 
     public Response(boolean isOk, Object response)

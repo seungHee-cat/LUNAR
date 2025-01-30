@@ -57,10 +57,10 @@ public class RatingController {
 
             if(result > 0){
                 response.setOk(true);
-                response.setMessage(messageSource.getMessage("success.rating.insert", null, Locale.KOREAN));
+                response.setMessage(messageSource.getMessage("success.rating.insert", null, Locale.getDefault()));
             } else {
                 response.setOk(false);
-                response.setMessage(messageSource.getMessage("fail.rating.insert", null, Locale.KOREAN));
+                response.setMessage(messageSource.getMessage("fail.rating.insert", null, Locale.getDefault()));
             }
         // 별점 평가 UPDATE
         } else if(vo.getPostType().equals("U")){
@@ -68,10 +68,10 @@ public class RatingController {
 
             if(result > 0){
                 response.setOk(true);
-                response.setMessage(messageSource.getMessage("success.rating.update", null, Locale.KOREAN));
+                response.setMessage(messageSource.getMessage("success.rating.update", null, Locale.getDefault()));
             } else {
                 response.setOk(false);
-                response.setMessage(messageSource.getMessage("fail.rating.update", null, Locale.KOREAN));
+                response.setMessage(messageSource.getMessage("fail.rating.update", null, Locale.getDefault()));
             }
         }
         return response;
@@ -93,10 +93,10 @@ public class RatingController {
 
         if(result > 0){
             response.setOk(true);
-            response.setMessage(messageSource.getMessage("success.rating.delete", null, Locale.KOREAN));
+            response.setMessage(messageSource.getMessage("success.rating.delete", null, Locale.getDefault()));
         } else {
             response.setOk(false);
-            response.setMessage(messageSource.getMessage("fail.rating.delete", null, Locale.KOREAN));
+            response.setMessage(messageSource.getMessage("fail.rating.delete", null, Locale.getDefault()));
         }
         return response;
     }

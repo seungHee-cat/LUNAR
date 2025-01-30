@@ -84,14 +84,14 @@ public class SysUsrController {
 
         if(result > 0){
             response.setOk(true);
-            response.setMessage(messageSource.getMessage("success.profile.update", null, Locale.KOREAN));
+            response.setMessage(messageSource.getMessage("success.profile.update", null, Locale.getDefault()));
         } else if(result == -2){
             response.setOk(false);
-            response.setMessage(messageSource.getMessage("fail.profile.upload", null, Locale.KOREAN));
+            response.setMessage(messageSource.getMessage("fail.profile.upload", null, Locale.getDefault()));
         }
         else {
             response.setOk(false);
-            response.setMessage(messageSource.getMessage("fail.profile.update", null, Locale.KOREAN));
+            response.setMessage(messageSource.getMessage("fail.profile.update", null, Locale.getDefault()));
         }
         return response;
     }
@@ -119,10 +119,10 @@ public class SysUsrController {
 
         if(result > 0){
             response.setOk(true);
-            response.setMessage(messageSource.getMessage("success.img.delete", null, Locale.KOREAN));
+            response.setMessage(messageSource.getMessage("success.img.delete", null, Locale.getDefault()));
         } else {
             response.setOk(false);
-            response.setMessage(messageSource.getMessage("fail.img.delete", null, Locale.KOREAN));
+            response.setMessage(messageSource.getMessage("fail.img.delete", null, Locale.getDefault()));
         }
         return response;
     }
@@ -168,10 +168,10 @@ public class SysUsrController {
         if(result > 0){
             response.setOk(true);
             session.invalidate(); // 세션 무효화
-            response.setMessage(messageSource.getMessage("success.usr.delete", null, Locale.KOREAN));
+            response.setMessage(messageSource.getMessage("success.usr.delete", null, Locale.getDefault()));
         } else {
             response.setOk(false);
-            response.setMessage(messageSource.getMessage("fail.usr.delete", null, Locale.KOREAN));
+            response.setMessage(messageSource.getMessage("fail.usr.delete", null, Locale.getDefault()));
         }
 
         return response;

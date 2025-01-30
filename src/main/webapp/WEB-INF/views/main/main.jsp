@@ -18,7 +18,7 @@ $(document).ready( function() {
 | 영화 목록 조회
  --------------------------------------------------------*/
 function fn_movieListAjax() {
-    fn_ajaxFrmView("movieFrm", "<c:url value='/movie/movieListAjax'/>", "movieListAjax");
+    fn_ajaxRoadDiv("<c:url value='/movie/movieListAjax'/>", null, "movieListAjax");
 }
 
 </script>

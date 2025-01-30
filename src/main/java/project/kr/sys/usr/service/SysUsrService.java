@@ -2,6 +2,7 @@ package project.kr.sys.usr.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -22,6 +23,9 @@ public class SysUsrService {
 
     @Autowired
     private SysUsrMapper sysUsrMapper;
+
+    @Value("${file.upload.folder}")
+    private String folder;
 
     /**
      * 유저 정보
@@ -44,9 +48,7 @@ public class SysUsrService {
         int result = 1;
 
         try{
-//            String folder = "C:/Users/hello/IdeaProjects/Lunar/src/main/resources/static/img/usr/"; // window
-            // String folder = "/Users/shlee/IdeaProjects/Lunar/src/main/resources/static/img/usr/"; // mac
-            String folder = "/home/ec2-user/apps/project"; // AWS
+            String folderPath = folder;
             MultipartFile uploadFile = vo.getFile();
 
             // 파일 크기 제한
@@ -58,7 +60,7 @@ public class SysUsrService {
             sysUsrMapper.updateUsrProfile(vo);
 
             String originalFilename = uploadFile.getOriginalFilename();
-            File saveFile = new File(folder, originalFilename);
+            File saveFile = new File(folderPath, originalFilename);
 
             // 유저 상세 테이블 정보 수정
             if(vo.getUsrImg() == null || vo.getUsrImg().isEmpty() || !vo.getUsrImg().equals(originalFilename)) {

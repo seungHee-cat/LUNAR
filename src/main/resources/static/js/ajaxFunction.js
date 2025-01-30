@@ -56,31 +56,6 @@ function fn_ajaxRoadDiv(url, params, divName) {
     });
 }
 
-
-/* -------------------------------------------------------
- * name : fn_ajaxFrmView
- * description : 새 form의 ajax 전송 값을 서버에 보내고 divName에 출력한다.
-------------------------------------------------------- */
-function fn_ajaxFrmView(formId, url, divName) {
-    let srcFrm = $("#" + formId);
-    let params = new FormData(srcFrm[0]);
-
-    $.ajax({
-        url: url
-        , type: "POST"
-        , data: params
-        , dataType: "html"
-		, processData: false
-    	, contentType: false
-        , success: function (data) {
-            $("#" + divName).empty();
-            $("#" + divName).append(data);
-        }, error: function () {
-            fn_showToastMessage("An error has occurred.<br/>Please contact the administrator.");
-        }
-    });
-}
-
 /* -------------------------------------------------------
  * name : fn_ajaxSearchView
  * description : ajax 전송 값을 통해 영화 검색 정보를 출력한다.

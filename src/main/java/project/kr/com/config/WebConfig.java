@@ -1,5 +1,6 @@
 package project.kr.com.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
@@ -20,6 +21,9 @@ import java.util.Locale;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
+
+    @Value("${file.upload.folder}")
+    private String folder;
 
     @Bean
     public TilesConfigurer tilesConfigurer() {
@@ -74,7 +78,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void  addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/file/images/**")
-                .addResourceLocations("file:///home/ec2-user/apps/project/");	
+                .addResourceLocations("file:///" + folder);
     }
 
     @Override

@@ -20,13 +20,13 @@
 	--------------------------------------------------------------------
 	-->
 
+    <link rel="icon" href="/file/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/common/common.css'/>" />
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/bootstrap/styles.css'/>" />
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/font-awesome/font-awesome.css'/>" />
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/star-rating/star-rating.css'/>" />
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/jquery-ui/jquery-ui.min.css'/>" />
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/chart/Chart.min.css'/>" />
-
 
 	<!--
 	--------------------------------------------------------------------
