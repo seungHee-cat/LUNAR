@@ -1,17 +1,24 @@
-# LUNAR 🍿  
+# 🚀 LUNAR : Movie Community  
+개인 프로젝트 **MovieHub**를 리팩토링하여 **LUNAR**로 새롭게 개발하였습니다.  
+이전 프로젝트는 여기에서 확인하실 수 있습니다 👉 [MovieHub GitHub](https://github.com/seungHee-cat/MovieHub)  
+<br/>
 > 사용자가 영화에 대한 평점을 기록하고 서로 소통할 수 있는 영화 커뮤니티 사이트입니다.  
-> 왓챠피디아와 로튼토마토에서 영감을 받아 사용자 친화적인 UI를 구현했으며, TMDB API를 연동하여 동적인 데이터를 제공합니다.  
-
+> 왓챠피디아와 로튼토마토에서 영감을 받아 사용자 친화적인 UI를 구현하였으며, TMDB API를 연동하여 실시간으로 업데이트되는 영화 데이터를 제공합니다. 
 <br/>
 
-## 🌟 About the Project  
-개인 프로젝트 **MovieHub**를 리팩토링하여 **LUNAR**로 새롭게 개발하였습니다.  
-이전 프로젝트는 여기에서 확인하실 수 있습니다 👉 [MovieHub GitHub](https://github.com/seungHee-cat/MovieHub)   
+### 🎬 LUNAR를 만나보세요!  
+🌙 ***[LUNAR 바로가기](http://lunarmovie.site/)*** 🌙  
+<br/>
+<br/>
+---
 
-- **Notion**[ [LUNAR Notion]](https://javanote.notion.site/LUNAR-184f309ede1980cf85b4c513bba62f77?pvs=4)  
-  - Notion에는 **ERD Cloud**와 **개발 타임라인**에 대한 상세한 내용을 담고 있습니다.
-- **Tistory**[ [LUNAR Blog]](https://catbeom.tistory.com/101)  
-  - Tistory 블로그에는 **상세한 코드 리뷰**와 **페이지 스크린샷**이 기재되어 있습니다.
+### 📌 프로젝트 문서
+
+- **[Notion](https://javanote.notion.site/LUNAR-184f309ede1980cf85b4c513bba62f77?pvs=4)**   
+  - Notion에는 **ERD Cloud**와 **개발 타임라인**에 대한 상세한 내용을 담고 있습니다.  
+
+- **[Tistory](https://catbeom.tistory.com/101)**  
+  - Tistory 블로그에는 **상세한 코드 리뷰**와 **페이지 스크린샷**이 기재되어 있습니다.  
 
 <br/>
 
@@ -46,7 +53,7 @@
 
 ### 🔑 계정 관련  
 - 로그인, 로그아웃  
-- 회원가입 및 회원탈퇴  
+- 회원가입 유효성 검사 및 회원탈퇴  
 
 ### 📝 리뷰  
 - **리뷰 관리**:  
