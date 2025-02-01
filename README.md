@@ -7,7 +7,7 @@
 <br/>
 
 ### 🎬 LUNAR를 만나보세요!  
-🌙 ***[LUNAR 바로가기](http://lunarmovie.site/)*** 🌙  
+🌙 ***[LUNAR 웹사이트](http://lunarmovie.site/)*** 🌙  
 <br/>
 <br/>
 ---
