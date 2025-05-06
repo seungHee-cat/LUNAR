@@ -55,6 +55,8 @@ $(document).ready( function() {
         if ($(window).scrollTop() === 0) {
             $('#navbar').removeClass('transparent');
             $('#logo').css('color', 'black');
+            $('#home').css('color', 'black');
+            $('#news').css('color', 'black');
             $("#schTitle").css('color', 'black');
             $('#schBtn').css('color', 'black');
             $('#dropdownProfile').css('color', 'black');
@@ -62,6 +64,8 @@ $(document).ready( function() {
         } else {
             $('#navbar').addClass('transparent');
             $('#logo').css('color', 'gray');
+            $('#home').css('color', 'gray');
+            $('#news').css('color', 'gray');
             $('#schTitle').css('color', 'white');
             $('#schBtn').css('color', 'white');
             $('#dropdownProfile').css('color', 'white');
@@ -182,32 +186,45 @@ function multiLangModal() {
     <!-- Header: 로고, 검색, 로그인/유저정보 -->
     <form id="topFrm" name="topFrm">
     <input type="hidden" name="loginUsrId" value="${loginSession.loginUsrId}">
-        <nav id="navbar" class="top-app-bar navbar navbar-expand-sm justify-content-center shadow-sm" style="height: 70px;">
-            <div class="container-fluid">
+        <nav id="navbar" class="top-app-bar navbar navbar-expand-sm shadow-sm" style="height: 70px;">
+            <div class="container-fluid mx-5">
                 <div class="d-flex align-items-center justify-content-start px-4">
-                    <!-- Navbar logo -->
-                    <a href="/" id="logo" style="text-decoration: none;">LUNAR</a>
+                    <div class="d-flex justify-content-between" style="width: 250px;">
+                        <!-- Navbar logo -->
+                        <a href="/" id="logo" style="font-size: 1.2rem; text-decoration: none;">LUNAR</a>
+                        <!-- menu -->
+                        <div class="d-flex justify-content-between align-items-center" style="width: 100px;">
+                            <a href="/" id="home" style="text-decoration: none;"><spring:message code="common.menu.home" /></a>
+                            &nbsp;&nbsp;&nbsp;<span style="color: gray;">|</span>&nbsp;&nbsp;&nbsp;
+                            <div id="news"><spring:message code="common.menu.news" /></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center justify-content-evenly "style="width: 500px;">
                     <!-- Navbar search -->
-                    <div class="d-flex align-items-center">
+                    <div class="position-relative d-flex align-items-center">
                         <input class="form-control ms-4 me-2" type="text" id="schTitle" name="schTitle"
-                            style="position: relative; width: 370px; background-color: transparent;" onKeyup="fn_schListAjax();" >
-                        <button class="btn d-flex align-items-center" type="button" id="schBtn" onclick="fn_movieSchPage();"
-                            style="position: absolute; left: 420px; border: none; font-size: 0.9rem; padding: 0; background-color: transparent;">Search</button>
+                            style="width: 370px; background-color: transparent;" onKeyup="fn_schListAjax();" >
+                        <button class="position-absolute btn d-flex align-items-center" type="button" id="schBtn" onclick="fn_movieSchPage();"
+                            style="right: 20px; border: none; font-size: 0.9rem; padding: 0; background-color: transparent;">
+                                <i class="fa fa-search" style="font-size: 1.2rem; color: gray;" aria-hidden="true"></i>
+                            </button>
                     </div>
                     <!-- 영화 검색 Ajax -->
                     <div id="searchDiv" class="searchDiv">
                         <ul class="search-ul"></ul>
                     </div>
+                    <c:if test="${empty loginSession}">
+                        <!-- LOGIN -->
+                        <a class="nav-link" id="login" onclick="loginModal();">
+                            <spring:message code="button.login" />
+                        </a>
+                    </c:if>
+                    <c:if test="${not empty loginSession}">
+                        <!-- User profile dropdown -->
+                        <div id="dropdownDiv"></div>
+                    </c:if>
                 </div>
-                <div>
-                <c:if test="${empty loginSession}">
-                    <!-- LOGIN -->
-                    <a class="nav-link" id="login" onclick="loginModal();">LOGIN/SIGNUP</a>
-                </c:if>
-                <c:if test="${not empty loginSession}">
-                    <!-- User profile dropdown -->
-                    <div id="dropdownDiv"></div>
-                </c:if>
             </div>
         </nav>
     </form>
