@@ -111,6 +111,12 @@
 		<put-attribute name="root" value="/WEB-INF/views/sys/usr/usrPage/usrReviewListAjax.jsp" />
 	</definition>
 
+	<!-- ****** news ****** -->
+	<!-- 뉴스 리스트 메인 -->
+	<definition name="newsList" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/views/news/newsList.jsp" />
+	</definition>
+
 	<!-- ****** movie ****** -->
 	<!-- 영화 리스트 조회 -->
 	<definition name="movieListAjax" extends="base.empty">

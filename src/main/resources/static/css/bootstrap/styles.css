@@ -4215,26 +4215,28 @@ textarea.form-control-lg {
     background-color: transparent;
 }
 
-#logo, #schBtn, #login {
+#logo, #schBtn, #login, #news {
     transition: color 0.3s ease;
 }
 
-#logo, #schBtn, #login {
+#logo, #schBtn, #login, #news {
     color: black;
 }
 
 #navbar.transparent #logo,
 #navbar.transparent #schBtn,
-#navbar.transparent #login {
+#navbar.transparent #login,
+#navbar.transparent #news{
     color: white;
 }
 
-/* navbar 효과 끝 */
-
 #logo:hover,
-#home:hover{
+#home:hover,
+#news:hover{
     color: black;
 }
+/* navbar 효과 끝 */
+
 
 .card-slider-wrapper {
   width: 80%;

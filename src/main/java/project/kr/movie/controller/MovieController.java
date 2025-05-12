@@ -39,6 +39,9 @@ public class MovieController {
         List<MovieVO> disneyList = movieService.getDisneyList(vo);
         List<MovieVO> wavveList = movieService.getWavveList(vo);
 
+        // 메인 배너 영화
+        model.addAttribute("mainMovie", boxOfficeList.get(0));
+
         if(boxOfficeList != null && !boxOfficeList.isEmpty()) {
             model.addAttribute("boxOfficeList", boxOfficeList);
         }

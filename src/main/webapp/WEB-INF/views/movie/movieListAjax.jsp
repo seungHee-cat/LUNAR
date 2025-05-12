@@ -5,6 +5,27 @@
 
 <script type="text/javascript" src="<c:url value='/js/card.slide.js'/>"></script>
 
+<div class="w-100 mt-1 mb-2">
+    <div class="bg-black pointer d-flex justify-content-evenly align-items-center" style="border-radius: 10px;"
+        onclick="fn_movieDetail(${mainMovie.movieId});">
+        <div class="banner fw-bold" style="color: yellow; font-size: 1.6rem;">${mainMovie.originalTitle}</div>
+
+    <div style="width: 300px; height: 100px; position: relative; z-index: 1;">
+        <!-- 배너 이미지 + 그라데이션 오버레이 -->
+        <img src="${mainMovie.backdropPath}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+            <div style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+                background: linear-gradient(to right, rgba(0,0,0,0.9), transparent 40%, transparent 70%, rgba(0,0,0,0.7));
+            "></div>
+        </div>
+        <div class="banner" style="font-size: 1.6rem; color: yellow;">절찬 상영중!</div>
+    </div>
+</div>
 <!-- 박스오피스 리스트 -->
 <div class="container-xl" style="position: relative;">
     <div class="card-slider-wrapper">

@@ -196,7 +196,9 @@ function multiLangModal() {
                         <div class="d-flex justify-content-between align-items-center" style="width: 100px;">
                             <a href="/" id="home" style="text-decoration: none;"><spring:message code="common.menu.home" /></a>
                             &nbsp;&nbsp;&nbsp;<span style="color: gray;">|</span>&nbsp;&nbsp;&nbsp;
-                            <div id="news"><spring:message code="common.menu.news" /></div>
+                            <a href="/news" id="news" style="color: black; text-decoration: none">
+                                <spring:message code="common.menu.news" />
+                            </a>
                         </div>
                     </div>
                 </div>
