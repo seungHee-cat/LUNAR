@@ -1,5 +1,4 @@
-const boxofficeSlide = 300.5; // 박스오피스 최대 이동 비율
-const otherSlide = 500.5; // 나머지 최대 이동 비율
+const cardSlideMax = 300.5; // 최대 이동 비율
 const step = 100.5; // 한 번 이동할 때의 비율
 
 function updateSliderPosition(movieType, index) {
@@ -13,7 +12,14 @@ function updateSliderPosition(movieType, index) {
 
   } else if (movieType === 'watcha'){
     wrapper = document.querySelector('.watcha-card-slider');
+
+  } else if (movieType === 'disney'){
+    wrapper = document.querySelector('.disney-card-slider');
+
+  } else if (movieType === 'wavve'){
+    wrapper = document.querySelector('.wavve-card-slider');
   }
+
   wrapper.style.transform = `translateX(-${index * step}%)`;
 
 }
@@ -32,7 +38,7 @@ boxofficePrevBtn.addEventListener('click', function() {
 });
 
 boxofficeNextBtn.addEventListener('click', function() {
-  if (boxofficeIndex * step < boxofficeSlide) {
+  if (boxofficeIndex * step < cardSlideMax) {
       boxofficeIndex++;
       updateSliderPosition('boxoffice', boxofficeIndex);
   }
@@ -52,7 +58,7 @@ netflixPrevBtn.addEventListener('click', function() {
 });
 
 netflixNextBtn.addEventListener('click', function() {
-  if (netflixIndex * step < otherSlide) {
+  if (netflixIndex * step < cardSlideMax) {
       netflixIndex++;
       updateSliderPosition('netflix', netflixIndex);
   }
@@ -72,8 +78,48 @@ watchaPrevBtn.addEventListener('click', function() {
 });
 
 watchaNextBtn.addEventListener('click', function() {
-  if (watchaIndex * step < otherSlide) {
+  if (watchaIndex * step < cardSlideMax) {
       watchaIndex++;
       updateSliderPosition('watcha', watchaIndex);
+  }
+});
+
+/* disney */
+let disneyIndex = 0;
+const disneyCardsWrapper = document.querySelector('.disney-card-slider');
+const disneyPrevBtn = document.querySelector('.disney-prev-btn');
+const disneyNextBtn = document.querySelector('.disney-next-btn');
+
+disneyPrevBtn.addEventListener('click', function() {
+  if (disneyIndex > 0) {
+      disneyIndex--;
+      updateSliderPosition('disney', disneyIndex);
+  }
+});
+
+disneyNextBtn.addEventListener('click', function() {
+  if (disneyIndex * step < cardSlideMax) {
+      disneyIndex++;
+      updateSliderPosition('disney', disneyIndex);
+  }
+});
+
+/* wavve */
+let wavveIndex = 0;
+const wavveCardsWrapper = document.querySelector('.wavve-card-slider');
+const wavvePrevBtn = document.querySelector('.wavve-prev-btn');
+const wavveNextBtn = document.querySelector('.wavve-next-btn');
+
+wavvePrevBtn.addEventListener('click', function() {
+  if (wavveIndex > 0) {
+      wavveIndex--;
+      updateSliderPosition('wavve', wavveIndex);
+  }
+});
+
+wavveNextBtn.addEventListener('click', function() {
+  if (wavveIndex * step < cardSlideMax) {
+      wavveIndex++;
+      updateSliderPosition('wavve', wavveIndex);
   }
 });

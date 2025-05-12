@@ -31,8 +31,8 @@ public class MovieService {
         vo.setGroupNum(1); // 박스오피스 groupNum
 
         movieMapper.getMovieListCnt(vo);
-        List<MovieVO> boxOfficeList = movieMapper.getMovieList(vo);
-        return boxOfficeList;
+        List<MovieVO> list = movieMapper.getMovieList(vo);
+        return list;
     }
 
     /**
@@ -42,8 +42,8 @@ public class MovieService {
         vo.setGroupNum(2); // 넷플릭스 groupNum
 
         movieMapper.getMovieListCnt(vo);
-        List<MovieVO> netflixList = movieMapper.getMovieList(vo);
-        return netflixList;
+        List<MovieVO> list = movieMapper.getMovieList(vo);
+        return list;
     }
 
     /**
@@ -53,8 +53,30 @@ public class MovieService {
         vo.setGroupNum(3); // 왓챠 groupNum
 
         movieMapper.getMovieListCnt(vo);
-        List<MovieVO> watchaList = movieMapper.getMovieList(vo);
-        return watchaList;
+        List<MovieVO> list = movieMapper.getMovieList(vo);
+        return list;
+    }
+
+    /**
+     * 디즈니 플러스 목록 조회
+     */
+    public List<MovieVO> getDisneyList(MovieVO vo) {
+        vo.setGroupNum(4); // 디즈니플러스 groupNum
+
+        movieMapper.getMovieListCnt(vo);
+        List<MovieVO> list = movieMapper.getMovieList(vo);
+        return list;
+    }
+
+    /**
+     * 웨이브 목록 조회
+     */
+    public List<MovieVO> getWavveList(MovieVO vo) {
+        vo.setGroupNum(5); // 웨이브 groupNum
+
+        movieMapper.getMovieListCnt(vo);
+        List<MovieVO> list = movieMapper.getMovieList(vo);
+        return list;
     }
 
     /**
@@ -66,7 +88,7 @@ public class MovieService {
     }
 
     /**
-     * 영화 검색리스트 Ajax 조회
+     * 영화 검색 리스트 Ajax 조회
      */
     public List<MovieVO> getMovieSchListAjax(MovieVO vo) {
         List<MovieVO> movieList = movieMapper.getMovieSchListAjax(vo);
@@ -76,22 +98,38 @@ public class MovieService {
     /**
      *  스케줄러를 적용하여 매일 오후 15시마다 영화 DB 업데이트
      */
-    @Scheduled(cron = "0 0 15 * * *")
+    @Scheduled(cron = "0 59 13 * * *")
     public void updateMovieList(){
         /* MOVIE SETTING START */
-        final String API_KEY = "729201bdf1f62b5e99c9816a70e5d445";
+        final String ApiKey = "729201bdf1f62b5e99c9816a70e5d445";
         List<String> apiURL_list = new ArrayList<>();
         List<Integer> movieIdLists = new ArrayList<>();
         List<String> detailLists = new ArrayList<>();
 
+        final Integer NetflixApiKey = 8;
+        final Integer WatchaApiKey = 97;
+        final Integer DisneyPlusApiKey = 337;
+        final Integer WavveApiKey = 356;
+
+        // Now Playing
         apiURL_list.add("https://api.themoviedb.org/3/movie/now_playing?api_key="
-                + API_KEY+"&language=ko-KR&page=1");
+                + ApiKey +"&language=ko-KR&page=1&region=KR");
 
+        // Netflix
         apiURL_list.add("https://api.themoviedb.org/3/discover/movie?api_key="
-                + API_KEY+"&language=ko-KR&page=1&sort_by=popularity.desc&watch_region=KR&with_watch_providers=8");
+                + ApiKey +"&language=ko-KR&page=1&sort_by=popularity.desc&watch_region=KR&with_watch_providers="+NetflixApiKey);
 
+        // Watcha
         apiURL_list.add("https://api.themoviedb.org/3/discover/movie?api_key="
-                + API_KEY+"&language=ko-KR&page=1&sort_by=popularity.desc&watch_region=KR&with_watch_providers=97");
+                + ApiKey +"&language=ko-KR&page=1&sort_by=popularity.desc&watch_region=KR&with_watch_providers="+WatchaApiKey);
+
+        // Disney Plus
+        apiURL_list.add("https://api.themoviedb.org/3/discover/movie?api_key="
+                + ApiKey +"&language=ko-KR&page=1&sort_by=popularity.desc&watch_region=KR&with_watch_providers="+DisneyPlusApiKey);
+
+        // Wavve
+        apiURL_list.add("https://api.themoviedb.org/3/discover/movie?api_key="
+                + ApiKey +"&language=ko-KR&page=1&sort_by=popularity.desc&watch_region=KR&with_watch_providers="+WavveApiKey);
 
         StringBuilder detailStringBuilder = new StringBuilder();
 
@@ -111,14 +149,18 @@ public class MovieService {
                     int movieId = contents.getInt("id");
                     movieIdLists.add(movieId);
                     detailStringBuilder.append("https://api.themoviedb.org/3/movie/").append(movieIdLists.get(j))
-                            .append("?api_key=").append(API_KEY).append("&language=ko-KR").append("\n");
+                            .append("?api_key=").append(ApiKey).append("&language=ko-KR").append("\n");
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         detailLists.addAll(Arrays.asList(detailStringBuilder.toString().split("\n")));
+
+        // movie_group delete
+        movieMapper.deleteAllMovieGroups();
         getDetailMovie(detailLists);
+
         /* MOVIE SETTING END */
     }
 
@@ -128,8 +170,9 @@ public class MovieService {
     public void getDetailMovie(List<String> detailLists) {
         final String API_KEY = "729201bdf1f62b5e99c9816a70e5d445";
         final String prefix_url = "https://image.tmdb.org/t/p/original";
+        List<Integer> providerGroupNums = Arrays.asList(1, 2, 3, 4, 5); // OTT별 groupNum
         JSONObject detailObject = null;
-        int result = 0;
+        int index = 0;
 
         for(String detailURLString : detailLists) {
             try {
@@ -150,7 +193,10 @@ public class MovieService {
                 movie.setTagline(detailObject.getString("tagline"));
                 movie.setOverview(detailObject.getString("overview"));
                 movie.setPopularity(detailObject.getDouble("popularity"));
-                movie.setGroupNum((detailLists.indexOf(detailURLString) / 20) + 1);
+
+                int groupIndex = index / 20;
+                int groupNum = providerGroupNums.get(groupIndex);
+                int movieRank = (index % 20) + 1;
 
                 int runtime = detailObject.getInt("runtime");
                 int runtime_hour = runtime / 60;
@@ -178,7 +224,8 @@ public class MovieService {
                 List<String> isoList = getIsoList(API_KEY);
                 List<String> nativeNameList = getNativeNameList(API_KEY);
                 for(int i=0; i<isoList.size(); i++) {
-                    if(iso_3166_1.contains(isoList.get(i))) {
+                    if(iso_3166_1.contains(isoList.
+                            get(i))) {
                         iso_3166_1 = iso_3166_1.replace(isoList.get(i), nativeNameList.get(i));
                     }
                 }
@@ -195,8 +242,13 @@ public class MovieService {
                     }
                 }
                 movie.setGenreIds(genre);
+
                 // movie insert
-                result = movieMapper.insertMovie(movie);
+                movieMapper.insertMovie(movie);
+
+                // movie_group insert
+                movieMapper.insertMovieGroup(movie.getMovieId(), groupNum, movieRank);
+                index++;
 
             }catch(Exception e) {
                 e.printStackTrace();

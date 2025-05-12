@@ -18,6 +18,16 @@ public interface MovieMapper {
     int insertMovie(MovieVO vo);
 
     /**
+     * 영화 그룹 insert
+     */
+    int insertMovieGroup(int movieId, int groupNum, int movieRank);
+
+    /**
+     * 영화 그룹 전체 delete
+     */
+    int deleteAllMovieGroups();
+
+    /**
      * 영화 목록 개수 조회
      */
     void getMovieListCnt(MovieVO vo);

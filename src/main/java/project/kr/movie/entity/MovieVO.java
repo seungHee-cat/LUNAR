@@ -7,6 +7,10 @@ public class MovieVO {
     /* Search */
     private String schTitle 	            = null;	// 제목검색
 
+    /* Movie Group */
+    private Integer groupNum                = 0;	// 영화그룹구분
+    private Integer movieRank               = 0;    // 영화랭킹
+
     private Integer movieId                 = 0;	// 영화아이디 (PK)
     private String title                    = null;	// 영화제목
     private String backdropPath             = null;	// 배경이미지경로
@@ -22,7 +26,6 @@ public class MovieVO {
     private String tagline                  = null;	// 영화한줄소개
     private String overview                 = null;	// 줄거리
     private Double popularity               = 0.0;	// 인기도
-    private Integer groupNum                = 0;	// 영화그룹구분∑
     private String productionCountries      = null;	// 제작국가
 
 }

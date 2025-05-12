@@ -4253,7 +4253,9 @@ textarea.form-control-lg {
 
 .boxoffice-card-slider,
 .netflix-card-slider,
-.watcha-card-slider{
+.watcha-card-slider,
+.disney-card-slider,
+.wavve-card-slider{
   display: flex;
   transition: transform 0.3s ease;
 }
@@ -4264,7 +4266,9 @@ textarea.form-control-lg {
 
 button.boxoffice-prev-btn, button.boxoffice-next-btn,
 button.netflix-prev-btn, button.netflix-next-btn,
-button.watcha-prev-btn, button.watcha-next-btn{
+button.watcha-prev-btn, button.watcha-next-btn,
+button.disney-prev-btn, button.disney-next-btn,
+button.wavve-prev-btn, button.wavve-next-btn{
   position: absolute;
   top: 50%;
   height: 35px;
@@ -4282,13 +4286,17 @@ button.watcha-prev-btn, button.watcha-next-btn{
 
 button.boxoffice-prev-btn,
 button.netflix-prev-btn,
-button.watcha-prev-btn {
+button.watcha-prev-btn,
+button.disney-prev-btn,
+button.wavve-prev-btn{
   left: 9%;
 }
 
 button.boxoffice-next-btn,
 button.netflix-next-btn,
-button.watcha-next-btn {
+button.watcha-next-btn,
+button.disney-next-btn,
+button.wavve-next-btn{
   right: 10%;
 }
 

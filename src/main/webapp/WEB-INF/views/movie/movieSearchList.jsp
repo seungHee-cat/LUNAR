@@ -79,4 +79,50 @@
             </div>
         </div>
     </c:if>
+    <c:if test="${not empty disneyList }">
+            <!-- 디즈니플러스 검색결과 -->
+            <div class="d-flex flex-column my-5 p-4" style="background-color: white;">
+                <div class="fw-bold"><span class="text-danger" style="padding-right: 5px;">|</span><spring:message code="movie.text.disney"/></div>
+                <div class="d-flex flex-column my-3">
+                    <c:forEach var="movie" items="${disneyList }">
+                        <div class="d-flex align-items-center py-3 pointer" onclick="fn_movieDetail(${movie.movieId});"
+                            style="border-top: 1px solid lightgray;">
+                            <div class="p-3">
+                                <fmt:formatNumber type="number" maxFractionDigits="0" value="${movie.voteAverage / 5.0 * 100}" />%
+                            </div>
+                            <div style="padding: 0;">
+                                <img src="${movie.posterPath}" class="border-5" style="width: 90px; height: 120px;" alt="${movie.title}">
+                            </div>
+                            <div class="mx-3">
+                                <h5 class="fw-bold" style="font-size: 1.0rem; word-break: auto-phrase;">${movie.title } (${movie.releaseYear})</h5>
+                                <p>${movie.genreIds}</p>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </div>
+            </div>
+        </c:if>
+        <c:if test="${not empty wavveList }">
+                <!-- 웨이브 검색결과 -->
+                <div class="d-flex flex-column my-5 p-4" style="background-color: white;">
+                    <div class="fw-bold"><span class="text-danger" style="padding-right: 5px;">|</span><spring:message code="movie.text.wavve"/></div>
+                    <div class="d-flex flex-column my-3">
+                        <c:forEach var="movie" items="${wavveList }">
+                            <div class="d-flex align-items-center py-3 pointer" onclick="fn_movieDetail(${movie.movieId});"
+                                style="border-top: 1px solid lightgray;">
+                                <div class="p-3">
+                                    <fmt:formatNumber type="number" maxFractionDigits="0" value="${movie.voteAverage / 5.0 * 100}" />%
+                                </div>
+                                <div style="padding: 0;">
+                                    <img src="${movie.posterPath}" class="border-5" style="width: 90px; height: 120px;" alt="${movie.title}">
+                                </div>
+                                <div class="mx-3">
+                                    <h5 class="fw-bold" style="font-size: 1.0rem; word-break: auto-phrase;">${movie.title } (${movie.releaseYear})</h5>
+                                    <p>${movie.genreIds}</p>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
+            </c:if>
 </div>

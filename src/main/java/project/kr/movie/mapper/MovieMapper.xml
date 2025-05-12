@@ -7,7 +7,7 @@
         <![CDATA[
         /*	getMovieList  */
             SELECT
-                MOVIE_ID
+                M.MOVIE_ID
                 , TITLE
                 , BACKDROP_PATH
                 , GENRE_IDS
@@ -21,13 +21,18 @@
                 , TAGLINE
                 , OVERVIEW
                 , POPULARITY
-                , GROUP_NUM
+                , MG.GROUP_NUM
                 , PRODUCTION_COUNTRIES
-            FROM MOVIE
+            FROM
+                MOVIE M
+            JOIN
+                MOVIE_GROUP MG
+            ON
+                M.MOVIE_ID = MG.MOVIE_ID
         ]]>
         <where>
             <if test="groupNum != null and groupNum != ''">
-                AND GROUP_NUM = #{groupNum}
+                AND MG.GROUP_NUM = #{groupNum}
             </if>
             <if test="schTitle != null and schTitle != ''">
                 AND UPPER(REPLACE(TITLE, ' ', '')) LIKE CONCAT('%', UPPER(REPLACE(#{schTitle}, ' ', '')), '%')
@@ -36,12 +41,6 @@
         <![CDATA[
             ORDER BY POPULARITY DESC
         ]]>
-        <if test="groupNum == 1">
-            LIMIT 20
-        </if>
-        <if test="groupNum != 1">
-            LIMIT 30
-        </if>
     </select>
 
     <!-- 영화 목록 추가 -->
@@ -64,9 +63,8 @@
             , TAGLINE
             , OVERVIEW
             , POPULARITY
-            , GROUP_NUM
-	    , PRODUCTION_COUNTRIES
-	    , INSERT_TIME
+            , PRODUCTION_COUNTRIES
+            , INSERT_TIME
         ) VALUES(
             #{movieId}
             , #{title}
@@ -82,12 +80,37 @@
             , #{tagline}
             , #{overview}
             , #{popularity}
-            , #{groupNum}
-	    , #{productionCountries}
-	    , NOW()
+            , #{productionCountries}
+            , NOW()
         )
     ]]>
     </insert>
+
+    <!-- 영화 그룹 insert -->
+    <insert id="insertMovieGroup" parameterType="MovieVO" >
+        <![CDATA[
+        /*	insertMovieGroup	*/
+        INSERT INTO MOVIE_GROUP
+        (
+              MOVIE_ID
+            , GROUP_NUM
+            , MOVIE_RANK
+        ) VALUES(
+            #{movieId}
+            , #{groupNum}
+            , #{movieRank}
+        )
+    ]]>
+    </insert>
+
+    <!-- 영화 그룹 전체 delete -->
+    <delete id="deleteAllMovieGroups">
+        <![CDATA[
+        /*	deleteAllMovieGroups	*/
+            DELETE FROM
+                MOVIE_GROUP
+        ]]>
+    </delete>
 
     <!-- 영화 목록 개수 조회 -->
     <select id="getMovieListCnt" parameterType="MovieVO" resultType="Integer">
@@ -96,11 +119,13 @@
             SELECT
                 COUNT(*)
             FROM
-                MOVIE
+                MOVIE M
+            JOIN
+                MOVIE_GROUP MG
+            ON
+                M.MOVIE_ID = MG.MOVIE_ID
             WHERE
-                GROUP_NUM = #{groupNum}
-            ORDER BY
-                POPULARITY
+                MG.GROUP_NUM = #{groupNum}
         ]]>
     </select>
 
@@ -109,7 +134,7 @@
         <![CDATA[
         /*	getMovieDetail	*/
             SELECT
-              MOVIE_ID
+              M.MOVIE_ID
                 , TITLE
                 , BACKDROP_PATH
                 , GENRE_IDS
@@ -123,16 +148,22 @@
                 , TAGLINE
                 , OVERVIEW
                 , POPULARITY
-                , GROUP_NUM
                 , PRODUCTION_COUNTRIES
             FROM
-                MOVIE
+                MOVIE M
+            JOIN
+                MOVIE_GROUP MG
+            ON
+                M.MOVIE_ID = MG.MOVIE_ID
         ]]>
         <where>
             <if test="movieId != null and movieId != ''">
-                AND MOVIE_ID = #{movieId}
+                AND M.MOVIE_ID = #{movieId}
             </if>
         </where>
+        <![CDATA[
+            LIMIT 1
+        ]]>
     </select>
 
     <!-- 영화 검색 조회 -->
