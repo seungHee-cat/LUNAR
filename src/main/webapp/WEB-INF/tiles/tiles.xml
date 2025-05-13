@@ -111,10 +111,15 @@
 		<put-attribute name="root" value="/WEB-INF/views/sys/usr/usrPage/usrReviewListAjax.jsp" />
 	</definition>
 
-	<!-- ****** news ****** -->
-	<!-- 뉴스 리스트 메인 -->
-	<definition name="newsList" extends="base.layout">
-		<put-attribute name="body" value="/WEB-INF/views/news/newsList.jsp" />
+	<!-- ****** board ****** -->
+	<!-- 게시판 리스트 메인 -->
+	<definition name="board" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/views/board/boardList.jsp" />
+	</definition>
+
+	<!-- 게시판 작성 화면 조회 -->
+	<definition name="boardPost" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/views/board/boardPost.jsp" />
 	</definition>
 
 	<!-- ****** movie ****** -->

@@ -20,7 +20,7 @@
                 width: 100%;
                 height: 100%;
                 border-radius: 10px;
-                background: linear-gradient(to right, rgba(0,0,0,0.9), transparent 40%, transparent 70%, rgba(0,0,0,0.7));
+                background: linear-gradient(to right, rgba(0,0,0,0.9), transparent 40%, transparent 70%, rgba(0,0,0,0.9));
             "></div>
         </div>
         <div class="banner" style="font-size: 1.6rem; color: yellow;">절찬 상영중!</div>

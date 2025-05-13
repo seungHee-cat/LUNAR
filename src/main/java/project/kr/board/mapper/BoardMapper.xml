@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project.kr.board.mapper.BoardMapper">
+
+    <!-- 게시글 작성 -->
+    <insert id="insertBoardPost" parameterType="BoardVO">
+        <![CDATA[
+        /*	insertBoardPost	*/
+        INSERT INTO BOARD
+        (
+            TITLE
+            , CONTENT
+            , USR_ID
+        ) VALUES(
+            #{title}
+            , #{content}
+            , #{usrId}
+        )
+    ]]>
+    </insert>
+
+</mapper>

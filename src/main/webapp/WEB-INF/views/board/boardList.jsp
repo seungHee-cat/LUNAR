@@ -3,16 +3,32 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<script type="text/javascript" src="<c:url value='/js/card.slide.js'/>"></script>
+<script type="text/javascript">
 
 $(document).ready( function() {
 
 });
 
-<form id="newsListFrm" name="newsListFrm">
-<div class="container-xl p-5">
-    <div class="m-5">
-        <h4 class="fw-bold">공지사항</h4>
+/*--------------------------------------------------------
+| 게시글 작성 화면 조회
+ --------------------------------------------------------*/
+function fn_boardPost() {
+    location.href = "<c:url value='/board/post'/>";
+}
+
+</script>
+
+<form id="boardListFrm" name="boardListFrm">
+<div class="container-xl pt-5 p-3">
+    <div class="d-flex justify-content-between mt-5">
+        <div class="ms-3">
+            <h4 class="fw-bold">공지사항</h4>
+        </div>
+        <div class="">
+            <button type="button" onclick="fn_boardPost();" class="btn btn-outline-secondary justify-content-center">
+                <spring:message code="button.boardPost"/>
+            </button>
+        </div>
     </div>
     <table class="w-100 text-center bg-white">
         <thead>
@@ -20,7 +36,6 @@ $(document).ready( function() {
                 <th>번호</th>
                 <th>제목</th>
                 <th>날짜</th>
-                <th>조회수</th>
             </tr>
         </thead>
         <tbody>

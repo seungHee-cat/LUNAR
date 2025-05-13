@@ -27,6 +27,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/star-rating/star-rating.css'/>" />
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/jquery-ui/jquery-ui.min.css'/>" />
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/chart/Chart.min.css'/>" />
+    <link rel="stylesheet" type="text/css" href="<c:url value='/css/summernote/summernote-bs5.min.css'/>" />
 
 	<!--
 	--------------------------------------------------------------------
@@ -42,6 +43,7 @@
     <script type="text/javascript" src="<c:url value='/js/ajaxFunction.js'/>"></script>
 	<script type="text/javascript" src="<c:url value='/js/modal.js'/>"></script>
 	<script type="text/javascript" src="<c:url value='/js/toast.js'/>"></script>
+	<script type="text/javascript" src="<c:url value='/js/summernote-bs5.min.js'/>"></script>
 
 </head>
 <script type="text/javascript">
@@ -56,7 +58,7 @@ $(document).ready( function() {
             $('#navbar').removeClass('transparent');
             $('#logo').css('color', 'black');
             $('#home').css('color', 'black');
-            $('#news').css('color', 'black');
+            $('#board').css('color', 'black');
             $("#schTitle").css('color', 'black');
             $('#schBtn').css('color', 'black');
             $('#dropdownProfile').css('color', 'black');
@@ -65,7 +67,7 @@ $(document).ready( function() {
             $('#navbar').addClass('transparent');
             $('#logo').css('color', 'gray');
             $('#home').css('color', 'gray');
-            $('#news').css('color', 'gray');
+            $('#board').css('color', 'gray');
             $('#schTitle').css('color', 'white');
             $('#schBtn').css('color', 'white');
             $('#dropdownProfile').css('color', 'white');
@@ -196,8 +198,8 @@ function multiLangModal() {
                         <div class="d-flex justify-content-between align-items-center" style="width: 100px;">
                             <a href="/" id="home" style="text-decoration: none;"><spring:message code="common.menu.home" /></a>
                             &nbsp;&nbsp;&nbsp;<span style="color: gray;">|</span>&nbsp;&nbsp;&nbsp;
-                            <a href="/news" id="news" style="color: black; text-decoration: none">
-                                <spring:message code="common.menu.news" />
+                            <a href="/board" id="board" style="color: black; text-decoration: none">
+                                <spring:message code="common.menu.board" />
                             </a>
                         </div>
                     </div>

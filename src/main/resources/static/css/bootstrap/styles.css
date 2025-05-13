@@ -4215,24 +4215,24 @@ textarea.form-control-lg {
     background-color: transparent;
 }
 
-#logo, #schBtn, #login, #news {
+#logo, #schBtn, #login, #board {
     transition: color 0.3s ease;
 }
 
-#logo, #schBtn, #login, #news {
+#logo, #schBtn, #login, #board {
     color: black;
 }
 
 #navbar.transparent #logo,
 #navbar.transparent #schBtn,
 #navbar.transparent #login,
-#navbar.transparent #news{
+#navbar.transparent #board{
     color: white;
 }
 
 #logo:hover,
 #home:hover,
-#news:hover{
+#board:hover{
     color: black;
 }
 /* navbar 효과 끝 */

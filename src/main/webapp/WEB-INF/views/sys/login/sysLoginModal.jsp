@@ -50,7 +50,7 @@ function fn_loginCallback(data) {
         <div class="container">
             <div class="d-flex flex-column">
                 <div class="form-floating mb-3">
-                    <input class="form-control" id="usrId" name="usrId" type="text" placeholder="아이디를 입력해주세요." value="test1" />
+                    <input class="form-control" id="usrId" name="usrId" type="text" placeholder="아이디를 입력해주세요." value="admin" />
                 </div>
                 <div class="form-floating mb-3">
                     <input class="form-control" id="usrPw" name="usrPw" type="password" placeholder="비밀번호를 입력해주세요." value="google1234!" />
