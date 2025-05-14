@@ -5,11 +5,27 @@ import org.springframework.stereotype.Service;
 import project.kr.board.entity.BoardVO;
 import project.kr.board.mapper.BoardMapper;
 
+import java.util.List;
+
 @Service
 public class BoardService {
 
     @Autowired
-    BoardMapper boardapper;
+    BoardMapper boardMapper;
+
+    /**
+     * 게시글 리스트 조회
+     */
+    public List<BoardVO> getBoardList(BoardVO vo) {
+        return boardMapper.getBoardList(vo);
+    }
+
+    /**
+     * 게시글 상세 페이지 조회
+     */
+    public BoardVO getBoardDetail(BoardVO vo) {
+        return boardMapper.getBoardDetail(vo);
+    }
 
     /**
      * 게시글 작성
@@ -17,7 +33,21 @@ public class BoardService {
     public int insertBoardPost(BoardVO vo) {
         int result = 1;
         try{
-            boardapper.insertBoardPost(vo);
+            boardMapper.insertBoardPost(vo);
+        } catch (Exception e) {
+            e.printStackTrace();
+            result = -1;
+        }
+        return result;
+    }
+
+    /**
+     * 게시글 수정
+     */
+    public int updateBoardPost(BoardVO vo) {
+        int result = 1;
+        try{
+            boardMapper.updateBoardPost(vo);
         } catch (Exception e) {
             e.printStackTrace();
             result = -1;

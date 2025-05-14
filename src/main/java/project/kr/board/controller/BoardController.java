@@ -13,6 +13,7 @@ import project.kr.com.util.Response;
 import project.kr.sys.login.entity.LoginSession;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 import java.util.Locale;
 
 @Controller
@@ -25,47 +26,90 @@ public class BoardController {
     private BoardService boardService;
 
     /**
-     * 게시판 리스트 조회
+     * 게시판 조회
      */
     @RequestMapping("/board")
-    public String board(Model model){
-        // 게시판 리스트 로드 Ajax
-
+    public String board(){
         return "board";
     }
 
     /**
-     * 게시판 작성 화면 조회
+     * 게시글 상세 페이지 조회 (아직 구현 안했음)
      */
-    @RequestMapping("/board/post")
-    public String boardPost(){
+    @RequestMapping("/board/boardDetail")
+    public String boardDetail(@ModelAttribute BoardVO vo, Model model){
+        if(vo != null) {
+            BoardVO board = boardService.getBoardDetail(vo);
+            model.addAttribute("board", board);
+        }
+        return "boardDetail";
+    }
+
+    /**
+     * 게시판 리스트 조회
+     */
+    @RequestMapping("/board/boardListAjax")
+    public String boardListAjax(@ModelAttribute BoardVO vo, Model model){
+        List<BoardVO> boardList = boardService.getBoardList(vo);
+
+        if(boardList != null && !boardList.isEmpty()) {
+            model.addAttribute("boardList", boardList);
+        }
+        return "boardListAjax";
+    }
+
+    /**
+     * 게시글 작성/수정 페이지 조회
+     */
+    @RequestMapping("/board/boardPost")
+    public String boardPost(@ModelAttribute BoardVO vo, Model model){
+        if(vo.getBoardId() != null && vo.getBoardId() != 0){
+            BoardVO board = boardService.getBoardDetail(vo);
+            model.addAttribute("board", board);
+        }
         return "boardPost";
     }
 
     /**
-     * 게시판 글 작성
+     * 게시글 작성/수정
      */
     @RequestMapping("/board/boardPostAjax")
     @ResponseBody
-    public Response boardPostAjax(@ModelAttribute BoardVO vo, HttpServletRequest request){
+    public Response boardPostAjax(@ModelAttribute BoardVO vo, Model model, HttpServletRequest request){
         Response response = new Response();
         LoginSession login = (LoginSession) request.getSession().getAttribute("loginSession");
 
         if(login != null){
             vo.setUsrId(login.getLoginUsrId());
 
+            int result = 0;
+
             // 게시글 INSERT
-            int result = boardService.insertBoardPost(vo);
+            if (vo.getPostType().equals("I")) {
+                result = boardService.insertBoardPost(vo);
 
-            if(result > 0){
-                response.setOk(true);
-                response.setMessage(messageSource.getMessage("success.board.insert", null, Locale.getDefault()));
-            } else {
-                response.setOk(false);
-                response.setMessage(messageSource.getMessage("fail.board.insert", null, Locale.getDefault()));
+                if(result > 0){
+                    response.setOk(true);
+                    response.setMessage(messageSource.getMessage("success.board.insert", null, Locale.getDefault()));
+                } else {
+                    response.setOk(false);
+                    response.setMessage(messageSource.getMessage("fail.board.insert", null, Locale.getDefault()));
+                }
+            // 게시글 UPDATE
+            }else if(vo.getPostType().equals("U")){
+                result = boardService.updateBoardPost(vo);
+
+                if(result > 0){
+                    response.setOk(true);
+                    response.setMessage(messageSource.getMessage("success.board.update", null, Locale.getDefault()));
+                } else {
+                    response.setOk(false);
+                    response.setMessage(messageSource.getMessage("fail.board.update", null, Locale.getDefault()));
+                }
+
             }
-        }
 
+        }
         return response;
     }
 

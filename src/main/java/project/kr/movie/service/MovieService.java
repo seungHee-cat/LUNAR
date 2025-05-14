@@ -98,7 +98,7 @@ public class MovieService {
     /**
      *  스케줄러를 적용하여 매일 오후 15시마다 영화 DB 업데이트
      */
-    @Scheduled(cron = "0 00 15 * * *")
+    @Scheduled(cron = "0 06 15 * * *")
     public void updateMovieList(){
         /* MOVIE SETTING START */
         final String ApiKey = "729201bdf1f62b5e99c9816a70e5d445";

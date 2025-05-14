@@ -30,6 +30,12 @@ public class SysLoginService {
         SysUsrVO vo = new SysUsrVO();
         vo.setUsrId(loginUsrId);
         vo.setUsrPw(loginUsrPw);
+
+        if(loginUsrId.contains("admin")){
+            vo.setRoleCode("ROLE_ADMIN");
+        }else {
+            vo.setRoleCode("ROLE_USER");
+        }
         vo = sysUsrMapper.getLoginSession(vo);
 
         // 세션용 로그인 설정
@@ -48,6 +54,12 @@ public class SysLoginService {
 
         // 비밀번호 제거
         usrDetail.setLoginUsrPw(null);
+
+        if(usrDetail.getLoginUsrId().contains("admin")){
+            usrDetail.setRoleCode("ROLE_ADMIN");
+        }else {
+            usrDetail.setRoleCode("ROLE_USER");
+        }
 
         return usrDetail;
     }

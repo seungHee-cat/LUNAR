@@ -53,14 +53,20 @@
                 , USR_NM
                 , USR_IMG
                 , USR_PW
+                , UR.ROLE_CODE
             FROM
                 USER A
+            LEFT JOIN
+	            USER_ROLE UR ON A.USR_ID = UR.USR_ID
             LEFT JOIN
                 USER_DETAIL B ON A.USR_ID = B.USR_ID
         ]]>
         <where>
             <if test="usrId != null and usrId != ''">
                 AND A.USR_ID = #{usrId}
+            </if>
+            <if test="roleCode != null and roleCode != ''">
+                AND UR.ROLE_CODE = #{roleCode}
             </if>
         </where>
     </select>

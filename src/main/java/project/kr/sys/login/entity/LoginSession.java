@@ -11,4 +11,7 @@ public class LoginSession {
     private String usrNm            = null; // 유저명
     private String usrImg           = null; // 유저 이미지
     private String encodedId        = null; // ID 암호화 (URL 노출 방지)
+
+    // 역할 (USER_ROLE)
+    private String roleCode         = null; // 유저 역할
 }

@@ -9,7 +9,7 @@ $(document).ready( function() {
 
     $('#summernote').summernote({
         focus: true,
-        height: 300,
+        height: 350,
         lang: "ko-KR",
         placeholder: "내용을 입력하세요.",
         disableResizeEditor: true,
@@ -22,7 +22,7 @@ $(document).ready( function() {
 });
 
 /*--------------------------------------------------------
-| 게시판 글 작성
+| 게시글 작성/수정
  --------------------------------------------------------*/
 function fn_boardPostAjax(){
     const content = $('#summernote').summernote('code');
@@ -34,6 +34,9 @@ function fn_boardPostAjax(){
 function fn_listPostCallback(data) {
     if(data.ok){
         fn_showToastMessage(data.message);
+        setTimeout(function () {
+            location.href="/board";
+        }, 1500);
     }else{
         fn_showToastMessage(data.message);
     }
@@ -43,22 +46,44 @@ function fn_listPostCallback(data) {
 
 <form id="boardPostFrm" name="boardPostFrm">
 <input type="hidden" id="content" name="content">
+<input type="hidden" name="boardId" value="${board.boardId}">
 <div class="container-xl p-3">
-    <div class="d-flex flex-column p-5">
-        <div class="d-flex align-items-center mt-5">
-            <div style="width: 40px;">제목</div>
-            <div class="w-50">
-                <input type="text" class="form-control" name="title"></input>
+    <div class="d-flex flex-column align-items-center pt-5">
+        <!-- 게시글 등록 -->
+        <c:if test="${empty board.boardId}">
+        <div class="d-flex flex-column w-75 mt-5">
+            <div class="d-flex align-items-center ms-3">
+                <div style="width: 40px;">제목</div>
+                <input type="hidden" name="postType" value="I"/>
+                <div class="w-75">
+                    <input type="text" class="form-control" name="title"></input>
+                </div>
+            </div>
+            <div class="post-form mt-2 w-100">
+                <textarea id="summernote"></textarea>
             </div>
         </div>
-        <div class="post-form mt-2 w-75">
-        	<textarea id="summernote"></textarea>
+        </c:if>
+        <!-- 게시글 수정 -->
+        <c:if test="${not empty board.boardId}">
+        <div class="d-flex flex-column w-75 mt-5">
+            <div class="d-flex align-items-center ms-3">
+                <div style="width: 40px;">제목</div>
+                <input type="hidden" name="postType" value="U"/>
+                <div class="w-75">
+                    <input type="text" class="form-control" name="title" value="${board.title}"></input>
+                </div>
+            </div>
+            <div class="post-form mt-2 w-100">
+                <textarea id="summernote">${board.content}</textarea>
+            </div>
         </div>
-        <div class="my-4 text-end">
-            <button class="btn btn-primary" onclick="fn_boardPostAjax();" type="button">
-                <spring:message code="button.save"/>
-            </button>
-        </div>
+        </c:if>
+    </div>
+    <div class="my-3 mx-5 text-end">
+        <button class="btn btn-primary" onclick="fn_boardPostAjax();" type="button">
+            <spring:message code="button.save"/>
+        </button>
     </div>
 </div>
 </form>

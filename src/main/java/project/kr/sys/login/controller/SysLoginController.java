@@ -82,8 +82,8 @@ public class SysLoginController {
     @RequestMapping("/sys/login/logout")
     public String logout(HttpSession session, RedirectAttributes attributes) {
         session.invalidate();
-        attributes.addFlashAttribute("logoutMsg", "로그아웃되었습니다.");
-        return "redirect:/main";
+        attributes.addFlashAttribute("logoutMsg", "로그아웃 되었습니다.");
+        return "redirect:/";
     }
 
     /**

@@ -2,6 +2,8 @@ package project.kr.board.entity;
 
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 public class BoardVO {
 
@@ -9,5 +11,9 @@ public class BoardVO {
     private String title        = null;
     private String content      = null;
     private String usrId        = null;
+    private Date wrtTime        = null;
+
+    /* Additional */
+    private String postType         = null; // 게시글 타입(Insert/Update)
 
 }
