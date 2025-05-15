@@ -27,7 +27,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/star-rating/star-rating.css'/>" />
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/jquery-ui/jquery-ui.min.css'/>" />
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/chart/Chart.min.css'/>" />
-    <link rel="stylesheet" type="text/css" href="<c:url value='/css/summernote/summernote-bs5.min.css'/>" />
+    <!--<link rel="stylesheet" type="text/css" href="<c:url value='/css/summernote/summernote-bs5.min.css'/>" />-->
 
 	<!--
 	--------------------------------------------------------------------
@@ -43,7 +43,7 @@
     <script type="text/javascript" src="<c:url value='/js/ajaxFunction.js'/>"></script>
 	<script type="text/javascript" src="<c:url value='/js/modal.js'/>"></script>
 	<script type="text/javascript" src="<c:url value='/js/toast.js'/>"></script>
-	<script type="text/javascript" src="<c:url value='/js/summernote-bs5.min.js'/>"></script>
+	<!--<script type="text/javascript" src="<c:url value='/js/summernote-bs5.min.js'/>"></script>-->
 
 </head>
 <script type="text/javascript">

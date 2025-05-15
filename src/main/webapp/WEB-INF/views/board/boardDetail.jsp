@@ -24,6 +24,16 @@ function fn_boardPost(){
     location.href = "<c:url value='/board/boardPost'/>" + "?boardId=" + boardId;
 }
 
+/*--------------------------------------------------------
+| 게시글 삭제 모달
+ --------------------------------------------------------*/
+function fn_deleteBoardModal() {
+    let formData = new FormData();
+    formData.append("boardId", $("#boardDetailFrm input[name=boardId]").val());
+
+    modal.openModal("<c:url value='/board/deleteBoardModal'/>", formData, "small");
+}
+
 </script>
 
 <form id="boardDetailFrm" name="boardDetailFrm">
@@ -45,8 +55,8 @@ function fn_boardPost(){
                 <button type="button" onclick="fn_boardPost();" class="btn btn-outline-info justify-content-center">
                     <spring:message code="button.update"/>
                 </button>
-                <!-- 게시글 삭제 -->
-                <button type="button" onclick="fn_boardDeleteAjax();" class="btn btn-outline-warning justify-content-center">
+                <!-- 게시글 삭제 모달 -->
+                <button type="button" onclick="fn_deleteBoardModal();" class="btn btn-outline-warning justify-content-center">
                     <spring:message code="button.delete"/>
                 </button>
             </div>

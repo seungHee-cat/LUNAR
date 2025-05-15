@@ -7,34 +7,35 @@
 <script type="text/javascript">
 
 /*--------------------------------------------------------
-| 코멘트 삭제
+| 게시글 삭제
  --------------------------------------------------------*/
-function fn_deleteCommentAjax() {
-    fn_ajaxFormSubmit("commentDelFrm", "<c:url value='/comment/deleteCommentAjax'/>", fn_commentDelCallback);
+function fn_deleteBoardAjax() {
+    fn_ajaxFormSubmit("boardDelFrm", "<c:url value='/board/deleteBoardAjax'/>", fn_boardDelCallback);
 }
 
-function fn_commentDelCallback(data) {
-    if (data.ok) {
+function fn_boardDelCallback(data) {
+    if(data.ok){
         modal.closeModalWithToast(data.message);
-        fn_commentListAjax(); // 코멘트 리스트 조회
-        fn_myCommentAjax(); // 내 코멘트 조회
-    } else {
+        setTimeout(function () {
+            location.href="/board";
+        }, 1500);
+    }else{
         fn_showToastMessage(data.message);
     }
 }
 
 </script>
 
-<form id="commentDelFrm" name="commentDelFrm">
-<input type="hidden" name="commentId" value="${CommentVO.commentId}">
+<form id="boardDelFrm" name="boardDelFrm">
+<input type="hidden" name="boardId" value="${BoardVO.boardId}">
 <div class="modal-header justify-content-end">
     <button class="btn-close text-end" type="button" onclick="modal.closeModal();"></button>
 </div>
 <div class="modal-body text-center">
-    <spring:message code="comment.delete.info"/>
+    <spring:message code="board.delete.info"/>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-sm btn-primary me-2" type="button" onclick="fn_deleteCommentAjax();"></i>&nbsp;<spring:message code="button.conf"/></button>
+    <button class="btn btn-sm btn-primary me-2" type="button" onclick="fn_deleteBoardAjax();"></i>&nbsp;<spring:message code="button.conf"/></button>
     <button class="btn btn-sm btn-danger me-2" type="button" onclick="modal.closeModal();"></i>&nbsp;<spring:message code="button.close"/></button>
 </div>
 </form>

@@ -113,4 +113,37 @@ public class BoardController {
         return response;
     }
 
+    /**
+     * 게시글 삭제 모달
+     */
+    @RequestMapping("/board/deleteBoardModal")
+    public String deleteBoardModal(@ModelAttribute("BoardVO") BoardVO vo) {
+        return "deleteBoardModal";
+    }
+
+
+    /**
+     * 게시글 삭제
+     */
+    @RequestMapping("/board/deleteBoardAjax")
+    @ResponseBody
+    public Response deleteBoardAjax(@ModelAttribute BoardVO vo){
+        Response response = new Response();
+        int result = 0;
+
+        if(vo.getBoardId() != null){
+            // 게시글 DELETE
+            result = boardService.deleteBoard(vo);
+        }
+
+        if(result > 0){
+            response.setOk(true);
+            response.setMessage(messageSource.getMessage("success.board.delete", null, Locale.getDefault()));
+        } else {
+            response.setOk(false);
+            response.setMessage(messageSource.getMessage("fail.board.delete", null, Locale.getDefault()));
+        }
+        return response;
+    }
+
 }

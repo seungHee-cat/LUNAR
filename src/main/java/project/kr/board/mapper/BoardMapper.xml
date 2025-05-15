@@ -68,4 +68,15 @@
     ]]>
     </insert>
 
+    <!-- 게시글 삭제 -->
+    <delete id="deleteBoard" parameterType="BoardVO">
+        <![CDATA[
+        /*	deleteBoard	*/
+        DELETE FROM
+            BOARD
+        WHERE
+            BOARD_ID = #{boardId}
+        ]]>
+    </delete>
+
 </mapper>

@@ -54,4 +54,18 @@ public class BoardService {
         }
         return result;
     }
+
+    /**
+     * 게시글 삭제
+     */
+    public int deleteBoard(BoardVO vo) {
+        int result = 1;
+        try{
+            boardMapper.deleteBoard(vo);
+        } catch (Exception e) {
+            e.printStackTrace();
+            result = -1;
+        }
+        return result;
+    }
 }

@@ -31,7 +31,7 @@ function fn_reviewDelCallback(data) {
     <button class="btn-close text-end" type="button" onclick="modal.closeModal();"></button>
 </div>
 <div class="modal-body text-center">
-    <spring:message code="movie.review.delete"/>
+    <spring:message code="review.delete.info"/>
 </div>
 <div class="modal-footer">
     <button class="btn btn-sm btn-primary me-2" type="button" onclick="fn_deleteReviewAjax();"></i>&nbsp;<spring:message code="button.conf"/></button>

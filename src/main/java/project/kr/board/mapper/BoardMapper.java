@@ -27,4 +27,9 @@ public interface BoardMapper {
      * 게시글 수정
      */
     public int updateBoardPost(BoardVO vo);
+
+    /**
+     * 게시글 삭제
+     */
+    public int deleteBoard(BoardVO vo);
 }
