@@ -19,7 +19,7 @@ $(document).ready( function() {
 
     $('#summernote').summernote({
         focus: true,
-        height: 450,
+        height: 480,
         lang: "ko-KR",
         placeholder: "내용을 입력하세요.",
         disableResizeEditor: true,
@@ -78,12 +78,20 @@ function fn_listPostCallback(data) {
 <form id="boardPostFrm" name="boardPostFrm">
 <input type="hidden" id="content" name="content">
 <input type="hidden" name="boardId" value="${board.boardId}">
-<div class="container-xl p-3">
-    <div class="d-flex flex-column align-items-center pt-5">
+<div class="position-relative container-xl p-3">
+    <!-- 공지사항 태그 -->
+    <div class="position-absolute mt-5 pt-5" style="left: 180px;">
+        <select id="schType" name="schType" style="border: none; width: 100px; height: 34px;">
+            <option value="notice" selected ><spring:message code="select.option.notice"/></option>
+            <option value="ui" ><spring:message code="select.option.ui"/></option>
+            <option value="func"><spring:message code="select.option.func"/></option>
+        </select>
+    </div>
+    <div class="d-flex mt-5 flex-column align-items-center">
         <!-- 게시글 등록 -->
         <c:if test="${empty board.boardId}">
         <div class="d-flex flex-column w-75 mt-5">
-            <div class="d-flex align-items-center ms-3">
+            <div class="d-flex justify-content-center align-items-center ms-5">
                 <div style="width: 40px;">제목</div>
                 <input type="hidden" name="postType" value="I"/>
                 <div class="w-75">
@@ -98,7 +106,7 @@ function fn_listPostCallback(data) {
         <!-- 게시글 수정 -->
         <c:if test="${not empty board.boardId}">
         <div class="d-flex flex-column w-75 mt-5">
-            <div class="d-flex align-items-center ms-3">
+            <div class="d-flex justify-content-center align-items-center ms-5">
                 <div style="width: 40px;">제목</div>
                 <input type="hidden" name="postType" value="U"/>
                 <div class="w-75">

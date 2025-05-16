@@ -7,11 +7,31 @@
         <![CDATA[
         /*	getBoardList	*/
         SELECT
-            BOARD_ID
+            B.BOARD_ID
+            , T.NAME AS TAG_NM
             , TITLE
             , WRT_TIME
         FROM
-            BOARD
+            BOARD B
+        JOIN
+            BOARD_TAG BT ON B.BOARD_ID = BT.BOARD_ID
+        JOIN
+            TAG T ON BT.TAG_ID = T.TAG_ID
+        ]]>
+        <where>
+            <if test="schType != null and schType != ''">
+                <if test="schType == 'notice'">
+                    T.NAME = '공지사항'
+                </if>
+                <if test="schType == 'ui'">
+                    T.NAME = 'UI개선'
+                </if>
+                <if test="schType == 'func'">
+                    T.NAME = '기능개선'
+                </if>
+            </if>
+        </where>
+        <![CDATA[
         ORDER BY
             WRT_TIME DESC
         LIMIT #{size}
@@ -50,7 +70,8 @@
 
 
     <!-- 게시글 작성 -->
-    <insert id="insertBoardPost" parameterType="BoardVO">
+    <insert id="insertBoardPost" parameterType="BoardVO"
+            useGeneratedKeys="true" keyProperty="boardId">
         <![CDATA[
         /*	insertBoardPost	*/
         INSERT INTO BOARD
@@ -91,5 +112,33 @@
             BOARD_ID = #{boardId}
         ]]>
     </delete>
+
+    <!-- 게시글 태그 추가 -->
+    <insert id="insertBoardTag" parameterType="BoardVO">
+        <![CDATA[
+        /*	insertBoardTag	*/
+        INSERT INTO BOARD_TAG
+        (
+            BOARD_ID
+            , TAG_ID
+        ) VALUES(
+            #{boardId}
+            , #{tagId}
+        )
+    ]]>
+    </insert>
+
+    <!-- 게시글 태그 수정 -->
+    <insert id="updateBoardTag" parameterType="BoardVO">
+        <![CDATA[
+        /*	updateBoardTag	*/
+        UPDATE
+            BOARD_TAG
+        SET
+            TAG_ID = #{tagId}
+        WHERE
+            BOARD_ID = #{boardId}
+    ]]>
+    </insert>
 
 </mapper>

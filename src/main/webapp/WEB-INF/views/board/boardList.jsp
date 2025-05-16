@@ -16,6 +16,14 @@ function fn_boardListInitAjax(){
     fn_ajaxRoadDiv("<c:url value='/board/boardListInitAjax'/>", null, "boardListDiv");
 }
 
+/*--------------------------------------------------------
+| 게시글 리스트 조회
+ --------------------------------------------------------*/
+function fn_boardListAjax(pageNum){
+    let schType = document.getElementById("schType").value;
+    let params = "schType=" + schType + "&page=" + pageNum;
+    fn_ajaxRoadDiv("<c:url value='/board/boardListAjax'/>", params, "boardListDiv");
+}
 
 /*--------------------------------------------------------
 | 게시글 작성/수정 페이지 조회
@@ -28,12 +36,21 @@ function fn_boardPost() {
 
 <form id="boardListFrm" name="boardListFrm">
 <div class="container-xl pt-5 p-3">
-    <div class="d-flex justify-content-between mt-5">
-        <div class="mt-3 ms-3">
+    <!-- 공지사항 필터/검색 -->
+    <div class="d-flex justify-content-end mt-5 pt-3">
+        <select id="schType" name="schType" onchange="fn_boardListAjax(1)" style="border: none; width: 100px; height: 34px;">
+            <option value="" selected><spring:message code="select.option.all"/></option>
+            <option value="notice" ><spring:message code="select.option.notice"/></option>
+            <option value="ui" ><spring:message code="select.option.ui"/></option>
+            <option value="func"><spring:message code="select.option.func"/></option>
+        </select>
+    </div>
+    <div class="d-flex mt-3 justify-content-between align-items-center">
+        <div class="ms-3">
             <h4 class="fw-bold">공지사항</h4>
         </div>
         <c:if test="${loginSession.roleCode == 'ROLE_ADMIN'}">
-            <div class="mt-3">
+            <div class="">
                 <button type="button" onclick="fn_boardPost();" class="btn btn-outline-secondary justify-content-center">
                     <spring:message code="button.boardPost"/>
                 </button>

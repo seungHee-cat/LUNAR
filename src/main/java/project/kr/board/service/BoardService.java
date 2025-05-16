@@ -75,4 +75,32 @@ public class BoardService {
         }
         return result;
     }
+
+    /**
+     * 게시글 태그 추가
+     */
+    public int insertBoardTag(BoardVO vo) {
+        int result = 1;
+        try{
+            boardMapper.insertBoardTag(vo);
+        } catch (Exception e) {
+            e.printStackTrace();
+            result = -1;
+        }
+        return result;
+    }
+
+    /**
+     * 게시글 태그 수정
+     */
+    public int updateBoardTag(BoardVO vo) {
+        int result = 1;
+        try{
+            boardMapper.updateBoardTag(vo);
+        } catch (Exception e) {
+            e.printStackTrace();
+            result = -1;
+        }
+        return result;
+    }
 }

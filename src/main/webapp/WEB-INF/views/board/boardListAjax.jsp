@@ -10,13 +10,6 @@
 $(document).ready( function() {
 
 });
-/*--------------------------------------------------------
-| 게시글 리스트 조회
- --------------------------------------------------------*/
-function fn_boardListAjax(pageNum){
-    let params = "page=" + pageNum;
-    fn_ajaxRoadDiv("<c:url value='/board/boardListAjax'/>", params, "boardListDiv");
-}
 
 /*--------------------------------------------------------
 | 게시글 상세 페이지 이동
@@ -29,22 +22,26 @@ function fn_boardDetail(boardId) {
 <div class="">
     <table class="w-100 text-center bg-white">
         <colgroup>
-            <col style="width: 20%;" />   <!-- 번호: 좁게 -->
+            <col style="width: 10%;" />   <!-- 번호: 좁게 -->
+            <col style="width: 10%;" />   <!-- 분류: 좁게 -->
             <col style="width: 60%;" />   <!-- 제목: 넓게 -->
             <col style="width: 20%;" />   <!-- 날짜: 중간 -->
         </colgroup>
         <thead>
             <tr>
                 <th>번호</th>
+                <th>분류</th>
                 <th>제목</th>
                 <th>날짜</th>
             </tr>
         </thead>
         <tbody>
+            <c:set var="startNum" value="${totalCnt - (curPage - 1) * size}" />
             <c:forEach var="board" items="${boardList }" varStatus="loop">
                 <tr class="pointer" style="height: 50px; border-bottom: 0.8px solid #eeeeee;"
                     onclick="fn_boardDetail(${board.boardId})">
-                    <td>${loop.index + 1 }</td>
+                    <td>${startNum - loop.index}</td>
+                    <td>${board.tagNm}</td>
                     <td>${board.title}</td>
                     <td>
                         <fmt:formatDate value="${board.wrtTime}" pattern="yyyy-MM-dd"/>

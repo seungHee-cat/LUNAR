@@ -121,9 +121,22 @@ public class BoardController {
 
             int result = 0;
 
+            // 공지사항 태그
+            if(vo.getSchType().equals("notice")) {
+                vo.setSchType("1");
+                vo.setTagId(1);
+            }else if(vo.getSchType().equals("func")){
+                vo.setSchType("2");
+                vo.setTagId(2);
+            }else if(vo.getSchType().equals("ui")){
+                vo.setSchType("3");
+                vo.setTagId(3);
+            }
+
             // 게시글 INSERT
             if (vo.getPostType().equals("I")) {
                 result = boardService.insertBoardPost(vo);
+                result = boardService.insertBoardTag(vo);
 
                 if(result > 0){
                     response.setOk(true);
@@ -135,6 +148,7 @@ public class BoardController {
             // 게시글 UPDATE
             }else if(vo.getPostType().equals("U")){
                 result = boardService.updateBoardPost(vo);
+                result = boardService.updateBoardTag(vo);
 
                 if(result > 0){
                     response.setOk(true);
