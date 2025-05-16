@@ -14,6 +14,10 @@ public class BoardVO {
     private Date wrtTime        = null;
 
     /* Additional */
+    private Integer page            = 0;
+    private Integer size            = 0;
+    private Integer offset          = 0;
+    private Integer totalCnt        = 0;
     private String postType         = null; // 게시글 타입(Insert/Update)
 
 }

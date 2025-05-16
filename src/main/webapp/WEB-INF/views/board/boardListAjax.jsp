@@ -10,6 +10,13 @@
 $(document).ready( function() {
 
 });
+/*--------------------------------------------------------
+| 게시글 리스트 조회
+ --------------------------------------------------------*/
+function fn_boardListAjax(pageNum){
+    let params = "page=" + pageNum;
+    fn_ajaxRoadDiv("<c:url value='/board/boardListAjax'/>", params, "boardListDiv");
+}
 
 /*--------------------------------------------------------
 | 게시글 상세 페이지 이동
@@ -46,4 +53,25 @@ function fn_boardDetail(boardId) {
             </c:forEach>
         </tbody>
     </table>
+    <nav aria-label="Page navigation" class="mt-4">
+      <ul class="pagination justify-content-center">
+        <li class="page-item ${curPage == 1 ? 'disabled' : ''}">
+          <button type="button" class="page-link" onclick="fn_boardListAjax(${curPage - 1})" tabindex="-1" aria-disabled="${curPage == 1}">
+            Prev
+          </button>
+        </li>
+        <c:forEach begin="1" end="${totalPages}" var="page">
+          <li class="page-item ${page == curPage ? 'active' : ''}">
+            <button type="button" class="page-link" onclick="fn_boardListAjax(${page})">
+              ${page}
+            </button>
+          </li>
+        </c:forEach>
+        <li class="page-item ${curPage == totalPages ? 'disabled' : ''}">
+          <button type="button" class="page-link" onclick="fn_boardListAjax(${curPage + 1})" aria-disabled="${curPage == totalPages}">
+            Next
+          </button>
+        </li>
+      </ul>
+    </nav>
 </div>

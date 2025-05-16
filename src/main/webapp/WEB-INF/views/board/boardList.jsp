@@ -6,15 +6,16 @@
 <script type="text/javascript">
 
 $(document).ready( function() {
-    fn_boardListAjax();
+    fn_boardListInitAjax();
 });
 
 /*--------------------------------------------------------
-| 게시글 리스트 조회
+| 게시글 리스트 초기화
  --------------------------------------------------------*/
-function fn_boardListAjax(){
-    fn_ajaxRoadDiv("<c:url value='/board/boardListAjax'/>", null, "boardListDiv");
+function fn_boardListInitAjax(){
+    fn_ajaxRoadDiv("<c:url value='/board/boardListInitAjax'/>", null, "boardListDiv");
 }
+
 
 /*--------------------------------------------------------
 | 게시글 작성/수정 페이지 조회

@@ -74,11 +74,11 @@ public class WebConfig implements WebMvcConfigurer {
         return interceptor;
     }
 
-    // 이미지 외부경로 저장을 위한 핸들러
+    // 이미지 외부 경로 저장을 위한 핸들러
     @Override
     public void  addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/file/images/**")
-                .addResourceLocations("file:///" + folder);
+        registry.addResourceHandler("/file/images/**") // 브라우저 요청 URL
+                .addResourceLocations("file:///" + folder); // 실제 디렉토리
     }
 
     @Override

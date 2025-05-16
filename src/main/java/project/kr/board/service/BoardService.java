@@ -21,6 +21,13 @@ public class BoardService {
     }
 
     /**
+     * 게시글 리스트 개수 조회
+     */
+    public int getBoardListCnt(BoardVO vo) {
+        return boardMapper.getBoardListCnt(vo);
+    }
+
+    /**
      * 게시글 상세 페이지 조회
      */
     public BoardVO getBoardDetail(BoardVO vo) {

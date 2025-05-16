@@ -34,7 +34,7 @@ public class BoardController {
     }
 
     /**
-     * 게시글 상세 페이지 조회 (아직 구현 안했음)
+     * 게시글 상세 페이지 조회
      */
     @RequestMapping("/board/boardDetail")
     public String boardDetail(@ModelAttribute BoardVO vo, Model model){
@@ -46,13 +46,50 @@ public class BoardController {
     }
 
     /**
+     * 게시판 리스트 초기화
+     */
+    @RequestMapping("/board/boardListInitAjax")
+    public String boardListInitAjax(@ModelAttribute BoardVO vo, Model model){
+        int page = 1;
+        final int SIZE = 5;
+        int offset = (page - 1) * SIZE;
+        int totalCnt = boardService.getBoardListCnt(vo);
+        vo.setSize(SIZE);
+        vo.setOffset(offset);
+        List<BoardVO> boardList = boardService.getBoardList(vo);
+
+        if(boardList != null && !boardList.isEmpty()) {
+            int totalPages = (int) Math.ceil((double) totalCnt / SIZE);
+            model.addAttribute("totalPages", totalPages);
+
+            model.addAttribute("curPage", page);
+            model.addAttribute("totalCnt", totalCnt);
+            model.addAttribute("size", SIZE);
+            model.addAttribute("boardList", boardList);
+        }
+        return "boardListAjax";
+    }
+
+    /**
      * 게시판 리스트 조회
      */
     @RequestMapping("/board/boardListAjax")
     public String boardListAjax(@ModelAttribute BoardVO vo, Model model){
+        int page = vo.getPage();
+        final int SIZE = 5;
+        int offset = (page - 1) * SIZE;
+        int totalCnt = boardService.getBoardListCnt(vo);
+        vo.setSize(SIZE);
+        vo.setOffset(offset);
         List<BoardVO> boardList = boardService.getBoardList(vo);
 
         if(boardList != null && !boardList.isEmpty()) {
+            int totalPages = (int) Math.ceil((double) totalCnt / SIZE);
+            model.addAttribute("totalPages", totalPages);
+
+            model.addAttribute("curPage", page);
+            model.addAttribute("totalCnt", totalCnt);
+            model.addAttribute("size", SIZE);
             model.addAttribute("boardList", boardList);
         }
         return "boardListAjax";

@@ -19,17 +19,38 @@ $(document).ready( function() {
 
     $('#summernote').summernote({
         focus: true,
-        height: 350,
+        height: 450,
         lang: "ko-KR",
         placeholder: "내용을 입력하세요.",
         disableResizeEditor: true,
         // 이미지 업로드 시 콜백함수
         callbacks: {
-
-        }
+            onImageUpload: function(files){
+                editorImageUpload(files[0], this);
+            }
+        },
     });
 
 });
+
+/*--------------------------------------------------------
+| summernote 이미지 업로드
+ --------------------------------------------------------*/
+function editorImageUpload(file, editor){
+    data = new FormData();
+    data.append("file", file);
+
+    $.ajax({
+        data: data,
+        type: "POST",
+        url: "/editorImageUpload",
+        contentType: false,
+        processData: false,
+        success: function(data){
+            $(editor).summernote('insertImage', data.url);
+        }
+    });
+}
 
 /*--------------------------------------------------------
 | 게시글 작성/수정

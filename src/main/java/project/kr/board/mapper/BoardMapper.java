@@ -14,6 +14,11 @@ public interface BoardMapper {
     List<BoardVO> getBoardList(BoardVO vo);
 
     /**
+     * 게시글 리스트 개수 조회
+     */
+    int getBoardListCnt(BoardVO vo);
+
+    /**
      * 게시글 상세 페이지 조회
      */
     BoardVO getBoardDetail(BoardVO vo);
