@@ -21,7 +21,7 @@ $(document).ready( function() {
         focus: true,
         height: 480,
         lang: "ko-KR",
-        placeholder: "내용을 입력하세요.",
+        placeholder: "<spring:message code='board.content.info'/>",
         disableResizeEditor: true,
         // 이미지 업로드 시 콜백함수
         callbacks: {
@@ -78,21 +78,23 @@ function fn_listPostCallback(data) {
 <form id="boardPostFrm" name="boardPostFrm">
 <input type="hidden" id="content" name="content">
 <input type="hidden" name="boardId" value="${board.boardId}">
-<div class="position-relative container-xl p-3">
-    <!-- 공지사항 태그 -->
-    <div class="position-absolute mt-5 pt-5" style="left: 180px;">
-        <select id="schType" name="schType" style="border: none; width: 100px; height: 34px;">
-            <option value="notice" selected ><spring:message code="select.option.notice"/></option>
-            <option value="ui" ><spring:message code="select.option.ui"/></option>
-            <option value="func"><spring:message code="select.option.func"/></option>
-        </select>
-    </div>
+<div class="container-xl p-3">
     <div class="d-flex mt-5 flex-column align-items-center">
         <!-- 게시글 등록 -->
         <c:if test="${empty board.boardId}">
-        <div class="d-flex flex-column w-75 mt-5">
+        <!-- 공지사항 태그 -->
+        <div class="d-flex flex-column w-75">
+            <div class="position-relative d-flex flex-column w-75 mt-5">
+                <div class="position-absolute mt-5 pt-5" style="top: -100px;">
+                    <select id="schType" name="schType" style="border: none; width: 100px; height: 34px;">
+                        <option value="notice" selected ><spring:message code="select.option.notice"/></option>
+                        <option value="ui" ><spring:message code="select.option.ui"/></option>
+                        <option value="func"><spring:message code="select.option.func"/></option>
+                    </select>
+                </div>
+            </div>
             <div class="d-flex justify-content-center align-items-center ms-5">
-                <div style="width: 40px;">제목</div>
+                <div class="ms-5" style="width: 40px;"><spring:message code="common.board.title"/></div>
                 <input type="hidden" name="postType" value="I"/>
                 <div class="w-75">
                     <input type="text" class="form-control" name="title"></input>
@@ -105,9 +107,23 @@ function fn_listPostCallback(data) {
         </c:if>
         <!-- 게시글 수정 -->
         <c:if test="${not empty board.boardId}">
-        <div class="d-flex flex-column w-75 mt-5">
+        <!-- 공지사항 태그 -->
+        <div class="position-relative d-flex flex-column w-75 mt-5">
+            <div class="position-absolute mt-5 pt-5" style="top: -100px;">
+                <select id="schType" name="schType" style="border: none; width: 100px; height: 34px;">
+                    <option value="notice" <c:if test="${board.tagNm eq '공지사항'}">selected</c:if>>
+                        <spring:message code="select.option.notice"/>
+                    </option>
+                    <option value="ui" <c:if test="${board.tagNm eq 'UI개선'}">selected</c:if>>
+                        <spring:message code="select.option.ui"/>
+                     </option>
+                    <option value="func" <c:if test="${board.tagNm eq '기능개선'}">selected</c:if>>
+                        <spring:message code="select.option.func"/>
+                    </option>
+                </select>
+            </div>
             <div class="d-flex justify-content-center align-items-center ms-5">
-                <div style="width: 40px;">제목</div>
+                <div class="ms-5" style="width: 40px;"><spring:message code="common.board.title"/></div>
                 <input type="hidden" name="postType" value="U"/>
                 <div class="w-75">
                     <input type="text" class="form-control" name="title" value="${board.title}"></input>

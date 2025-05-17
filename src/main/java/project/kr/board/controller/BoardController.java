@@ -185,6 +185,7 @@ public class BoardController {
         if(vo.getBoardId() != null){
             // 게시글 DELETE
             result = boardService.deleteBoard(vo);
+            result = boardService.deleteBoardTag(vo);
         }
 
         if(result > 0){

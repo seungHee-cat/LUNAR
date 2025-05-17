@@ -47,4 +47,9 @@ public interface BoardMapper {
      * 게시글 태그 수정
      */
     public int updateBoardTag(BoardVO vo);
+
+    /**
+     * 게시글 태그 삭제
+     */
+    public int deleteBoardTag(BoardVO vo);
 }

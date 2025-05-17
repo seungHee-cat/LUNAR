@@ -13,7 +13,6 @@
                 , GENRE_IDS
                 , ORIGINAL_TITLE
                 , RELEASE_YEAR
-                , ORIGINAL_LANGUAGE
                 , RUNTIME
                 , POSTER_PATH
                 , VOTE_AVERAGE
@@ -55,7 +54,6 @@
             , GENRE_IDS
             , ORIGINAL_TITLE
             , RELEASE_YEAR
-            , ORIGINAL_LANGUAGE
             , RUNTIME
             , POSTER_PATH
             , VOTE_AVERAGE
@@ -72,7 +70,6 @@
             , #{genreIds}
             , #{originalTitle}
             , #{releaseYear}
-            , #{originalLanguage}
             , #{runtime}
             , #{posterPath}
             , #{voteAverage}
@@ -140,7 +137,6 @@
                 , GENRE_IDS
                 , ORIGINAL_TITLE
                 , RELEASE_YEAR
-                , ORIGINAL_LANGUAGE
                 , RUNTIME
                 , POSTER_PATH
                 , VOTE_AVERAGE
@@ -149,12 +145,20 @@
                 , OVERVIEW
                 , POPULARITY
                 , PRODUCTION_COUNTRIES
+                , C.CREW_NM
+                , C.CREW_ORG_NM
+                , C.PROFILE_PATH
+                , C.JOB
             FROM
                 MOVIE M
             JOIN
                 MOVIE_GROUP MG
             ON
                 M.MOVIE_ID = MG.MOVIE_ID
+            JOIN
+                CREW C
+            ON
+                M.MOVIE_ID = C.MOVIE_ID
         ]]>
         <where>
             <if test="movieId != null and movieId != ''">
@@ -186,4 +190,81 @@
             LIMIT 10
         ]]>
     </select>
+
+    <!-- 출연진 추가 -->
+    <insert id="insertCast" parameterType="CastVO" >
+        <![CDATA[
+        /*	insertCast	*/
+        INSERT IGNORE INTO CAST
+        (
+              CAST_ID
+            , CAST_NM
+            , CAST_ORG_NM
+            , PROFILE_PATH
+            , CHARACTER_NM
+            , MOVIE_ID
+            , CAST_ORDER
+        ) VALUES(
+            #{castId}
+            , #{castNm}
+            , #{castOrgNm}
+            , #{profilePath}
+            , #{characterNm}
+            , #{movieId}
+            , #{castOrder}
+        )
+    ]]>
+    </insert>
+
+    <!-- 영화 출연진 정보 -->
+    <select id="getMovieCast" parameterType="MovieVO" resultType="CastVO">
+        <![CDATA[
+        /*	getMovieCast	*/
+            SELECT
+              M.MOVIE_ID
+                , CAST_NM
+                , CAST_ORG_NM
+                , C.PROFILE_PATH
+                , CHARACTER_NM
+            FROM
+                CAST C
+            JOIN
+                MOVIE M
+            ON
+                M.MOVIE_ID = C.MOVIE_ID
+        ]]>
+        <where>
+            <if test="movieId != null and movieId != ''">
+                AND M.MOVIE_ID = #{movieId}
+            </if>
+        </where>
+        <![CDATA[
+            ORDER BY
+                CAST_ORDER;
+        ]]>
+    </select>
+
+    <!-- 크루 추가 -->
+    <insert id="insertCrew" parameterType="CrewVO" >
+        <![CDATA[
+        /*	insertCrew	*/
+        INSERT IGNORE INTO CREW
+        (
+              CREW_ID
+            , CREW_NM
+            , CREW_ORG_NM
+            , PROFILE_PATH
+            , JOB
+            , MOVIE_ID
+        ) VALUES(
+            #{crewId}
+            , #{crewNm}
+            , #{crewOrgNm}
+            , #{profilePath}
+            , #{job}
+            , #{movieId}
+        )
+    ]]>
+    </insert>
+
 </mapper>

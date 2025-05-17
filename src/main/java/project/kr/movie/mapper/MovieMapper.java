@@ -1,6 +1,8 @@
 package project.kr.movie.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
+import project.kr.movie.entity.CastVO;
+import project.kr.movie.entity.CrewVO;
 import project.kr.movie.entity.MovieVO;
 import java.util.List;
 
@@ -41,4 +43,19 @@ public interface MovieMapper {
      * 영화 검색리스트 Ajax 조회
      */
     List<MovieVO> getMovieSchListAjax(MovieVO vo);
+
+    /**
+     * 출연진 insert
+     */
+    int insertCast(CastVO credit);
+
+    /**
+     * 영화 출연진 정보
+     */
+    List<CastVO> getMovieCast(MovieVO vo);
+
+    /**
+     * 크루 insert
+     */
+    int insertCrew(CrewVO crew);
 }

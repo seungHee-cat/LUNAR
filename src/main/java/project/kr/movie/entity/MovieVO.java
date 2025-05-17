@@ -17,7 +17,6 @@ public class MovieVO {
     private String genreIds                 = null;	// 장르
     private String originalTitle            = null;	// 원제목
     private Integer releaseYear             = 0;	// 개봉년도
-    private String originalLanguage         = null;	// 언어
     private String runtime                  = null;	// 상영시간
     private String posterPath               = null;	// 포스터이미지경로
     private Double voteAverage              = 0.0;	// 평균별점
@@ -27,5 +26,11 @@ public class MovieVO {
     private String overview                 = null;	// 줄거리
     private Double popularity               = 0.0;	// 인기도
     private String productionCountries      = null;	// 제작국가
+
+    /* Cast info */
+    private String crewNm                   = null; // 크루 이름
+    private String crewOrgNm                = null; // 크루 원어 이름
+    private String profilePath              = null; // 크루 프로필 경로
+    private String job                      = null; // 크루 직업
 
 }

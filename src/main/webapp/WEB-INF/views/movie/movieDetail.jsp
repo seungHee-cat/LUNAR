@@ -212,6 +212,14 @@ function js_starRatingAjax(){
             </div>
         </div>
     </div>
+    <!-- 출연/제작 정보 -->
+    <div class="d-flex align-items-center justify-content-evenly pb-3" style="background-color: white; margin: 0px;">
+        ${movie.crewNm}<br/>
+        ${movie.job}<br/>
+        <c:forEach var="cast" items="${castList}">
+            ${cast.castNm}<br/>
+        </c:forEach>
+    </div>
     <!-- 상위 5개 리뷰 리스트 Ajax -->
     <div id="reviewListAjax"></div>
 </div>

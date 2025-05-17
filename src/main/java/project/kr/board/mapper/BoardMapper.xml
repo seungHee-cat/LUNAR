@@ -55,15 +55,18 @@
         <![CDATA[
         /*	getBoardDetail	*/
         SELECT
-            BOARD_ID
+            B.BOARD_ID
+            , T.NAME AS TAG_NM
             , TITLE
             , CONTENT
         FROM
-            BOARD
+            BOARD B
+        JOIN BOARD_TAG BT ON B.BOARD_ID = BT.BOARD_ID
+        JOIN TAG T ON BT.TAG_ID = T.TAG_ID
         ]]>
         <where>
             <if test="boardId != null and boardId != ''">
-                AND BOARD_ID = #{boardId}
+                AND B.BOARD_ID = #{boardId}
             </if>
         </where>
     </select>
@@ -140,5 +143,16 @@
             BOARD_ID = #{boardId}
     ]]>
     </insert>
+
+    <!-- 게시글 태그 삭제 -->
+    <delete id="deleteBoardTag" parameterType="BoardVO">
+        <![CDATA[
+        /*	deleteBoard	*/
+        DELETE FROM
+            BOARD_TAG
+        WHERE
+            BOARD_ID = #{boardId}
+        ]]>
+    </delete>
 
 </mapper>

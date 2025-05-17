@@ -47,7 +47,7 @@ function fn_boardPost() {
     </div>
     <div class="d-flex mt-3 justify-content-between align-items-center">
         <div class="ms-3">
-            <h4 class="fw-bold">공지사항</h4>
+            <h4 class="fw-bold"><spring:message code="common.menu.board"/></h4>
         </div>
         <c:if test="${loginSession.roleCode == 'ROLE_ADMIN'}">
             <div class="">

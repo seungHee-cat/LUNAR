@@ -6,6 +6,8 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import project.kr.movie.entity.CastVO;
+import project.kr.movie.entity.CrewVO;
 import project.kr.movie.entity.MovieVO;
 import project.kr.movie.mapper.MovieMapper;
 
@@ -98,13 +100,14 @@ public class MovieService {
     /**
      *  스케줄러를 적용하여 매일 오후 15시마다 영화 DB 업데이트
      */
-    @Scheduled(cron = "0 06 15 * * *")
+    @Scheduled(cron = "0 27 01 * * *")
     public void updateMovieList(){
         /* MOVIE SETTING START */
         final String ApiKey = "729201bdf1f62b5e99c9816a70e5d445";
         List<String> apiURL_list = new ArrayList<>();
         List<Integer> movieIdLists = new ArrayList<>();
         List<String> detailLists = new ArrayList<>();
+        List<String> creditsLists = new ArrayList<>();
 
         final Integer NetflixApiKey = 8;
         final Integer WatchaApiKey = 97;
@@ -132,6 +135,7 @@ public class MovieService {
                 + ApiKey +"&language=ko-KR&page=1&sort_by=popularity.desc&watch_region=KR&with_watch_providers="+WavveApiKey);
 
         StringBuilder detailStringBuilder = new StringBuilder();
+        StringBuilder creditStringBuilder = new StringBuilder();
 
         for(String apiURL : apiURL_list) {
             try {
@@ -150,16 +154,22 @@ public class MovieService {
                     movieIdLists.add(movieId);
                     detailStringBuilder.append("https://api.themoviedb.org/3/movie/").append(movieIdLists.get(j))
                             .append("?api_key=").append(ApiKey).append("&language=ko-KR").append("\n");
+                    creditStringBuilder.append("https://api.themoviedb.org/3/movie/").append(movieIdLists.get(j))
+                            .append("/credits?api_key=").append(ApiKey).append("&language=ko-KR").append("\n");
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         detailLists.addAll(Arrays.asList(detailStringBuilder.toString().split("\n")));
+        creditsLists.addAll(Arrays.asList(creditStringBuilder.toString().split("\n")));
 
         // movie_group delete
         movieMapper.deleteAllMovieGroups();
+
+        // detail, credits add
         getDetailMovie(detailLists);
+        getCreditsDetail(creditsLists);
 
         /* MOVIE SETTING END */
     }
@@ -185,10 +195,10 @@ public class MovieService {
                 detailObject = new JSONObject(rs);
                 movie.setMovieId(detailObject.getInt("id"));
                 movie.setTitle(detailObject.getString("title"));
-                movie.setBackdropPath(prefix_url+detailObject.getString("backdrop_path"));
+                movie.setBackdropPath(prefix_url + detailObject.getString("backdrop_path"));
                 movie.setOriginalTitle(detailObject.getString("original_title"));
                 movie.setReleaseYear(Integer.parseInt(detailObject.getString("release_date").substring(0, 4)));
-                movie.setPosterPath(prefix_url+detailObject.getString("poster_path"));
+                movie.setPosterPath(prefix_url + detailObject.getString("poster_path"));
                 movie.setVoteCount(detailObject.getInt("vote_count"));
                 movie.setTagline(detailObject.getString("tagline"));
                 movie.setOverview(detailObject.getString("overview"));
@@ -257,6 +267,96 @@ public class MovieService {
     }
 
     /**
+     * 영화 출연진 정보 가져오기
+     */
+    public void getCreditsDetail(List<String> creditsLists) {
+        final String prefix_url = "https://image.tmdb.org/t/p/original";
+
+        // CastVO insert
+        for(String creditURLString : creditsLists) {
+            try {
+                URI detailURI = new URI(creditURLString);
+                URL detailURL = detailURI.toURL();
+                BufferedReader br = new BufferedReader(new InputStreamReader(detailURL.openStream(), "UTF-8"));
+                String rs = br.readLine();
+
+                JSONObject creditObject = new JSONObject(rs);
+                int movieId = creditObject.getInt("id");
+
+                JSONArray castList = (JSONArray) creditObject.get("cast");
+                for (int i = 0; i < castList.length(); i++) {
+                    JSONObject castObject = castList.getJSONObject(i);
+                    CastVO cast = new CastVO();
+                    String department = castObject.optString("known_for_department", "");
+
+                    if("Acting".equals(department)){
+                        cast.setCastId(castObject.getInt("id"));
+                        cast.setCastNm(castObject.getString("name"));
+                        cast.setCastOrgNm(castObject.getString("original_name"));
+
+                        if (!castObject.isNull("profile_path")) {
+                            cast.setProfilePath(prefix_url + castObject.getString("profile_path"));
+                        } else {
+                            cast.setProfilePath(null);
+                        }
+                        cast.setCharacterNm(castObject.optString("character", null));
+                        cast.setMovieId(movieId);
+                        cast.setCastOrder(castObject.optInt("order", 0));
+
+                        // cast insert
+                        movieMapper.insertCast(cast);
+                    }
+
+                }
+
+            }catch(Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        // CrewVO insert
+        for(String creditURLString : creditsLists) {
+            try {
+                URI detailURI = new URI(creditURLString);
+                URL detailURL = detailURI.toURL();
+                BufferedReader br = new BufferedReader(new InputStreamReader(detailURL.openStream(), "UTF-8"));
+                String rs = br.readLine();
+
+                JSONObject creditObject = new JSONObject(rs);
+                int movieId = creditObject.getInt("id");
+
+                JSONArray crewList = (JSONArray) creditObject.get("crew");
+                for (int i = 0; i < crewList.length(); i++) {
+                    JSONObject crewObject = crewList.getJSONObject(i);
+                    CrewVO crew = new CrewVO();
+                    String job = crewObject.optString("job", "");
+
+                    if("Director".equals(job)){
+                        crew.setCrewId(crewObject.getInt("id"));
+                        crew.setCrewNm(crewObject.getString("name"));
+                        crew.setCrewOrgNm(crewObject.getString("original_name"));
+                        crew.setJob("Director");
+
+                        if (!crewObject.isNull("profile_path")) {
+                            crew.setProfilePath(prefix_url + crewObject.getString("profile_path"));
+                        } else {
+                            crew.setProfilePath(null);
+                        }
+                        crew.setMovieId(movieId);
+
+                        // crew insert
+                        movieMapper.insertCrew(crew);
+                    }
+
+                }
+
+            }catch(Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
      * 영화 나라 정보 조회
      */
     public static List<String> getIsoList(String API_KEY){
@@ -316,5 +416,13 @@ public class MovieService {
             e.printStackTrace();
         }
         return nativeNameList;
+    }
+
+    /**
+     * 영화 출연진 정보
+     */
+    public List<CastVO> getMovieCast(MovieVO vo) {
+        List<CastVO> castList = movieMapper.getMovieCast(vo);
+        return castList;
     }
 }

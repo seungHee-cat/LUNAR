@@ -103,4 +103,27 @@ public class BoardService {
         }
         return result;
     }
+
+    /**
+     * 게시글 태그 삭제
+     */
+    public int deleteBoardTag(BoardVO vo) {
+        int result = 1;
+        try{
+            boardMapper.deleteBoardTag(vo);
+        } catch (Exception e) {
+            e.printStackTrace();
+            result = -1;
+        }
+        return result;
+    }
 }
+
+
+
+
+
+
+
+
+

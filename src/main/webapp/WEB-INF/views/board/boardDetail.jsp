@@ -40,8 +40,24 @@ function fn_deleteBoardModal() {
 <input type="hidden" name="boardId" value="<c:out value='${board.boardId}'/>">
 <div class="container-xl pt-5 p-3">
     <div class="d-flex flex-column mt-5">
-        <div class="d-flex mt-3 ms-3">
-            <div class="me-4" style="font-size: 1.2rem;">제목</div>
+        <div class="d-flex align-items-center mt-3 ms-3">
+            <c:choose>
+                <c:when test="${board.tagNm eq '기능개선'}">
+                    <span class="badge bg-success me-3 px-3 py-2" style="font-size: 0.9rem; border-radius: 1rem;">
+                        ${board.tagNm}
+                    </span>
+                </c:when>
+                <c:when test="${board.tagNm eq 'UI개선'}">
+                    <span class="badge bg-info text-dark me-3 px-3 py-2" style="font-size: 0.9rem; border-radius: 1rem;">
+                        ${board.tagNm}
+                    </span>
+                </c:when>
+                <c:when test="${board.tagNm eq '공지사항'}">
+                    <span class="badge bg-warning text-dark me-3 px-3 py-2" style="font-size: 0.9rem; border-radius: 1rem;">
+                        ${board.tagNm}
+                    </span>
+                </c:when>
+            </c:choose>
             <div style="font-size: 1.2rem;">${board.title}</div>
         </div>
         <div class="bg-white p-4 mt-3 mb-3 border rounded shadow-sm" style="height: 500px; overflow-y: auto;">

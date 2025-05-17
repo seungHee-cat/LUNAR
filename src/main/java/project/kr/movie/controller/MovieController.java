@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import project.kr.movie.entity.CastVO;
 import project.kr.movie.entity.MovieVO;
 import project.kr.movie.service.MovieService;
 
@@ -98,7 +99,9 @@ public class MovieController {
     public String movieDetail(@ModelAttribute MovieVO vo, Model model) {
         if (vo.getMovieId() != null) {
             MovieVO movie = movieService.getMovieDetail(vo);
+            List<CastVO> castList = movieService.getMovieCast(vo);
             model.addAttribute("movie", movie);
+            model.addAttribute("castList", castList);
         }
         return "movieDetail";
     }
