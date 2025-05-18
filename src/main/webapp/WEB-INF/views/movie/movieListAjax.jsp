@@ -8,9 +8,10 @@
 <div class="w-100 mt-1 mb-2">
     <div class="bg-black pointer d-flex justify-content-evenly align-items-center" style="border-radius: 10px;"
         onclick="fn_movieDetail(${mainMovie.movieId});">
-        <div class="banner fw-bold" style="color: yellow; font-size: 1.6rem;">${mainMovie.originalTitle}</div>
-
-    <div style="width: 300px; height: 100px; position: relative; z-index: 1;">
+        <div class="banner fw-bold" style="color: yellow; font-size: 1.6rem; max-width: 350px;">
+        ${mainMovie.originalTitle}
+    </div>
+    <div class="position-relative" style="width: 300px; height: 120px; left: -50px; z-index: 1;">
         <!-- 배너 이미지 + 그라데이션 오버레이 -->
         <img src="${mainMovie.backdropPath}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
             <div style="

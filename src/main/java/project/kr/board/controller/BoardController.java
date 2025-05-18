@@ -79,14 +79,13 @@ public class BoardController {
         final int SIZE = 5;
         int offset = (page - 1) * SIZE;
         int totalCnt = boardService.getBoardListCnt(vo);
-        vo.setSize(SIZE);
-        vo.setOffset(offset);
+        vo.setSize(SIZE); // LIMIT
+        vo.setOffset(offset); // OFFSET (2페이지-5, 3페이지-10)
         List<BoardVO> boardList = boardService.getBoardList(vo);
 
         if(boardList != null && !boardList.isEmpty()) {
             int totalPages = (int) Math.ceil((double) totalCnt / SIZE);
             model.addAttribute("totalPages", totalPages);
-
             model.addAttribute("curPage", page);
             model.addAttribute("totalCnt", totalCnt);
             model.addAttribute("size", SIZE);

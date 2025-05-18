@@ -46,8 +46,25 @@
         SELECT
             COUNT(*)
         FROM
-            BOARD
+            BOARD B
+        JOIN
+            BOARD_TAG BT ON B.BOARD_ID = BT.BOARD_ID
+        JOIN
+            TAG T ON BT.TAG_ID = T.TAG_ID
         ]]>
+        <where>
+            <if test="schType != null and schType != ''">
+                <if test="schType == 'notice'">
+                    T.NAME = '공지사항'
+                </if>
+                <if test="schType == 'ui'">
+                    T.NAME = 'UI개선'
+                </if>
+                <if test="schType == 'func'">
+                    T.NAME = '기능개선'
+                </if>
+            </if>
+        </where>
     </select>
 
     <!-- 게시글 상세 페이지 조회 -->
