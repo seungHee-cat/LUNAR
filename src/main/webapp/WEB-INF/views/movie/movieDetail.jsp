@@ -262,8 +262,14 @@ function js_starRatingAjax(){
                     <c:forEach var="cast" items="${castList}" varStatus="loop">
                         <div class="card" style="border: none;">
                             <div class="d-flex" style="flex-direction: row;">
-                                <div class="card-header no-filter" style="border-bottom: 0; padding: 0; width: 56px; height: 76px;">
-                                    <img src="${cast.profilePath}" style="border-radius: 2px; width: 100%; height: 100%;" class="card-img-top" alt="${cast.castNm}">
+                                <div class="d-flex flex-column justify-content-center align-items-center card-header no-filter" style="border-bottom: 0; padding: 0; width: 56px; height: 76px;">
+                                    <c:if test="${cast.profilePath == null || empty cast.profilePath}">
+                                        <div style="color: gray;">No</div>
+                                        <div style="color: gray;">Image</div>
+                                    </c:if>
+                                    <c:if test="${cast.profilePath != null && not empty cast.profilePath}">
+                                        <img src="${cast.profilePath}" style="border-radius: 2px; width: 100%; height: 100%;" class="card-img-top" alt="${cast.castNm}">
+                                    </c:if>
                                 </div>
                                 <div class="card-body d-flex flex-column justify-content-center p-2">
                                     <h5 class="card-title cast-title" style="font-size: 1.0rem; word-break: keep-all;">${cast.castNm}</h5>
