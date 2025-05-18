@@ -1,23 +1,24 @@
-const cardSlideMax = 300.5; // 최대 이동 비율
+const cardSlideMax = 270; // 최대 이동 비율
 const step = 100.5; // 한 번 이동할 때의 비율
 
-function updateSliderPosition(movieType, index) {
+function updateSliderPosition(type, index) {
   let wrapper;
 
-  if (movieType === 'boxoffice') {
+  if (type === 'boxoffice') {
     wrapper = document.querySelector('.boxoffice-card-slider');
 
-  } else if (movieType === 'netflix'){
+  } else if (type === 'netflix'){
     wrapper = document.querySelector('.netflix-card-slider');
 
-  } else if (movieType === 'watcha'){
+  } else if (type === 'watcha'){
     wrapper = document.querySelector('.watcha-card-slider');
 
-  } else if (movieType === 'disney'){
+  } else if (type === 'disney'){
     wrapper = document.querySelector('.disney-card-slider');
 
-  } else if (movieType === 'wavve'){
+  } else if (type === 'wavve'){
     wrapper = document.querySelector('.wavve-card-slider');
+
   }
 
   wrapper.style.transform = `translateX(-${index * step}%)`;

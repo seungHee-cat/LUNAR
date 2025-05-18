@@ -28,7 +28,7 @@
     </div>
 </div>
 <!-- 박스오피스 리스트 -->
-<div class="container-xl" style="position: relative;">
+<div class="container-xl" style="transform: scale(1.05); position: relative;">
     <div class="card-slider-wrapper">
         <div class="mt-5">
             <div class="fw-bold" style="font-size: 1.1rem;"><span class="text-danger" style="padding-right: 5px;">|</span>
@@ -57,7 +57,7 @@
     </div>
 </div>
 <!-- 넷플릭스 리스트 -->
-<div class="container-xl" style="position: relative;">
+<div class="container-xl" style="transform: scale(1.05); position: relative;">
     <div class="card-slider-wrapper">
         <div class="mt-5">
             <div class="fw-bold" style="font-size: 1.1rem;"><span class="text-danger" style="padding-right: 5px;">|</span><spring:message code="movie.text.netflix"/></div>
@@ -84,7 +84,7 @@
     </div>
 </div>
 <!-- 왓챠 리스트 -->
-<div class="container-xl" style="position: relative;">
+<div class="container-xl" style="transform: scale(1.05); position: relative;">
     <div class="card-slider-wrapper">
         <div class="mt-5">
             <div class="fw-bold" style="font-size: 1.1rem;"><span class="text-danger" style="padding-right: 5px;">|</span><spring:message code="movie.text.watcha"/></div>
@@ -111,7 +111,7 @@
     </div>
 </div>
 <!-- 디즈니 플러스 리스트 -->
-<div class="container-xl" style="position: relative;">
+<div class="container-xl" style="transform: scale(1.05); position: relative;">
     <div class="card-slider-wrapper">
         <div class="mt-5">
             <div class="fw-bold" style="font-size: 1.1rem;"><span class="text-danger" style="padding-right: 5px;">|</span><spring:message code="movie.text.disney"/></div>
@@ -138,7 +138,7 @@
     </div>
 </div>
 <!-- 웨이브 리스트 -->
-<div class="container-xl" style="position: relative;">
+<div class="container-xl" style="transform: scale(1.05); position: relative;">
     <div class="card-slider-wrapper">
         <div class="mt-5">
             <div class="fw-bold" style="font-size: 1.1rem;"><span class="text-danger" style="padding-right: 5px;">|</span><spring:message code="movie.text.wavve"/></div>

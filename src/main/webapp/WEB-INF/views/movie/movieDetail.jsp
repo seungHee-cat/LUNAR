@@ -11,6 +11,32 @@ $(document).ready( function() {
     js_starRatingAjax(); // 별점 조회
     fn_myReviewAjax(); // 리뷰 조회
     fn_reviewListAjax(); // 리뷰 리스트 조회
+
+    // 출연진 카드 슬라이드
+    let castIndex = 0;
+    const step = 1450;
+    const visibleCols = 5;
+    const maxTranslateX = 2900;
+
+    const castCardsWrapper = document.querySelector('.cast-card-slider');
+    const castPrevBtn = document.querySelector('.cast-prev-btn');
+    const castNextBtn = document.querySelector('.cast-next-btn');
+
+    castPrevBtn.addEventListener('click', function() {
+        if (castIndex > 0) {
+            castIndex--;
+            castCardsWrapper.style.transform = "translateX(-" + step * castIndex + "px)";
+        }
+    });
+
+    castNextBtn.addEventListener('click', function() {
+        const nextX = step * (castIndex + 1);
+
+        if (nextX <= maxTranslateX) {
+            castIndex++;
+            castCardsWrapper.style.transform = "translateX(-" + nextX + "px)";
+        }
+    });
 });
 
 /*--------------------------------------------------------
@@ -213,12 +239,44 @@ function js_starRatingAjax(){
         </div>
     </div>
     <!-- 출연/제작 정보 -->
-    <div class="d-flex align-items-center justify-content-evenly pb-3" style="background-color: white; margin: 0px;">
-        ${movie.crewNm}<br/>
-        ${movie.job}<br/>
-        <c:forEach var="cast" items="${castList}">
-            ${cast.castNm}<br/>
-        </c:forEach>
+    <div class="position-relative">
+        <div class="cast-slider-wrapper mb-4" style="width: 89.5%;">
+            <div class="mt-5 my-3">
+                <div class="fw-bold" style="font-size: 1.1rem;">출연/제작</div>
+            </div>
+            <div class="d-flex" style="padding-left: 35px; transform: scale(1.05); overflow: hidden;">
+                <div class="cast-card-slider" style="max-height: 252px;">
+                    <!-- 감독 정보 -->
+                    <div class="card" style="border: none;">
+                        <div class="d-flex" style="flex-direction: row;">
+                            <div class="card-header no-filter" style="border-bottom: 0; padding: 0; width: 56px; height: 76px;">
+                                <img src="${movie.profilePath}" style="border-radius: 2px; width: 100%; height: 100%;" class="card-img-top" alt="${cast.castNm}">
+                            </div>
+                            <div class="card-body d-flex flex-column justify-content-center p-2">
+                                <h5 class="card-title cast-title" style="font-size: 1.0rem; word-break: keep-all;">${movie.crewNm}</h5>
+                                <div class="card-text" style="font-size: 0.8rem;">${movie.job}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 출연진 정보 -->
+                    <c:forEach var="cast" items="${castList}" varStatus="loop">
+                        <div class="card" style="border: none;">
+                            <div class="d-flex" style="flex-direction: row;">
+                                <div class="card-header no-filter" style="border-bottom: 0; padding: 0; width: 56px; height: 76px;">
+                                    <img src="${cast.profilePath}" style="border-radius: 2px; width: 100%; height: 100%;" class="card-img-top" alt="${cast.castNm}">
+                                </div>
+                                <div class="card-body d-flex flex-column justify-content-center p-2">
+                                    <h5 class="card-title cast-title" style="font-size: 1.0rem; word-break: keep-all;">${cast.castNm}</h5>
+                                    <div class="card-text" style="font-size: 0.8rem; max-width: 200px;">${cast.characterNm}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </div>
+            </div>
+        <button type="button" class="shadow-sm cast-prev-btn" style="top: 60%;">❮</button>
+        <button type="button" class="shadow-sm cast-next-btn" style="top: 60%;">❯</button>
+        </div>
     </div>
     <!-- 상위 5개 리뷰 리스트 Ajax -->
     <div id="reviewListAjax"></div>

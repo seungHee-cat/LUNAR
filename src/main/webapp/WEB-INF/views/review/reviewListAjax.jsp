@@ -18,8 +18,8 @@ function fn_allReviewList(){
 
 <div class="d-flex flex-column px-5 py-3">
     <c:if test="${not empty reviewList}">
-        <div class="mx-4 py-3 px-3">
-            <div class="d-flex justify-content-between fw-bold" style="font-size: 1.3rem;">
+        <div class="mx-4 py-3 px-2">
+            <div class="d-flex justify-content-between fw-bold" style="font-size: 1.2rem;">
                 <c:choose>
                     <c:when test="${sessionScope.locale == 'ko'}">
                         <c:if test="${reviewList.size() < 10}">
@@ -51,7 +51,7 @@ function fn_allReviewList(){
                 </button>
             </div>
         </div>
-        <div class="mx-3">
+        <div class="mx-4">
             <form id="reviewFrm" class="w-100 d-flex">
             <c:forEach var="review" items="${reviewList}">
                 <input type="hidden" name="reviewId" value="<c:out value='${review.reviewId}'/>"/>

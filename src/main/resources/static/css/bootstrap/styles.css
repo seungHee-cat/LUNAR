@@ -4237,7 +4237,6 @@ textarea.form-control-lg {
 }
 /* navbar 효과 끝 */
 
-
 .card-slider-wrapper {
   width: 80%;
   margin: auto;
@@ -4251,6 +4250,43 @@ textarea.form-control-lg {
 
 .card-title:hover{
     color: #2A62C0;
+}
+
+/* custom */
+.no-filter:hover{
+    cursor: default;
+    filter: none;
+}
+
+.cast-title:hover{
+    color: inherit;
+}
+
+.cast-slider-wrapper {
+  margin: auto;
+  overflow: hidden;
+}
+
+.cast-card-slider {
+  display: grid;
+  grid-template-rows: repeat(3, 76px);         /* 3행 */
+  grid-auto-flow: column;                      /* 열 방향으로 채움 */
+  grid-auto-columns: 282px;                    /* 각 열 너비 지정 */
+  gap: 8px;
+  transition: transform 0.4s ease;
+}
+
+.cast-card-slider .card {
+  max-width: 282px;
+  max-height: 76px;
+}
+
+button.cast-prev-btn{
+    left: 3.5%;
+}
+
+button.cast-next-btn{
+    right: 4.5%;
 }
 
 .boxoffice-card-slider,
@@ -4270,7 +4306,8 @@ button.boxoffice-prev-btn, button.boxoffice-next-btn,
 button.netflix-prev-btn, button.netflix-next-btn,
 button.watcha-prev-btn, button.watcha-next-btn,
 button.disney-prev-btn, button.disney-next-btn,
-button.wavve-prev-btn, button.wavve-next-btn{
+button.wavve-prev-btn, button.wavve-next-btn,
+button.cast-prev-btn, button.cast-next-btn{
   position: absolute;
   top: 50%;
   height: 35px;
@@ -4282,7 +4319,6 @@ button.wavve-prev-btn, button.wavve-next-btn{
   border-radius: 50%;
   padding-left: 13px;
   padding-right: 13px;
-  cursor: pointer;
   z-index: 10;
 }
 
