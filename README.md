@@ -1,4 +1,4 @@
-# 🚀 LUNAR : Movie Community  
+# 🚀 LUNAR : 영화 커뮤니티  
 개인 프로젝트 **MovieHub**를 리팩토링하여 **LUNAR**로 새롭게 개발하였습니다.  
 이전 프로젝트는 여기에서 확인하실 수 있습니다 👉 [MovieHub GitHub](https://github.com/seungHee-cat/MovieHub)  
 <br/>
